@@ -1,6 +1,6 @@
 module.exports = {
-  basePath: '/lolo-landing-page',
-  assetPrefix: '/lolo-landing-page/',
+  basePath: '/lolo-landing-page/out',
+  assetPrefix: '/lolo-landing-page/out/',
   exportPathMap: function () {
     return {
       '/': { page: '/' },
