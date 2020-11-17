@@ -4,7 +4,7 @@ module.exports = {
   exportPathMap: () => ({
     '/': { page: '/' },
   }),
-  assetPrefix: isProd ? '/lolo-landing-page/' : '',
+  assetPrefix: isProd ? '/lolo-landing-page/out' : '',
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,
