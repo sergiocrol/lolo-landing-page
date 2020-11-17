@@ -12,9 +12,9 @@ const FooterSection = () => {
 
   let src;
   if (windowWith <= 767) {
-    src = '/images/ft_s.jpg';
+    src = '/static/images/ft_s.jpg';
   } else {
-    src = '/images/ft_l.jpg';
+    src = '/static/images/ft_l.jpg';
   }
 
   return (
@@ -24,7 +24,7 @@ const FooterSection = () => {
       </div>
       <div className="md:px-12 md:pt-16 xl:pt-32 xl:px-32">
         <StepBlock
-          image="/images/footer1.png"
+          image="/static/images/footer1.png"
           left={false}
           title="Pruébanos sin compromiso"
           body="Estamos tan seguros de que te enamorarás de nuestro servicio que la primera vez que reserves te regalamos una hora gratis."
@@ -33,7 +33,7 @@ const FooterSection = () => {
           marginBottom="mb-16"
         />
         <StepBlock
-          image="/images/footer2.png"
+          image="/static/images/footer2.png"
           left={true}
           title="¿Quieres trabajar como cuidador?"
           body="Somos la plataforma que te pone en contacto con familias que buscan a alguien como tú. Regístrate, recibe ofertas y selecciona las que te interesen."

@@ -13,9 +13,9 @@ const MiddleBanner = () => {
 
   let src;
   if (windowWith <= 767) {
-    src = '/images/bg_middle_s.jpg';
+    src = '/static/images/bg_middle_s.jpg';
   } else {
-    src = '/images/bg_middle.jpg';
+    src = '/static/images/bg_middle.jpg';
   }
   return (
     <div className={middleBannerContainer}>
@@ -45,7 +45,7 @@ const MiddleBanner = () => {
       <div className={`${mockupImage} absolute`}>
         <Image
           alt="Background"
-          src="/images/mockup3.png"
+          src="/static/images/mockup3.png"
           width={1124}
           height={1244}
           layout="responsive"

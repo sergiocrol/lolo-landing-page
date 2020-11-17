@@ -68,7 +68,7 @@ const StepBlock = ({
         >
           <Image
             alt="Configura tu servicio"
-            src="/images/pattern.png"
+            src="/static/images/pattern.png"
             layout="fill"
             quality={100}
           />

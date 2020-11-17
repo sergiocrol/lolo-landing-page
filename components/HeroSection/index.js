@@ -19,19 +19,19 @@ const HeroSection = () => {
   let heroImageSize;
   console.log(windowWith);
   if (windowWith <= 640) {
-    src = '/images/bg_s.jpg';
+    src = '/static/images/bg_s.jpg';
     heroImageSize = 360;
     console.log('s');
   } else if (windowWith <= 767) {
-    src = '/images/bg_m.jpg';
+    src = '/static/images/bg_m.jpg';
     heroImageSize = 450;
     console.log('m');
   } else if (windowWith <= 1024) {
-    src = '/images/bg_l.jpg';
+    src = '/static/images/bg_l.jpg';
     heroImageSize = 550;
     console.log('l');
   } else {
-    src = '/images/bg_l.jpg';
+    src = '/static/images/bg_l.jpg';
     heroImageSize = 600;
   }
 
@@ -67,7 +67,7 @@ const HeroSection = () => {
           <Image
             className={heroImage}
             alt="Hero image"
-            src="/images/hero_image.png"
+            src="/static/images/hero_image.png"
             width={heroImageSize}
             height={heroImageSize}
             layout="fixed"
