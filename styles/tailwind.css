@@ -1,0 +1,17 @@
+/* purgecss start ignore */
+@tailwind  base;
+@tailwind  components;
+/* purgecss end ignore */
+@tailwind  utilities;
+
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&display=swap');
+
+/* Global variables */
+:root {
+  --blue: #2D2D5B;
+  --orange: #FF8B81;
+  --gray: #84837E;
+  --yellow: #FCF6E8;
+}

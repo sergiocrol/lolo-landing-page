@@ -1,0 +1,383 @@
+/* Check Icon */
+
+.check g {
+  stroke: var(--blue);
+}
+
+.checkSerpentine, .checkConfirm {
+  stroke: var(--orange);
+}
+
+.quality {
+  width: 100px;
+  height: 100px;
+}
+
+.explosion{
+  z-index: 3;
+}
+
+.checkCircle{
+  animation: circle-explosion 1s forwards, fill-check 1s 0.3s forwards;
+  transform-origin: center;
+  opacity: 0;
+}
+
+@keyframes circle-explosion {
+  0% {
+  opacity: 1;
+    stroke-width: 40;
+    transform: scale(0)
+  }
+
+  100%{
+    opacity: 1;
+    stroke-width: 4;
+    transform: scale(1)
+  }
+}
+
+@keyframes fill-check {
+    0%{fill: var(--orange);}
+  100%{fill:#203166;} 
+}
+
+.checkSerpentine {
+  animation: path-explosion 2s forwards;
+  transform-origin: center;
+  stroke-dasharray: 1, 40;
+  stroke-dashoffset: 0;
+  opacity: 0;
+}
+
+@keyframes path-explosion {
+  0%,12%{
+    opacity: 0;
+  }
+  12.5%{
+    stroke-dasharray: 15, 40; 
+    stroke-dashoffset: -40;
+    opacity: 1;
+    stroke-width: 3;
+    transform: rotate(0)
+  }
+  50%,100% {
+    stroke-dasharray: 1, 40;
+    stroke-dashoffset: 2;
+    stroke-width: 0;
+    transform: rotate(0);
+  }
+}
+
+.checkConfirm{
+  animation: check 2s forwards;
+  animation-delay: .25s;
+  stroke-dasharray: 1, 40;
+  stroke-dashoffset: 0;
+}
+
+@keyframes check {
+  0%,12%{
+    opacity: 0;
+  }
+  12.5%{
+    stroke-dasharray: 40, 40;
+    stroke-dashoffset: 40;
+    opacity: 1;
+  }
+  50%,100% {
+    stroke-dasharray: 40, 40;
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
+
+/* People Icon */
+
+.frontPerson {
+  fill: var(--blue);
+}
+
+.backPerson {
+  fill: var(--blue);
+}
+
+.people {
+  width: 150px;
+  height: 150px;
+}
+
+.frontPerson{
+  animation: pop .4s forwards, fill-front .4s .6s forwards;
+  transform-origin: 50% 50%;
+}
+
+.backPerson{
+  transform: scale(0);
+  animation: pop .4s .5s forwards;
+  transform-origin: 50% 50%;
+}
+
+@keyframes pop{
+  0%{transform: scale(0);}
+  40%{transform: scale(1.1);}
+  70%{transform: scale(.9);}
+  100%{transform: scale(1);}
+}
+
+@keyframes fill-front{
+  0%{fill: var(--blue);}
+  100%{fill: var(--orange);} 
+}
+
+/* Clock Icon */
+.clock g {
+  stroke: var(--blue);
+}
+
+.clockCircle {
+  /* animation: circular 3s 1 forwards; */
+  animation: circle-explosion 1s forwards, fill-clock 1s 0.3s forwards;
+  opacity: 0;
+}
+
+.hourHand {
+  animation: hh-draw 3s cubic-bezier(.13,.88,.47,1.01) 1 forwards, hh-rotate 3s cubic-bezier(.24,.65,.46,.95) 1 forwards;
+  stroke: var(--orange);
+}
+
+.minuteHand {
+  animation: mh-draw 3s cubic-bezier(.13,.88,.47,1.01) 1 forwards, mh-rotate 3s cubic-bezier(.24,.65,.46,.95) 1 forwards;
+  stroke: var(--orange);
+}
+
+@keyframes fill-clock {
+  0%{fill: var(--orange);}
+100%{fill: var(--blue);} 
+}
+
+@keyframes circular {
+  0% {
+    stroke-dasharray: 0 879.2;
+    stroke-dashoffset: -1099;
+  }
+  33.3%,
+  100% {
+    stroke-dasharray: 879.2 0;
+    stroke-dashoffset: -30;
+  }
+}
+
+@keyframes hh-draw {
+  0% {
+    stroke-dashoffset: 70;
+  }
+  33.3%,
+  100% {
+    stroke-dashoffset: 0.1;
+  }
+}
+
+@keyframes hh-rotate {
+  0% {
+    transform: rotate(0);
+  }
+  33.3%,
+  100% {
+    transform: rotate(90deg);
+  }
+}
+
+@keyframes mh-draw {
+  0% {
+    stroke-dashoffset: 90;
+  }
+  33.3%,
+  100% {
+    stroke-dashoffset: 0.1;
+  }
+}
+
+@keyframes mh-rotate {
+  0% {
+    transform: rotate(0);
+  }
+  33.3%,
+  100% {
+    transform: rotate(500deg);
+  }
+}
+
+/* Phone Icon */
+
+.phone {
+  fill: #4f4f85ea;
+}
+
+.phoneFrame {
+  stroke: var(--blue);
+}
+
+.footer {
+  stroke: var(--orange);
+}
+
+.notch {
+  fill: var(--blue);
+}
+
+.rec1 {
+  opacity: 0;
+  animation: rec1 0.4s ease-in-out forwards,
+  fill-rec1 0.3s 0.5s linear forwards;
+}
+
+.rec2 {
+  opacity: 0;
+  animation: rec2 0.4s 0.4s ease-in-out forwards,
+  fill-rec2 0.2s 1s linear forwards;
+}
+
+.rec3 {
+  opacity: 0;
+  animation: rec3 0.3s 0.4s ease-in-out forwards,
+  fill-rec3 0.2s 1s linear forwards;
+}
+
+.rec4 {
+  opacity: 0;
+  animation: rec4 0.1s 0.4s ease-in-out forwards,
+  fill-rec4 0.3s 0.8s linear forwards;
+}
+
+.rec5 {
+  opacity: 0;
+  animation: rec5 0.5s 0.4s ease-in-out forwards,
+  fill-rec5 0.3s 0.8s linear forwards;
+}
+
+.rec6 {
+  opacity: 0;
+  animation: rec6 0.3s 0.4s ease-in-out forwards,
+  fill-rec6 0.2s 1s linear forwards;
+}
+
+@keyframes rec1 {
+    0% { 
+      transform: translateY(-80px); 
+      opacity: 0;
+    }
+    100% { 
+      transform: translateY(0); 
+      opacity: 1;
+    }
+}
+
+@keyframes fill-rec1 {
+    0% { 
+      fill:#8583aa;
+    }
+    100% {
+      fill: var(--blue);
+    }
+}
+
+@keyframes rec2 {
+    0% { 
+      transform: translateY(80px); 
+      opacity: 0;
+    }
+    100% { 
+      transform: translateY(0); 
+      opacity: 1;
+    }
+}
+
+@keyframes fill-rec2 {
+    0% { 
+      fill:#8583aa;
+    }
+    100% {
+      fill: var(--blue);
+    }
+}
+
+@keyframes rec3 {
+    0% { 
+      transform: translateX(-80px); 
+      opacity: 0;
+    }
+    100% { 
+      transform: translateX(0); 
+      opacity: 1;
+    }
+}
+
+@keyframes fill-rec3 {
+  0% { 
+    fill: #8583aa;
+  }
+  100% {
+    fill: var(--orange);
+  }
+}
+
+@keyframes rec4 {
+    0% { 
+      transform: translateX(-80px); 
+      opacity: 0;
+    }
+    100% { 
+      transform: translateX(0); 
+      opacity: 1;
+    }
+}
+
+@keyframes fill-rec4 {
+    0% { 
+      fill: #8583aa;
+    }
+    100% {
+      fill: var(--blue);
+    }
+}
+
+@keyframes rec5 {
+    0% { 
+      transform: translateX(80px); 
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0); 
+      opacity: 1;
+    }
+}
+
+@keyframes fill-rec5 {
+    0% { 
+      fill: #8583aa;
+    }
+    100% {
+      fill:var(--blue);
+    }
+}
+
+@keyframes rec6 {
+    0% { 
+      transform: translateX(80px); 
+      opacity: 0;
+    }
+    100% { 
+      transform: translateX(0); 
+      opacity: 1;
+    }
+}
+
+@keyframes fill-rec6 {
+  0% { 
+    fill: #8583aa;
+  }
+  100% {
+    fill: var(--orange);
+  }
+}
