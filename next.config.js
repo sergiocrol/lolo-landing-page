@@ -1,11 +1,10 @@
+const isProd = (process.env.NODE_ENV || 'production') === 'production';
+
 module.exports = {
-  basePath: '/lolo-landing-page/out',
-  assetPrefix: '/lolo-landing-page/out/',
-  exportPathMap: function () {
-    return {
-      '/': { page: '/' },
-    };
-  },
+  exportPathMap: () => ({
+    '/': { page: '/' },
+  }),
+  assetPrefix: isProd ? '/lolo-landing-page' : '',
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,
