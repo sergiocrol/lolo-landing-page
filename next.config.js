@@ -1,4 +1,9 @@
+const basePath =
+  process.env.NODE_ENV === 'production' ? '/lolo-landing-page' : '';
+
 module.exports = {
+  basePath,
+  assetPrefix: `${basePath}/`,
   exportPathMap: function () {
     return {
       '/': { page: '/' },
