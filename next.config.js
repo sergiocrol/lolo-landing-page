@@ -1,5 +1,5 @@
 const basePath =
-  process.env.NODE_ENV === 'production' ? '/lolo-landing-page/out' : '';
+  process.env.NODE_ENV === 'production' ? '/lolo-landing-page' : '';
 
 module.exports = {
   basePath,
