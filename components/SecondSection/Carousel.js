@@ -20,7 +20,6 @@ const CardsCarousel = () => {
   });
 
   const [selectedIndex, setSelectedIndex] = useState(0);
-  console.log(selectedIndex);
   const onSelect = useCallback(() => {
     if (!embla) return;
     setSelectedIndex(embla.selectedScrollSnap());

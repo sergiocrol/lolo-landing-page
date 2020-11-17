@@ -150,7 +150,7 @@
     text-align: right;
     flex-direction: column;
     align-items: flex-end;
-    margin-right: 3rem;
+    /* margin-right: 3rem; */
   }
 
   .heroText h1 {
@@ -249,6 +249,7 @@
   max-height: 50rem;
   width: 100%;
   z-index: 0;
+  margin-top: 8rem;
 }
 
 .bgMiddle {
@@ -486,4 +487,79 @@
 .footerNav {
   left: 50%;
   transform: translateX(-50%)
+}
+
+/*  Header */
+
+.logo {
+  width: 3rem;
+}
+
+.logo > svg {
+  width: 100%;
+  height: auto;
+}
+
+.burger {
+  width: 1.5rem;
+}
+
+.burger > svg {
+  width: 100%;
+  height: auto;
+}
+
+.burger > svg path {
+  stroke: '#fff';
+  transition: all .5s linear;
+}
+
+.burger > svg path {
+  stroke-opacity: .8;
+}
+
+.navContainer {
+  z-index: 999;
+  backdrop-filter: blur(4px);
+}
+
+.navContainerScrolled {
+  background-color: white;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.logoName svg path {
+  fill: white;
+  opacity: .7;
+  transition: all .5s linear;
+}
+
+.logoName svg path {
+  fill: var(--gray);
+  opacity: 1;
+}
+
+.burgerScrolled svg path {
+  stroke: var(--gray);
+  opacity: 1;
+}
+
+@screen lg {
+  .navContainer {
+    bacground-color: transparent;
+    max-width: 1024px;
+    left: 50%;
+    transform: translateX(-50%);
+    justify-content: space-between;
+  }
+
+  .logo {
+    width: 4rem;
+  }
+}
+
+@screen xl {
+  .navContainer {
+    max-width: 1280px;
+  }
 }
