@@ -15,7 +15,7 @@ function LogoFooter({ style }) {
         fillOpacity="0.5"
         d="M24.05 4.95a7 7 0 019.9 0l19.1 19.1a7 7 0 010 9.9l-19.1 19.1a7 7 0 01-9.9 0l-19.1-19.1a7 7 0 010-9.9l19.1-19.1z"
       ></path>
-      <g filter="url(#filter0_i)">
+      <g filter="url(#filter54_i)">
         <circle cx="29.182" cy="29.182" r="11.305" fill="#1B153F"></circle>
         <circle
           cx="28.96"
@@ -25,7 +25,7 @@ function LogoFooter({ style }) {
           fillOpacity="0.5"
         ></circle>
       </g>
-      <g filter="url(#filter1_d)">
+      <g filter="url(#filter55_d)">
         <path
           fill="#E8E3E4"
           d="M25.085 11.039h7.629v36.283h-7.629V11.039z"
@@ -33,7 +33,7 @@ function LogoFooter({ style }) {
       </g>
       <defs>
         <filter
-          id="filter0_i"
+          id="filter54_i"
           width="22.609"
           height="26.609"
           x="17.877"
@@ -64,7 +64,7 @@ function LogoFooter({ style }) {
           <feBlend in2="shape" result="effect1_innerShadow"></feBlend>
         </filter>
         <filter
-          id="filter1_d"
+          id="filter55_d"
           width="11.628"
           height="40.283"
           x="23.085"

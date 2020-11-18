@@ -13,6 +13,8 @@ module.exports = {
         yellow: '#FCF6E8',
         violet: '#89879D',
         transparentWhite: '#FFFFFF66',
+        blue1: '#404095',
+        blue2: 'linear-gradient(#e66465, #9198e5)',
       },
       fontFamily: {
         sans: ['Lato', 'Sans-serif'],

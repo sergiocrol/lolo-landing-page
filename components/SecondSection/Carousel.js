@@ -33,7 +33,7 @@ const CardsCarousel = () => {
   return (
     <div
       ref={viewportRef}
-      className={`${carouselContainer} mt-20 overflow-hidden`}
+      className={`${carouselContainer} mt-20 overflow-hidden z-50 md:mt-12`}
     >
       <div className="flex pt-12 xl:pt-16">
         <Card

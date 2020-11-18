@@ -3,7 +3,7 @@ import CardsCarousel from './Carousel';
 const SecondSection = () => {
   return (
     <div
-      className={`container mt-32 flex flex-col items-center px-8 xl:px-12 xl:mt-48`}
+      className={`container mt-32 flex flex-col items-center px-8 xl:px-12 xl:mt-48 md:mt-24`}
     >
       <h1
         className={`font-montserrat font-extrabold text-32 w-full text-blue opacity-70 text-left sm:text-40 md:text-left lg:text-70`}

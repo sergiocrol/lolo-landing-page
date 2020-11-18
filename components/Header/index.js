@@ -51,7 +51,7 @@ const Header = () => {
         </div>
       </div>
       <div className="hidden lg:flex text-white opacity-70 text-24 min-w-29 justify-between">
-        <a className="opacity-100 underline">Cómo funciona</a>
+        <a className="opacity-100">Cómo funciona</a>
         <a className="opacity-50">Por qué Lolo</a>
         <a className="opacity-50">Servicios</a>
       </div>

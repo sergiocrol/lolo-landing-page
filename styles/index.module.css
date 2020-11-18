@@ -20,7 +20,7 @@
 
 .heroImageContainer {
   position: absolute;
-  bottom: -5px;
+  bottom: 25px;
 }
 
 .heroImage {
@@ -540,7 +540,12 @@
 }
 
 .burgerScrolled svg path {
-  stroke: var(--gray);
+  stroke: #4e4e4d;
+  opacity: 1;
+}
+
+.burgerScrolled svg path:nth-child(4), .burgerScrolled svg path:nth-child(5) {
+  stroke: #e66465;
   opacity: 1;
 }
 
@@ -562,4 +567,200 @@
   .navContainer {
     max-width: 1280px;
   }
+}
+
+/* Shapes */
+
+.circleShapeMiddle {
+  bottom: 30%;
+  left: -26%;
+  width: 4.7rem;
+}
+
+.rectangleShapeMiddle {
+  top: -25%;
+  left: 0%;
+  width: 6rem;
+}
+
+.stickShapeMiddle {
+  top: 10%;
+  right: 20%;
+  width: 3.5rem;
+}
+
+@screen sm {
+  .circleShapeMiddle {
+    bottom: 26%;
+    left: -30%;
+    width: 6rem;
+  }
+  
+  .rectangleShapeMiddle {
+    top: -30%;
+    left: -66%;
+    width: 9.5rem;
+    filter: blur(5px);
+  }
+  
+  .stickShapeMiddle {
+    width: 4.5rem;
+  }
+}
+
+@screen md {
+  .rectangleShapeMiddle {
+    left: 40%;
+    top: -30%;
+    filter: blur(3px);
+  }
+}
+
+@screen lg {
+  .circleShapeMiddle {
+    width: 7rem;
+    filter: blur(4px);
+  }
+  
+  .rectangleShapeMiddle {
+    top: -20%;
+    left: -20%;
+    filter: blur(3px);
+  }
+  
+  .stickShapeMiddle {
+    width: 5.5rem;
+  }
+}
+
+@screen xl {
+  .rectangleShapeMiddle {
+    top: -10%;
+    left: -30%;
+    width: 11rem;
+  }
+
+  .circleShapeMiddle {
+    width: 9rem;
+    filter: blur(6px);
+  }
+
+  .stickShapeMiddle {
+    width: 8rem;
+  }
+}
+
+.rectangleShapeThird {
+  width: 5rem;
+  right: 0;
+  transform: translateX(40%);
+  filter: blur(1px);
+}
+
+.circleShapeThird {
+  width: 4.5rem;
+  right: 0;
+  top: -10%;
+  transform: translateX(-100%);
+  filter: blur(1px);
+}
+
+.stickShapeThird {
+  width: 4.5rem;
+  right: -4%;
+  top: -10%;
+  transform: translateX(40%) scaleX(-1);
+  filter: blur(2px);
+}
+
+@screen sm {
+  .rectangleShapeThird {
+    width: 8rem;
+    top: 90px;
+  }
+  
+  .circleShapeThird {
+    width: 7.5rem;
+    right: 7%;
+    top: -6%;
+    filter: blur(3px);
+  }
+  
+  .stickShapeThird {
+    width: 5.5rem;
+    top: -17%;
+  }
+}
+
+@screen xl {
+  .rectangleShapeThird {
+    width: 10rem;
+    top: 150px;
+    filter: blur(2px);
+  }
+  
+  .circleShapeThird {
+    width: 10rem;
+    right: 15%;
+    top: -13%;
+    filter: blur(2px);
+  }
+  
+  .stickShapeThird {
+    width: 8.5rem;
+    top: -21%;
+    right: -5%;
+    filter: blur(4px);
+  }
+}
+
+@media (min-width: 1920px) {
+  .rectangleShapeThird {
+    width: 11rem;
+    right: -20%;
+  }
+  
+  .circleShapeThird {
+    width: 10rem;
+    right: -15%;
+    top: -37%;
+    filter: blur(3px);
+  }
+  
+  .stickShapeThird {
+    width: 9.5rem;
+    top: -31%;
+    right: -30%;
+    filter: blur(4px);
+  }
+}
+
+.circleShapeHero {
+  bottom: 50%;
+  left: 5%;
+  width: 8.7rem;
+  filter: blur(3px);
+  z-index: 0;
+}
+
+.rectangleShapeHero {
+  bottom: 13%;
+  right: 35%;
+  width: 15rem;
+  filter: blur(3px);
+}
+
+.stickShapeHero {
+  top: 10%;
+  right: 5%;
+  width: 5.5rem;
+  filter: blur(3px);
+}
+
+.rectangleRedShapeHero {
+  bottom: -10%;
+  right: 5%;
+  width: 13.5rem;
+  filter: blur(5px);
+  transform: scaleX(-1);
 }

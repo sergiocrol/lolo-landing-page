@@ -1,10 +1,17 @@
 import Image from 'next/image';
 
+import Circle from '../Icons/shapes/Circle';
+import Rectangle from '../Icons/shapes/Rectangle';
+import Stick from '../Icons/shapes/Stick';
+
 import useWidth from '../../hooks/useWidth';
 import {
   bgMiddle,
   middleBannerContainer,
   mockupImage,
+  circleShapeMiddle,
+  rectangleShapeMiddle,
+  stickShapeMiddle,
 } from '../../styles/index.module.css';
 
 const MiddleBanner = () => {
@@ -18,12 +25,12 @@ const MiddleBanner = () => {
     src = '/static/images/bg_middle.jpg';
   }
   return (
-    <div className={middleBannerContainer}>
+    <div className={`${middleBannerContainer}`}>
       <div className={bgMiddle}>
         <Image alt="Background" src={src} layout="fill" quality={100} />
       </div>
       <div className="container relative h-full lg:flex lg:items-center">
-        <div className="relative text-center mt-10 pt-8 md:text-left lg:flex lg:flex-col lg:mt-0 lg:pt-0 lg:pl-8">
+        <div className="relative text-center mt-10 pt-8 z-50 md:text-left lg:flex lg:flex-col lg:mt-0 lg:pt-0 lg:pl-8">
           <h1
             className="inline-block font-montserrat font-semibold text-26 text-center 
           p-4 max-w-sm text-white w-full mx-auto sm:max-w-29 sm:text-24 md:text-left 
@@ -43,6 +50,21 @@ const MiddleBanner = () => {
         </div>
       </div>
       <div className={`${mockupImage} absolute`}>
+        <div className={`${circleShapeMiddle} absolute`}>
+          <Circle
+            style={{ filter: 'blur(4px)', width: '100%', height: 'auto' }}
+          />
+        </div>
+        <div className={`${rectangleShapeMiddle} absolute`}>
+          <Rectangle
+            style={{ filter: 'blur(3px)', width: '100%', height: 'auto' }}
+          />
+        </div>
+        <div className={`${stickShapeMiddle} absolute`}>
+          <Stick
+            style={{ filter: 'blur(4px)', width: '100%', height: 'auto' }}
+          />
+        </div>
         <Image
           alt="Background"
           src="/static/images/mockup3.png"

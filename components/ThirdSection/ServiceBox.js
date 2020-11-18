@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
+import Image from 'next/image';
 
 import { box } from '../../styles/components.module.css';
 import {
@@ -33,6 +34,15 @@ const ServiceBox = ({ title, body, image, selectedCard, setSelectedCard }) => {
     nocturno: isSmall() ? NocturnoRight : Nocturno,
     limpieza: isSmall() ? LimpiezaRight : Limpieza,
     allDay: isSmall() ? AllDayRight : AllDay,
+  };
+  const spheres = {
+    diurno: ['/static/images/sphere_yellow.png'],
+    nocturno: ['/static/images/sphere_gray.png'],
+    limpieza: ['/static/images/sphere_blue.png'],
+    allDay: [
+      '/static/images/sphere_blue.png',
+      '/static/images/sphere_yellow.png',
+    ],
   };
   const Component = components[image] || DiurnoRight;
 
@@ -91,6 +101,21 @@ const ServiceBox = ({ title, body, image, selectedCard, setSelectedCard }) => {
         </p>
       </div>
       <div className={`${serviceImage} absolute`}>
+        {/* <div className={`absolute right-0 z-0`}>
+          {spheres[image].map((img) => {
+            console.log(img);
+            return (
+              <Image
+                alt={image}
+                src={img}
+                width={30}
+                height={30}
+                layout="fixed"
+                quality={100}
+              />
+            );
+          })}
+        </div> */}
         <Component inViewport={inViewport} />
       </div>
     </div>

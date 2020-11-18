@@ -1,5 +1,10 @@
 import Image from 'next/image';
 
+import Circle from '../Icons/shapes/Circle';
+import Rectangle from '../Icons/shapes/Rectangle';
+import Stick from '../Icons/shapes/Stick';
+import StickYellow from '../Icons/shapes/StickYellow';
+
 import useWidth from '../../hooks/useWidth';
 import {
   bgWrap,
@@ -8,8 +13,12 @@ import {
   heroImageContainer,
   heroImage,
   heroText,
+  circleShapeHero,
+  rectangleShapeHero,
+  rectangleRedShapeHero,
+  stickShapeHero,
 } from '../../styles/index.module.css';
-import { btn } from '../../styles/components.module.css';
+import { btn, btnSm } from '../../styles/components.module.css';
 
 const HeroSection = () => {
   const windowWith = useWidth();
@@ -35,6 +44,30 @@ const HeroSection = () => {
     <div className={heroContainer}>
       <div className={bgWrap}>
         <Image alt="Background" src={src} layout="fill" quality={100} />
+        {/* <div className={`${circleShapeHero} absolute hidden lg:inline-block`}>
+          <Circle
+            style={{ filter: 'blur(4px)', width: '100%', height: 'auto' }}
+          />
+        </div>
+        <div
+          className={`${rectangleShapeHero} absolute hidden lg:inline-block`}
+        >
+          <Rectangle
+            style={{ filter: 'blur(3px)', width: '100%', height: 'auto' }}
+          />
+        </div>
+        <div className={`${stickShapeHero} absolute hidden lg:inline-block`}>
+          <Stick
+            style={{ filter: 'blur(4px)', width: '100%', height: 'auto' }}
+          />
+        </div>
+        <div
+          className={`${rectangleRedShapeHero} absolute hidden lg:inline-block`}
+        >
+          <StickYellow
+            style={{ filter: 'blur(4px)', width: '100%', height: 'auto' }}
+          />
+        </div> */}
         <div className={wave}>
           <svg viewBox="0 0 500 150" preserveAspectRatio="none">
             <path
@@ -55,7 +88,7 @@ const HeroSection = () => {
             Lolo es la plataforma que te ayuda a conectar con profesionales del
             cuidado de personas mayores.
           </h2>
-          <div className={`${btn} text-17 bg-blue mt-8 inline-block`}>
+          <div className={`${btn} ${btnSm} text-17 mt-8 inline-block`}>
             Encuentra a tu profesional
           </div>
         </div>

@@ -5,7 +5,7 @@ import Header from '../components/Header';
 
 function MyApp({ Component, pageProps }) {
   return (
-    <div className={`relative`}>
+    <div className={`relative overflow-hidden`}>
       <Head>
         <meta
           name="description"

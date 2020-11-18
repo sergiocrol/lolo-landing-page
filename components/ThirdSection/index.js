@@ -1,11 +1,29 @@
 import { useState } from 'react';
 import ServiceBox from './ServiceBox';
 
+import RectangleRed from '../Icons/shapes/RectangleRed';
+import CircleBlue from '../Icons/shapes/CircleBlue';
+import StickYellow from '../Icons/shapes/StickYellow';
+import {
+  rectangleShapeThird,
+  circleShapeThird,
+  stickShapeThird,
+} from '../../styles/index.module.css';
+
 const ThirdSection = () => {
   const [selectedCard, setSelectedCard] = useState('diurno');
 
   return (
-    <div className="container mt-32 px-8 xl:mt-48">
+    <div className="container mt-32 px-8 xl:mt-48 relative">
+      <div className={`${rectangleShapeThird} absolute`}>
+        <RectangleRed style={{ width: '100%', height: 'auto' }} />
+      </div>
+      <div className={`${circleShapeThird} absolute`}>
+        <CircleBlue style={{ width: '100%', height: 'auto' }} />
+      </div>
+      <div className={`${stickShapeThird} absolute`}>
+        <StickYellow style={{ width: '100%', height: 'auto' }} />
+      </div>
       <h1
         className={`w-full font-montserrat font-extrabold text-30 text-left max-w-sm text-blue opacity-70 leading-tight sm:max-w-md sm:text-40 lg:text-70 lg:max-w-3xl`}
       >
@@ -14,7 +32,7 @@ const ThirdSection = () => {
       <div className={`container flex flex-col`}>
         <div className={`flex flex-col items-center px-4`}>
           <h2
-            className={`w-full font-sans font-black text-24 text-center mt-10 max-w-15 text-orange leading-snug sm:text-26 sm:max-w-lg md:text-32 md:max-w-2xl lg:text-50 lg:max-w-full lg:mt-32 xl:text-60`}
+            className={`w-full font-sans font-black text-24 text-center mt-10 max-w-15 text-orange leading-snug sm:text-26 sm:max-w-lg md:text-32 md:max-w-2xl md:mt-20 lg:text-50 lg:max-w-full lg:mt-32 xl:text-60`}
           >
             Tus seres queridos en las mejores manos
           </h2>
