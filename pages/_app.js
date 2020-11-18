@@ -12,7 +12,7 @@ function MyApp({ Component, pageProps }) {
           content="Encuentra con Lolo a quien cuide de tus mayores tal y como tú lo harías"
         />
         <html lang="es-ES" />
-        <title>TheProject</title>
+        <title>Lolo</title>
       </Head>
       <Header />
       <Component {...pageProps} />

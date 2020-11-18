@@ -24,7 +24,7 @@ const Header = () => {
     if (viewportWidth > 0) {
       listener = document.addEventListener('scroll', (e) => {
         const scrolledSize = document.scrollingElement.scrollTop;
-        scrolledSize >= 20 && viewportWidth <= 1024
+        scrolledSize >= 20 && viewportWidth < 1024
           ? setScrolled(true)
           : setScrolled(false);
       });
@@ -36,7 +36,7 @@ const Header = () => {
     <div
       className={`${navContainer} ${
         scrolled ? navContainerScrolled : null
-      } fixed top-0 w-screen flex justify-between items-center px-8 py-2 lg:bg-transparent lg:shadow-none lg:flex lg:container lg:absolute lg:max-w-full lg:justify-around lg:h-24 lg:mt-4 lg:px-0`}
+      } fixed top-0 w-screen flex justify-between items-center px-8 py-2 lg:bg-transparent lg:shadow-none lg:flex lg:container lg:absolute lg:max-w-full lg:justify-around lg:h-24 lg:mt-4 lg:px-12 xl:px-0`}
     >
       <div className="flex align-middle">
         <div className={`${logo} w-3`}>

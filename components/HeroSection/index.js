@@ -46,7 +46,7 @@ const HeroSection = () => {
       </div>
       <div className="container h-full">
         <div
-          className={`${heroText} text-center text-white opacity-90 flex-col pt-32`}
+          className={`${heroText} text-center text-white opacity-90 flex-col pt-24 lg:mr-12 lg:pt-32 xl:mr-0`}
         >
           <h1 className="inline-block text-26 font-bold font-montserrat w-4/5 leading-tight">
             Encuentra a quién cuide de tus mayores tal y como tú lo harías
