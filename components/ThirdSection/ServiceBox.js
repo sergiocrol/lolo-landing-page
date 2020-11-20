@@ -1,12 +1,21 @@
+import { motion } from 'framer-motion';
 import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
+
+import isInViewport from '../../helpers/inViewport';
 
 import { box } from '../../styles/components.module.css';
 import {
   serviceImage,
   serviceBox,
   active,
+  limpiezaSphere,
+  allDaySphereDay,
+  allDaySphereNight,
+  daySphere,
+  nightSphere,
 } from '../../styles/index.module.css';
+
 import {
   Diurno,
   Nocturno,
@@ -26,6 +35,7 @@ const ServiceBox = ({ title, body, image, selectedCard, setSelectedCard }) => {
   const outerRef = useRef(null);
   const viewportHeight = useHeight();
   const viewportWidth = useWidth();
+  const { sphereAnimation } = isInViewport(inViewport, image);
 
   const isSmall = () => viewportWidth < 1024;
 
@@ -36,13 +46,22 @@ const ServiceBox = ({ title, body, image, selectedCard, setSelectedCard }) => {
     allDay: isSmall() ? AllDayRight : AllDay,
   };
   const spheres = {
-    diurno: ['/static/images/sphere_yellow.png'],
-    nocturno: ['/static/images/sphere_gray.png'],
-    limpieza: ['/static/images/sphere_blue.png'],
-    allDay: [
-      '/static/images/sphere_blue.png',
-      '/static/images/sphere_yellow.png',
-    ],
+    diurno: { image: ['/static/images/sphere_yellow.png'], class: [daySphere] },
+    nocturno: {
+      image: ['/static/images/sphere_gray.png'],
+      class: [nightSphere],
+    },
+    limpieza: {
+      image: ['/static/images/sphere_blue.png'],
+      class: [limpiezaSphere],
+    },
+    allDay: {
+      image: [
+        '/static/images/sphere_gray.png',
+        '/static/images/sphere_yellow.png',
+      ],
+      class: [allDaySphereNight, allDaySphereDay],
+    },
   };
   const Component = components[image] || DiurnoRight;
 
@@ -101,22 +120,41 @@ const ServiceBox = ({ title, body, image, selectedCard, setSelectedCard }) => {
         </p>
       </div>
       <div className={`${serviceImage} absolute`}>
-        {/* <div className={`absolute right-0 z-0`}>
-          {spheres[image].map((img) => {
-            console.log(img);
-            return (
+        {spheres[image].image.map((img, index) => {
+          return viewportWidth < 1024 ? (
+            <motion.div
+              animate={sphereAnimation}
+              key={index}
+              className={`absolute right-0 z-0 ${spheres[image].class[index]}`}
+            >
               <Image
                 alt={image}
                 src={img}
-                width={30}
-                height={30}
-                layout="fixed"
+                width={120}
+                height={120}
+                layout="responsive"
                 quality={100}
               />
-            );
-          })}
-        </div> */}
-        <Component inViewport={inViewport} />
+            </motion.div>
+          ) : (
+            <div
+              key={index}
+              className={`absolute right-0 z-0 ${spheres[image].class[index]}`}
+            >
+              <Image
+                alt={image}
+                src={img}
+                width={120}
+                height={120}
+                layout="responsive"
+                quality={100}
+              />
+            </div>
+          );
+        })}
+        <div className="relative z-10">
+          <Component inViewport={inViewport} />
+        </div>
       </div>
     </div>
   );

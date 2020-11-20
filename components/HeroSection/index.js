@@ -70,9 +70,45 @@ const HeroSection = () => {
         </div> */}
         <div className={wave}>
           <svg viewBox="0 0 500 150" preserveAspectRatio="none">
+            <defs>
+              <pattern
+                id="pattern-image"
+                x="0"
+                y="0"
+                width="150"
+                height="150"
+                patternUnits="userSpaceOnUse"
+              >
+                <image
+                  href="/static/images/paper_pattern.png"
+                  x="0"
+                  y="0"
+                  width="150"
+                  height="150"
+                  opacity="0.3"
+                />
+                <animateTransform
+                  attributeType="xml"
+                  attributeName="patternTransform"
+                  type="translate"
+                  begin="0"
+                  dur="8s"
+                  repeatCount="indefinite"
+                  // values="0 0;-500 -1000;1500 500;700 -2500;-500 2500;-1500 1000;1500 0;0 1500;300 3500;-1000 1000;0 0"
+                  values="0 0;-250 -500;750 250;350 -1250;-250 1250;-750 500;750 0;0 750;150 1750;-500 500;0 0"
+                  // values="0 0;-125 -250;375 125;175 -625;-125 625;-375 250;375 0;0 375;75 875;-250 250;0 0"
+                  keyTimes="0;0.1;0.2;0.3;0.4;0.5;0.6;0.7;0.8;0.9;1"
+                />
+              </pattern>
+            </defs>
             <path
               fill="#FCF6E8"
               d="M-0.56,124.83 C205.41,-179.11 260.15,188.97 499.43,136.67 L500.00,150.00 L-0.56,151.47 Z"
+            ></path>
+            <path
+              fill="url(#pattern-image)"
+              d="M-0.56,124.83 C205.41,-179.11 260.15,188.97 499.43,136.67 L500.00,150.00 L-0.56,151.47 Z"
+              id="ggg"
             ></path>
           </svg>
         </div>
@@ -88,7 +124,7 @@ const HeroSection = () => {
             Lolo es la plataforma que te ayuda a conectar con profesionales del
             cuidado de personas mayores.
           </h2>
-          <div className={`${btn} ${btnSm} text-17 mt-8 inline-block`}>
+          <div className={`${btn} ${btnSm} text-17 inline-block z-10 mt-8`}>
             Encuentra a tu profesional
           </div>
         </div>

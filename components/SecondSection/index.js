@@ -14,7 +14,7 @@ const SecondSection = () => {
         className={`flex flex-col items-center px-4 md:flex-row md:justify-between md:w-full`}
       >
         <h2
-          className={`inline-block font-sans font-black text-24 text-orange leading-snug text-center w-11/12 mt-10 max-w-sm sm:text-26 sm:max-w-md md:text-left md:text-32 md:max-w-21 lg:text-50 lg:max-w-29 xl:text-60 xl:max-w-36`}
+          className={`inline-block font-sans font-black text-24 text-orange leading-snug text-center w-11/12 mt-10 max-w-sm sm:text-26 sm:max-w-md md:text-left md:text-32 md:max-w-21 lg:text-50 lg:max-w-29 xl:text-60 xl:max-w-36 z-10`}
         >
           Estos son los motivos por los que confiar en nosotros:
         </h2>

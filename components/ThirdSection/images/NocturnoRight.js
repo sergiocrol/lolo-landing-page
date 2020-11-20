@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import isInViewport from '../../../helpers/inViewport';
 
 function NocturnoRight({ inViewport }) {
-  const controls = isInViewport(inViewport);
+  const { controls } = isInViewport(inViewport);
 
   return (
     <svg
