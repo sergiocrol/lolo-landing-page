@@ -1,10 +1,5 @@
 import { useState, useRef } from 'react';
-import {
-  useViewportScroll,
-  motion,
-  useTransform,
-  useSpring,
-} from 'framer-motion';
+import { motion, useAnimation } from 'framer-motion';
 
 import ServiceBox from './ServiceBox';
 import RectangleRed from '../Icons/shapes/RectangleRed';
@@ -12,7 +7,7 @@ import CircleBlue from '../Icons/shapes/CircleBlue';
 import StickYellow from '../Icons/shapes/StickYellow';
 import ParallaxItem from '../ParallaxItem/index';
 
-import useRefScrollProgress from '../../hooks/useRefScrollProgress';
+import useInViewport from '../../hooks/useInViewport';
 
 import {
   rectangleShapeThird,
@@ -22,21 +17,39 @@ import {
 
 const ThirdSection = () => {
   const [selectedCard, setSelectedCard] = useState('diurno');
+  const controls = useAnimation();
+  const smile = useAnimation();
+  const ref = useRef(null);
+  const inViewport = useInViewport(ref);
 
-  // const { ref, start, end } = useRefScrollProgress();
-  // const { scrollY, scrollYProgress } = useViewportScroll();
-  // const springConfig = {
-  //   damping: 100,
-  //   stiffness: 100,
-  //   mass: rand(1, 3),
-  // };
-  // const y = useSpring(
-  //   useTransform(scrollYProgress, [start, end], [100, -20]),
-  //   springConfig
-  // );
+  if(inViewport) {
+    controls.start({
+      x: 10,
+      transition: {ease: 'linear', duration: .3}
+    });
+    smile.start({
+      display: 'inline-block',
+      color: '#FF8B81',
+      transition: {ease: 'linear', delay: .3, duration: .3}
+    })
+  }else{
+    controls.start({
+      x: 0,
+      transition: {ease: 'linear', duration: .3}
+    });
+    smile.start({
+      display: 'none',
+      color: 'trasparent',
+      transition: {ease: 'linear', delay: .3, duration: .3}
+    })
+  }
 
   return (
-    <div className="container mt-32 px-8 xl:mt-48 relative">
+    <div 
+    id="servicios"
+    ref={ref} 
+    className="container mt-32 px-8 xl:mt-48 relative"
+    >
       <ParallaxItem className={`${rectangleShapeThird} absolute`}>
         <RectangleRed style={{ width: '100%', height: 'auto' }} />
       </ParallaxItem>
@@ -46,25 +59,10 @@ const ThirdSection = () => {
       <ParallaxItem className={`${stickShapeThird} absolute`}>
         <StickYellow style={{ width: '100%', height: 'auto' }} />
       </ParallaxItem>
-      {/* <div ref={ref} className={`${rectangleShapeThird} absolute`}>
-        <motion.div style={{ y, x: -50 }}>
-          <RectangleRed style={{ width: '100%', height: 'auto' }} />
-        </motion.div>
-      </div>
-      <div ref={ref} className={`${circleShapeThird} absolute`}>
-        <motion.div style={{ y, x: -50 }}>
-          <CircleBlue style={{ width: '100%', height: 'auto' }} />
-        </motion.div>
-      </div>
-      <div ref={ref} className={`${stickShapeThird} absolute`}>
-        <motion.div style={{ y, x: -50 }}>
-          <StickYellow style={{ width: '100%', height: 'auto' }} />
-        </motion.div>
-      </div> */}
       <h1
-        className={`w-full font-montserrat font-extrabold text-30 text-left max-w-sm text-blue opacity-70 leading-tight sm:max-w-md sm:text-40 lg:text-70 lg:max-w-3xl`}
+        className={`w-full font-montserrat font-extrabold text-30 text-left max-w-sm text-blue leading-tight sm:max-w-md sm:text-40 lg:text-70 lg:max-w-3xl`}
       >
-        Conoce nuestros servicios:
+        <div className="inline opacity-70">Conoce nuestros servicios</div><motion.div animate={controls} className="inline-block opacity-70">:<motion.div animate={smile} className="hidden text-transparent font-sans opacity-100 text-26 sm:text-40 lg:text-60">)</motion.div></motion.div>
       </h1>
       <div className={`container flex flex-col`}>
         <div className={`flex flex-col items-center px-4`}>

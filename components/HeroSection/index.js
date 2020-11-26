@@ -70,7 +70,7 @@ const HeroSection = () => {
         </div> */}
         <div className={wave}>
           <svg viewBox="0 0 500 150" preserveAspectRatio="none">
-            <defs>
+            {/* <defs>
               <pattern
                 id="pattern-image"
                 x="0"
@@ -100,16 +100,16 @@ const HeroSection = () => {
                   keyTimes="0;0.1;0.2;0.3;0.4;0.5;0.6;0.7;0.8;0.9;1"
                 />
               </pattern>
-            </defs>
+            </defs> */}
             <path
               fill="#FCF6E8"
               d="M-0.56,124.83 C205.41,-179.11 260.15,188.97 499.43,136.67 L500.00,150.00 L-0.56,151.47 Z"
             ></path>
-            <path
+            {/* <path
               fill="url(#pattern-image)"
               d="M-0.56,124.83 C205.41,-179.11 260.15,188.97 499.43,136.67 L500.00,150.00 L-0.56,151.47 Z"
               id="ggg"
-            ></path>
+            ></path> */}
           </svg>
         </div>
       </div>

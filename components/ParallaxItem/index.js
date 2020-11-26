@@ -15,6 +15,7 @@ const ParallaxItem = ({ children, className }) => {
   const ref = useRef();
   const [start, setStart] = useState(null);
   const [end, setEnd] = useState(null);
+  const [randomRange, setRandomRange] = useState(0);
   const springConfig = {
     damping: 80,
     stiffness: 80,
@@ -31,6 +32,7 @@ const ParallaxItem = ({ children, className }) => {
       const offsetTop = rect.top + scrollTop;
       setStart(offsetTop / document.body.clientHeight);
       setEnd((offsetTop + rect.height) / document.body.clientHeight);
+      setRandomRange(rand(0, -80));
     };
 
     onResize();
@@ -40,7 +42,7 @@ const ParallaxItem = ({ children, className }) => {
   }, [ref]);
 
   const y = useSpring(
-    useTransform(scrollYProgress, [start, end], [0, rand(0, -80)]),
+    useTransform(scrollYProgress, [start, end], [0, randomRange]),
     springConfig
   );
 

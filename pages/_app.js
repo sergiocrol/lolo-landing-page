@@ -1,11 +1,15 @@
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 import '../styles/tailwind.css';
 
 import Header from '../components/Header';
 
+import { html } from '../styles/index.module.css';
+
 function MyApp({ Component, pageProps }) {
+  const router = useRouter();
   return (
-    <div className={`relative overflow-hidden`}>
+    <div className={`${html} relative overflow-hidden`}>
       <Head>
         <meta
           name="description"

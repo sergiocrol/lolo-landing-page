@@ -20,7 +20,7 @@ const FooterNav = () => {
           <div className="md:flex">
             <div className="md:flex">
               <a>Home</a>
-              <el className="text-transparentWhite md:mx-1"> • </el>
+              <p className="text-transparentWhite md:mx-1 inline-block"> • </p>
               <a>Cómo funciona</a>
             </div>
             <p className="text-transparentWhite hidden md:inline-block md:mx-1">
@@ -29,14 +29,14 @@ const FooterNav = () => {
             </p>
             <div className="md:flex">
               <a>Por qué Lolo</a>
-              <el className="text-transparentWhite md:mx-1"> • </el>
+              <p className="text-transparentWhite md:mx-1 inline-block"> • </p>
               <a>Servicios</a>
             </div>
           </div>
           <div className="w-px bg-transparentWhite h-10 md:hidden" />
           <div className="md:hidden">
             <a>Español</a>
-            <el className="text-transparentWhite"> • </el>
+            <p className="text-transparentWhite inline-block"> • </p>
             <a>Català</a>
           </div>
         </div>

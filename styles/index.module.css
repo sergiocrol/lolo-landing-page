@@ -1,3 +1,7 @@
+.html {
+  scroll-behavior: smooth;
+}
+
 /* Hero Section */
 
 .heroContainer {
@@ -210,6 +214,47 @@
   max-width: 300px;
 }
 
+.rectangleShapeFirst {
+  width: 6rem;
+  right: -4%;
+  top: 50%;
+  transform: translateX(40%) scaleX(1);
+  filter: blur(1px);
+}
+
+.circleShapeFirst {
+  width: 4rem;
+  left: 0;
+  top: 30%;
+  transform: translateX(-40%) scaleX(-1);
+  filter: blur(1.3px);
+}
+
+.stickShapeFirst {
+  width: 4.5rem;
+  left: 0;
+  top: 80%;
+  transform: translateX(-30%) scaleX(1);
+  filter: blur(2px);
+}
+
+@screen sm {
+  .rectangleShapeFirst {
+    width: 9rem;
+  }
+  
+  .circleShapeFirst {
+    width: 6.5rem;
+    top: 15%;
+    filter: blur(2px);
+  }
+  
+  .stickShapeFirst {
+    width: 5.5rem;
+    transform: translateX(-80%) scaleX(1);
+  }
+}
+
 @screen md {
   .titleText {
     max-width: 450px;
@@ -239,6 +284,22 @@
   .boxContainerFirstSection {
     max-width: 30rem;
     max-height: 28rem;
+  }
+
+  .rectangleShapeFirst {
+    width: 10rem;
+    right: -10%;
+    filter: blur(2px);
+  }
+  
+  .circleShapeFirst {
+    width: 9rem;
+  }
+  
+  .stickShapeFirst {
+    width: 7.5rem;
+    left: -10%;
+    transform: translateX(-50%) scaleX(1);
   }
 }
 
@@ -345,6 +406,38 @@
   opacity: 1;
 }
 
+.heartIcon {
+  width: 1.25rem;
+  height: auto;
+}
+
+.heartIcon svg {
+  height: 100%;
+  width: 100%;
+  /* fill: var(--blue); */
+}
+
+@screen sm {
+  .heartIcon {
+    width: 1.55rem;
+    height: auto;
+  }
+}
+
+@screen md {
+  .heartIcon {
+    width: 1.6rem;
+    height: auto;
+  }
+}
+
+@screen md {
+  .heartIcon {
+    width: 2.75rem;
+    height: auto;
+  }
+}
+
 @screen xl {
   .carouselContainer {
     width: 29rem;
@@ -422,7 +515,7 @@
 }
 
 
-@media (max-width: 1024px) {
+@media (max-width: 1023px) {
   .limpiezaSphere, .allDaySphereDay, .allDaySphereNight, .daySphere, .nightSphere {
     width: 8rem;
     right: 0;
@@ -462,16 +555,13 @@
   transition: all .7s ease-out;
 }
 
-.allDaySphereNight {
-  width: 9rem;
-  right: 10%;
-}
-
 .daySphere {
   left: 10%;
 }
 
 .allDaySphereNight {
+  width: 9rem;
+  right: 10%;
   left: 0;
   transition: all .7s ease-out .2s;
 }
@@ -862,7 +952,7 @@
 }
 
 /* https://s3-us-west-2.amazonaws.com/s.cdpn.io/9632/paper-pattern.png */
-.bgBody::before {
+/* .bgBody::before {
   animation: grain 8s steps(10) infinite;
   background-image: url("/static/images/paper_pattern.png");
   content: "";
@@ -906,4 +996,4 @@
   90% {
     transform: translate(-10%, 10%);
   }
-}
+} */

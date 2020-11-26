@@ -88,6 +88,9 @@ module.exports = {
         32: '32rem',
         34: '34rem',
       },
+      height: {
+        90: '90%'
+       }
     },
   },
   variants: {},
