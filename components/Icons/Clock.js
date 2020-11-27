@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react';
+
 import {
   clock,
   clockCircle,
@@ -5,12 +7,18 @@ import {
   hourHand,
 } from '../../styles/icons.module.css';
 
-function Icon() {
+function Icon({ selectedIndex }) {
+  const [date, setDate] = useState(new Date());
+
+  useEffect(() => {
+    setDate(+new Date())
+  }, [selectedIndex]);
+
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="-150 -150 300 300"
-      key={+new Date()}
+      key={date}
       className={clock}
     >
       <g fill="none" fillRule="evenodd">

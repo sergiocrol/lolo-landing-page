@@ -31,7 +31,7 @@ const Header = () => {
   if (isOpen) {
     controls.start({
       clipPath: `circle(${height * 2 + 200}px at 100% 0px)`,
-      backgroundColor: 'white',
+      backgroundColor: '#FFFFFF',
       transition: {
         type: "spring",
         stiffness: 20,
@@ -43,13 +43,9 @@ const Header = () => {
       y: 10,
       transition: { delay: i * 0.3 },
     }))
-
-    if (!scrolled) {
-
-    }
   } else {
     controls.start({
-      clipPath: "circle(15px at 100% 0px)",
+      clipPath: "circle(15px at 100% -15px)",
       transition: {
         delay: 0.5,
         type: "spring",
@@ -58,7 +54,7 @@ const Header = () => {
       }
     }).then(() => {
       controls.start({
-        backgroundColor: 'transparent'
+        backgroundColor: '#FFFFFF00'
       })
     })
 
@@ -122,9 +118,9 @@ const Header = () => {
           className={`${burger} ${scrolled || isOpen  ? burgerScrolled : null} z-50 lg:hidden`}
           onClick={() => toggleOpen()}
         >
-          <BurgerMenu />
+          <BurgerMenu isOpen={isOpen} />
         </div>
-        <motion.div className="absolute top-0 right-0 bottom-0 w-full h-screen bg-transparent" style={{ zIndex: -999 }} animate={controls}>
+        <motion.div className="absolute top-0 right-0 bottom-0 w-full h-screen" style={{ zIndex: -999 }} animate={controls}>
           <div className="flex flex-col w-full h-90 items-center justify-center">
             <motion.div custom={0} animate={controlList} className="mt-10 opacity-0">
               <Link href="#como-funciona" passHref>
@@ -138,13 +134,13 @@ const Header = () => {
                 </a>
               </Link>
             </motion.div>
-            <motion.div custom={2} animate={controlList} className="mt-10 opacity-0">
+            <motion.div custom={2} animate={controlList} className="mt-10 opacity-0 mb-10">
               <Link href="#servicios" passHref>
                 <a className="text-orange text-32 md:text-40 font-montserrat font-bold hover:opacity-100" onClick={() => toggleOpen()}>Servicios</a>
               </Link>  
             </motion.div>    
           </div>
-          <motion.div custom={3} animate={controlList} className="md:hidden text-center relative" style={{bottom: '8%'}}>
+          <motion.div custom={3} animate={controlList} className="lg:hidden text-center relative" style={{bottom: '8%'}}>
             <a className="text-orange">Español</a>
             <p className="text-orange opacity-50 inline-block mx-1"> • </p>
             <a className="text-orange opacity-50">Català</a>

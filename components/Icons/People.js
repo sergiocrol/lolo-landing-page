@@ -1,13 +1,21 @@
+import { useEffect, useState } from 'react';
+
 import { frontPerson, backPerson } from '../../styles/icons.module.css';
 
-function People() {
+function People({ selectedIndex }) {
+  const [date, setDate] = useState(new Date());
+
+  useEffect(() => {
+    setDate(+new Date())
+  }, [selectedIndex]);
+
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="-13 -30 200 180"
       className="people"
       id="people"
-      key={+new Date()}
+      key={date}
     >
       <g fillRule="evenodd" clipRule="evenodd">
         <g id="front-person" className={frontPerson}>

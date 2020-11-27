@@ -40,25 +40,25 @@ const CardsCarousel = () => {
           key={0}
           title="Calidad"
           body="Los perfiles de nuestros profesionales están verificados y se respaldan con las opiniones de otros usuarios."
-          icon={<Check />}
+          icon={<Check selectedIndex={selectedIndex} />}
         />
         <Card
           key={1}
           title="Elección"
           body="Nuestra plataforma te ofrece opciones. Tú eliges."
-          icon={<People />}
+          icon={<People selectedIndex={selectedIndex}  />}
         />
         <Card
           key={2}
           title="Flexibilidad y rapidez"
           body="Configura tu servicio a medida, encuentra a tu profesional y reserva en cuestión de minutos."
-          icon={<Clock />}
+          icon={<Clock selectedIndex={selectedIndex}  />}
         />
         <Card
           key={3}
           title="Comunicación"
           body="Te proporcionamos la tecnología para poder gestionar la relación con tu cuidador. Y en el futuro, iremos más allá."
-          icon={<Phone />}
+          icon={<Phone selectedIndex={selectedIndex}  />}
         />
       </div>
       <div className="flex justify-end mr-6 mt-1">

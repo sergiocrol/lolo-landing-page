@@ -431,7 +431,7 @@
   }
 }
 
-@screen md {
+@screen lg {
   .heartIcon {
     width: 2.75rem;
     height: auto;
@@ -700,9 +700,9 @@
   transition: all .5s linear;
 }
 
-.burger > svg path {
+/* .burger > svg path {
   stroke-opacity: .8;
-}
+} */
 
 .navContainer {
   z-index: 999;

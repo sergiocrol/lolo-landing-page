@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react';
+
 import {
   check,
   checkCircle,
@@ -5,14 +7,20 @@ import {
   checkSerpentine,
 } from '../../styles/icons.module.css';
 
-function Check(props) {
+function Check({ selectedIndex }) {
+  const [date, setDate] = useState(new Date());
+
+  useEffect(() => {
+    setDate(+new Date())
+  }, [selectedIndex]);
+
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 90 90"
       className={check}
-      key={+new Date()}
-      {...props}
+      // key={+new Date()}
+      key={date}
     >
       <g fill="none" fillRule="evenodd" transform="translate(1 1)">
         <circle

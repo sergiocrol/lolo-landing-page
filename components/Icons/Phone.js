@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react';
+
 import {
   phone,
   phoneFrame,
@@ -11,15 +13,20 @@ import {
   rec6,
 } from '../../styles/icons.module.css';
 
-function Phone(props) {
+function Phone({ selectedIndex }) {
+  const [date, setDate] = useState(new Date());
+
+  useEffect(() => {
+    setDate(+new Date())
+  }, [selectedIndex]);
+
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="25 20 450 450"
       className={phone}
-      key={+new Date()}
-      {...props}
+      key={date}
     >
       <path
         className={phoneFrame}

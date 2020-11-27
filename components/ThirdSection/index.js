@@ -39,7 +39,7 @@ const ThirdSection = () => {
     });
     smile.start({
       display: 'none',
-      color: 'trasparent',
+      color: '#FF8B8100',
       transition: {ease: 'linear', delay: .3, duration: .3}
     })
   }

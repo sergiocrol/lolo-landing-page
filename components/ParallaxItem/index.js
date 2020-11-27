@@ -1,4 +1,4 @@
-import { useRef, useState, useLayoutEffect } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import {
   useViewportScroll,
   useTransform,
@@ -22,7 +22,7 @@ const ParallaxItem = ({ children, className }) => {
     mass: rand(1, 1.5),
   };
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (!ref.current) return null;
 
     const onResize = () => {
@@ -31,7 +31,7 @@ const ParallaxItem = ({ children, className }) => {
         window.pageYOffset || document.documentElement.scrollTop;
       const offsetTop = rect.top + scrollTop;
       setStart(offsetTop / document.body.clientHeight);
-      setEnd((offsetTop + rect.height) / document.body.clientHeight);
+      setEnd((offsetTop + rect.height) / document.body.clientHeight / 2);
       setRandomRange(rand(0, -80));
     };
 
