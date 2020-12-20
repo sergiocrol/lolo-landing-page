@@ -124,6 +124,16 @@
   max-width: 300px;
 }
 
+@media (max-width: 376px) {
+  .heroText h1 {
+    font-size: 1.5rem;
+  }
+
+  .heroText h2 {
+    font-size: 1.19rem;
+  }
+}
+
 @media (min-width: 500px) {
   .heroText h1 {
     font-size: 1.875rem;
@@ -581,7 +591,7 @@
 .active .allDaySphereNight {
   bottom: 32px;
   opacity: 1;
-  filter: blur(3px);
+  filter: blur(1px);
   animation: fly 2s ease .9s infinite;
 }
 
@@ -724,6 +734,18 @@
   fill: #4e4e4d;
   opacity: 1;
 }
+
+.logoNameClosed svg path {
+  fill: #4e4e4d;
+  opacity: .7;
+  transition: all .5s linear .5s;
+}
+
+.logoNameClosed svg path {
+  fill: white;
+  opacity: 1;
+}
+
 
 .burgerScrolled svg path {
   stroke: #4e4e4d;

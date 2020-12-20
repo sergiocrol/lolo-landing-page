@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { useState, useRef, useEffect } from 'react';
+import { useRef } from 'react';
 import Image from 'next/image';
 
 import isInViewport from '../../helpers/inViewport';
@@ -28,14 +28,11 @@ import {
   AllDayRight,
 } from './images';
 
-// import useHeight from '../../hooks/useHeight';
 import useWidth from '../../hooks/useWidth';
 
 const ServiceBox = ({ title, body, image, selectedCard, setSelectedCard }) => {
-  // const [inViewport, setInViewport] = useState(true);
   const outerRef = useRef(null);
   const inViewport = useInViewport(outerRef);
-  // const viewportHeight = useHeight();
   const viewportWidth = useWidth();
   const { sphereAnimation } = isInViewport(inViewport, image);
 
@@ -66,33 +63,6 @@ const ServiceBox = ({ title, body, image, selectedCard, setSelectedCard }) => {
     },
   };
   const Component = components[image] || DiurnoRight;
-
-  // useEffect(() => {
-  //   if (viewportHeight > 0) {
-  //     const height =
-  //       viewportHeight / 2 -
-  //       (outerRef.current?.clientHeight || viewportHeight - 10) / 2;
-  //     const rootMargin = `${height * -1}px 0px ${height * -1}px 0px`;
-  //     const options = {
-  //       rootMargin,
-  //       threshold: [0.5],
-  //     };
-
-  //     const onChange = (entries) => {
-  //       entries.forEach((entry) => {
-  //         if (entry.target === outerRef.current) {
-  //           if (entry.isIntersecting) {
-  //             setInViewport(true);
-  //           } else {
-  //             setInViewport(false);
-  //           }
-  //         }
-  //       });
-  //     };
-  //     const observer = new IntersectionObserver(onChange, options);
-  //     observer.observe(outerRef.current);
-  //   }
-  // }, [viewportHeight]);
 
   return (
     <div

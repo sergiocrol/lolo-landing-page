@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useAnimation } from 'framer-motion';
 
 function isInViewport(inViewport, type) {
