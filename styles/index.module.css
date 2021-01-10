@@ -172,7 +172,7 @@
     font-family: 'Lato', sans-serif;
     font-weight: 900;
     font-size: 3.125rem;
-    max-width: 580px;
+    max-width: 542px;
   }
 
   .heroText h2 {
@@ -184,7 +184,7 @@
 @screen xl {
   .heroText h1 {
     font-size: 3.75rem;
-    max-width: 670px;
+    max-width: 651px;
   }
 
   .heroText h2 {
@@ -285,8 +285,12 @@
     max-height: 25rem;
   }
 
+  .titleText {
+    max-width: 489.6px;
+  }
+
   .bodyText {
-    max-width: 444px;
+    max-width: 489.6px;
   }
 }
 
@@ -670,6 +674,13 @@
   height: 34rem;
 }
 
+@screen xl {
+  .blockContainerFooter {
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+  }
+}
+
 @screen md {
   .boxFooter {
     height: 90%;
@@ -774,6 +785,47 @@
 @screen xl {
   .navContainer {
     max-width: 1280px;
+  }
+}
+
+.btnLogin {
+  background: linear-gradient(180deg, rgba(147, 64, 110, 0.16) 0%, #93406E 100%) !important;
+  display: flex;
+  align-items: center;
+  min-width: 118px;
+}
+
+.btnLogin:hover {
+  -webkit-box-shadow: 2px 11px 13px -7px rgba(145,63,110,0.22);
+  -moz-box-shadow: 2px 11px 13px -7px rgba(145,63,110,0.3);
+  box-shadow: 2px 11px 13px -7px rgba(145,63,110,0.22);
+}
+
+.btnLogin:hover > .loginArrow {
+  animation: arrowAnimation 1s ease-in-out infinite;
+  transform: translateX(5px);
+}
+
+.btnLoginMobile {
+  /* background-color: transparent !important;
+  border: 2px solid var(--orange);
+  min-width: 200px;
+  padding: 2px 0; */
+  align-items: center;
+}
+
+.btnLoginMobile > .loginArrow {
+  animation: arrowAnimation 1s ease-in-out infinite;
+  transform: translateX(5px);
+}
+
+
+@keyframes arrowAnimation {
+  0%,100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(3px);
   }
 }
 

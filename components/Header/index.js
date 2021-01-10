@@ -1,10 +1,12 @@
 import Link from 'next/link';
 import { useState, useEffect, useRef } from 'react';
-import { motion, useCycle, useAnimation } from 'framer-motion';
+import { motion, useAnimation } from 'framer-motion';
+import { useIntl } from 'react-intl';
 
 import Logo from '../Icons/Logo';
 import BurgerMenu from '../Icons/BurgerMenu';
 import LogoName from '../Icons/LogoName';
+import Arrow from '../Icons/Arrow';
 
 import useWidth from '../../hooks/useWidth';
 import useHeight from '../../hooks/useHeight';
@@ -17,9 +19,14 @@ import {
   burgerScrolled,
   navContainer,
   navContainerScrolled,
+  btnLogin,
+  btnLoginMobile,
+  loginArrow,
 } from '../../styles/index.module.css';
+import { btn, btnSm } from '../../styles/components.module.css';
 
 const Header = () => {
+  const { formatMessage: f, locale } = useIntl();
   const controls = useAnimation();
   const controlList = useAnimation();
   const containerRef = useRef(null);
@@ -112,17 +119,54 @@ const Header = () => {
           <LogoName style={{ width: '100%', height: 'auto' }} />
         </div>
       </div>
+      {/* Nav desktop version */}
       <div className="hidden lg:flex text-white opacity-70 text-24 min-w-29 justify-between">
         <Link href="#como-funciona" passHref>
-          <a className="opacity-50 hover:opacity-100">Cómo funciona</a>
+          <a className="opacity-50 hover:opacity-100">
+            {f({ id: 'navLinkOne' })}
+          </a>
         </Link>
         <Link href="#por-que-lolo" passHref>
-          <a className="opacity-50 hover:opacity-100">Por qué Lolo</a>
+          <a className="opacity-50 hover:opacity-100">
+            {f({ id: 'navLinkTwo' })}
+          </a>
         </Link>
         <Link href="#servicios" passHref>
-          <a className="opacity-50 hover:opacity-100">Servicios</a>
+          <a className="opacity-50 hover:opacity-100">
+            {f({ id: 'navLinkThree' })}
+          </a>
         </Link>
       </div>
+      <div className="hidden lg:flex">
+        <div className={`flex items-center pr-4`}>
+          <Link href="/" locale="es">
+            <a
+              className={`${
+                locale === 'es' ? 'text-white' : 'text-transparentWhite'
+              } cursor-pointer hover:underline`}
+            >
+              Esp
+            </a>
+          </Link>
+          <p className="text-transparentWhite mx-1 inline-block"> • </p>
+          <Link href="/" locale="ca">
+            <a
+              className={`${
+                locale === 'ca' ? 'text-white' : 'text-transparentWhite'
+              } cursor-pointer hover:underline`}
+            >
+              Cat
+            </a>
+          </Link>
+        </div>
+        <div
+          className={`${btn} ${btnSm} ${btnLogin} text-17 inline-block z-10 cursor-pointer justify-center`}
+        >
+          <span className="mr-2">{f({ id: 'headerLogin' })}</span>
+          <Arrow className={`${loginArrow} mt-1`} />
+        </div>
+      </div>
+      {/* Nav mobile version */}
       <motion.nav
         initial={false}
         custom={height}
@@ -148,7 +192,7 @@ const Header = () => {
           style={{ zIndex: -999 }}
           animate={controls}
         >
-          <div className="flex flex-col w-full h-90 items-center justify-center">
+          <div className="flex flex-col w-full h-80 items-center justify-center">
             <motion.div
               custom={0}
               animate={controlList}
@@ -159,7 +203,7 @@ const Header = () => {
                   className="text-orange text-32 md:text-40 font-montserrat font-bold hover:opacity-100"
                   onClick={() => toggleOpen()}
                 >
-                  Cómo funciona
+                  {f({ id: 'navLinkOne' })}
                 </a>
               </Link>
             </motion.div>
@@ -173,7 +217,7 @@ const Header = () => {
                   className="text-orange text-32 md:text-40 font-montserrat font-bold hover:opacity-100"
                   onClick={() => toggleOpen()}
                 >
-                  Por qué Lolo
+                  {f({ id: 'navLinkTwo' })}
                 </a>
               </Link>
             </motion.div>
@@ -187,7 +231,7 @@ const Header = () => {
                   className="text-orange text-32 md:text-40 font-montserrat font-bold hover:opacity-100"
                   onClick={() => toggleOpen()}
                 >
-                  Servicios
+                  {f({ id: 'navLinkThree' })}
                 </a>
               </Link>
             </motion.div>
@@ -198,9 +242,38 @@ const Header = () => {
             className="lg:hidden text-center relative"
             style={{ bottom: '8%' }}
           >
-            <a className="text-orange">Español</a>
-            <p className="text-orange opacity-50 inline-block mx-1"> • </p>
-            <a className="text-orange opacity-50">Català</a>
+            <div className="justify-center">
+              <div
+                className={`${btnLoginMobile} flex z-10 cursor-pointer justify-center max-w-8 my-0 mx-auto`}
+              >
+                <span className="mr-2 font-montserrat text-orange text-24">
+                  {f({ id: 'headerLogin' })}
+                </span>
+                <Arrow className={loginArrow} />
+              </div>
+              <span className="w-8 text-gray opacity-70">______________</span>
+              <div className="mt-4 w-auto">
+                <Link href="/" locale="es">
+                  <a
+                    className={`text-orange ${
+                      locale === 'es' ? 'opacity-100' : 'opacity-50'
+                    }`}
+                  >
+                    Español
+                  </a>
+                </Link>
+                <p className="text-orange opacity-50 inline-block mx-1"> • </p>
+                <Link href="/" locale="ca">
+                  <a
+                    className={`text-orange ${
+                      locale === 'ca' ? 'opacity-100' : 'opacity-50'
+                    }`}
+                  >
+                    Català
+                  </a>
+                </Link>
+              </div>
+            </div>
           </motion.div>
         </motion.div>
       </motion.nav>

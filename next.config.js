@@ -5,4 +5,8 @@ module.exports = {
   exportPathMap: () => ({
     '/': { page: '/' },
   }),
+  i18n: {
+    locales: ['es', 'ca'],
+    defaultLocale: 'es',
+  },
 };

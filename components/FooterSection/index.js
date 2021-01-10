@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { useIntl } from 'react-intl';
 
 import StepBlock from '../FirstSection/StepBlock';
 import useWidth from '../../hooks/useWidth';
@@ -7,6 +8,7 @@ import FooterNav from '../FooterNav';
 import { footerContainer, bgFooter } from '../../styles/index.module.css';
 
 const FooterSection = () => {
+  const { formatMessage: f } = useIntl();
   const windowWith = useWidth();
   if (windowWith === 0) null;
 
@@ -22,22 +24,22 @@ const FooterSection = () => {
       <div className={`${bgFooter}`}>
         <Image alt="Footer Background" src={src} layout="fill" quality={100} />
       </div>
-      <div className="md:px-12 md:pt-16 xl:pt-32 xl:px-32">
+      <div className="md:px-12 md:pt-16 xl:pt-32 lg:container lg:px-0">
         <StepBlock
           image="/static/images/footer1.png"
           left={false}
-          title="Pruébanos sin compromiso"
-          body="Estamos tan seguros de que te enamorarás de nuestro servicio que la primera vez que reserves te regalamos una hora gratis."
-          button="Encuentra a tu profesional"
+          title={f({ id: 'footerFirstSectionTitle' })}
+          body={f({ id: 'footerFirstSectionSubtitle' })}
+          button={f({ id: 'footerFirstSectionCTA' })}
           isFooter
           marginBottom="mb-16"
         />
         <StepBlock
           image="/static/images/footer2.png"
           left={true}
-          title="¿Quieres trabajar como cuidador?"
-          body="Somos la plataforma que te pone en contacto con familias que buscan a alguien como tú. Regístrate, recibe ofertas y selecciona las que te interesen."
-          button="Regístrate como cuidador"
+          title={f({ id: 'footerSecondSectionTitle' })}
+          body={f({ id: 'footerSecondSectionSubtitle' })}
+          button={f({ id: 'footerSecondSectionCTA' })}
           isFooter
         />
       </div>

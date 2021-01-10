@@ -25,20 +25,24 @@ const StepBlock = ({
     blockContainer: `${blockContainer} flex flex-col-reverse items-center lg:flex-row w-full xl:px-16 
       ${marginBottom || 'mb-16'} lg:mb-12 
       ${left ? 'lg:flex-row-reverse' : 'flex'} 
-      ${isFooter ? `${blockContainerFooter} px-4 xl:mb-24` : 'px-12 xl:mb-48'}`,
+      ${isFooter ? `${blockContainerFooter} xl:mb-24` : 'px-12 xl:mb-48'}`,
     title: `inline-block font-sans font-black text-center tracking-wider leading-tight w-full md:text-40
       ${
         isFooter
           ? `text-white text-24 lg:text-40 xl:text-50 lg:max-w-full lg:w-full 
             ${left ? 'lg:text-right' : 'lg:text-left'}`
-          : `text-orange text-26 lg:text-50 xl:text-60 lg:w-2/3 ${titleText} lg:text-left`
+          : `text-orange text-26 lg:text-50 xl:text-60 ${
+              marginBottom ? 'lg:w-73 lg:max-w-30' : 'lg:w-2/3'
+            } ${titleText} lg:text-left`
       }`,
     body: `inline-block font-sans py-2 text-center font-medium w-full xl:text-24 lg:py-6
       ${
         isFooter
           ? `text-white text-17 max-w-xs md:max-w-lg lg:max-w-xl md:text-20 lg:font-normal lg:w-10/12 
             ${left ? 'lg:text-right' : 'lg:text-left'}`
-          : `text-gray text-20 lg:font-black lg:w-2/3 ${bodyText} lg:text-left`
+          : `text-gray text-20 lg:font-black  ${
+              marginBottom ? 'lg:w-73 lg:max-w-30' : 'lg:w-2/3'
+            } ${bodyText} lg:text-left`
       }`,
   };
 

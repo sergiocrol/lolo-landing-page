@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { useIntl } from 'react-intl';
 
 import Circle from '../Icons/shapes/Circle';
 import Rectangle from '../Icons/shapes/Rectangle';
@@ -21,6 +22,7 @@ import {
 import { btn, btnSm } from '../../styles/components.module.css';
 
 const HeroSection = () => {
+  const { formatMessage: f } = useIntl();
   const windowWith = useWidth();
   if (windowWith === 0) null;
 
@@ -115,17 +117,20 @@ const HeroSection = () => {
       </div>
       <div className="container h-full">
         <div
-          className={`${heroText} text-center text-white opacity-90 flex-col pt-24 lg:mr-12 lg:pt-32 xl:mr-0`}
+          className={`${heroText} text-center text-white opacity-90 flex-col pt-24 lg:mr-12 lg:pt-40 xl:mr-0`}
         >
           <h1 className="inline-block text-26 font-bold font-montserrat w-4/5 leading-tight">
-            Encuentra a quién cuide de tus mayores tal y como tú lo harías
+            {f({ id: 'heroTitle' })}
+            {/* Encuentra a quién cuide de tus mayores tal y como tú lo harías */}
           </h1>
           <h2 className="inline-block text-20 font-medium w-3/5 pt-6">
-            Lolo es la plataforma que te ayuda a conectar con profesionales del
-            cuidado de personas mayores.
+            {f({ id: 'heroSubtitle' })}
+            {/* Lolo es la plataforma que te ayuda a conectar con profesionales del
+            cuidado de personas mayores. */}
           </h2>
           <div className={`${btn} ${btnSm} text-17 inline-block z-10 mt-8`}>
-            Encuentra a tu profesional
+            {f({ id: 'heroCTA' })}
+            {/* Encuentra a tu profesional */}
           </div>
         </div>
         <div className={heroImageContainer}>

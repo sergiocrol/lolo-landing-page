@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion';
+import { useIntl } from 'react-intl';
 
 function BurgerMenu({ isOpen }) {
+  const { formatMessage: f } = useIntl();
   const variantsRight = {
     open: {
       pathLength: [1, 0],
@@ -113,7 +115,7 @@ function BurgerMenu({ isOpen }) {
         variants={variantsTitle}
         initial={{ opacity: 0 }}
       >
-        cerrar
+        {f({ id: 'navClose' })}
       </motion.div>
     </div>
   );

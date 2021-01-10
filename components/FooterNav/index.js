@@ -1,8 +1,12 @@
+import Link from 'next/link';
+import { useIntl } from 'react-intl';
+
 import LogoFooter from '../Icons/LogoFooter';
 
 import { footerNav } from '../../styles/index.module.css';
 
 const FooterNav = () => {
+  const { formatMessage: f, locale } = useIntl();
   return (
     <div className={`${footerNav} absolute bottom-0 container`}>
       <div
@@ -19,25 +23,57 @@ const FooterNav = () => {
         <div className="flex items-center justify-evenly text-white text-opacity-70 mb-4 md:min-w-24 md:mb-0">
           <div className="md:flex">
             <div className="md:flex">
-              <a>Home</a>
+              <Link href="/" passHref>
+                <a className="opacity-50 hover:opacity-100">
+                  {f({ id: 'navLinkHome' })}
+                </a>
+              </Link>
               <p className="text-transparentWhite md:mx-1 inline-block"> • </p>
-              <a>Cómo funciona</a>
+              <Link href="#como-funciona" passHref>
+                <a className="opacity-50 hover:opacity-100">
+                  {f({ id: 'navLinkOne' })}
+                </a>
+              </Link>
             </div>
             <p className="text-transparentWhite hidden md:inline-block md:mx-1">
               {' '}
               •{' '}
             </p>
             <div className="md:flex">
-              <a>Por qué Lolo</a>
+              <Link href="#como-funciona" passHref>
+                <a className="opacity-50 hover:opacity-100">
+                  {f({ id: 'navLinkTwo' })}
+                </a>
+              </Link>
               <p className="text-transparentWhite md:mx-1 inline-block"> • </p>
-              <a>Servicios</a>
+              <Link href="#como-funciona" passHref>
+                <a className="opacity-50 hover:opacity-100">
+                  {f({ id: 'navLinkThree' })}
+                </a>
+              </Link>
             </div>
           </div>
           <div className="w-px bg-transparentWhite h-10 md:hidden" />
           <div className="md:hidden">
-            <a>Español</a>
+            <Link href="/" locale="es">
+              <a
+                className={`${
+                  locale === 'es' ? 'text-white' : 'text-transparentWhite'
+                } cursor-pointer hover:underline`}
+              >
+                Español
+              </a>
+            </Link>
             <p className="text-transparentWhite inline-block"> • </p>
-            <a>Català</a>
+            <Link href="/" locale="ca">
+              <a
+                className={`${
+                  locale === 'ca' ? 'text-white' : 'text-transparentWhite'
+                } cursor-pointer hover:underline`}
+              >
+                Català
+              </a>
+            </Link>
           </div>
         </div>
       </div>
