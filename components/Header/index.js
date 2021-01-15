@@ -159,12 +159,14 @@ const Header = () => {
             </a>
           </Link>
         </div>
-        <div
-          className={`${btn} ${btnSm} ${btnLogin} text-17 inline-block z-10 cursor-pointer justify-center`}
-        >
-          <span className="mr-2">{f({ id: 'headerLogin' })}</span>
-          <Arrow className={`${loginArrow} mt-1`} />
-        </div>
+        <Link href="/signup">
+          <div
+            className={`${btn} ${btnSm} ${btnLogin} text-17 inline-block z-10 cursor-pointer justify-center`}
+          >
+            <span className="mr-2">{f({ id: 'headerLogin' })}</span>
+            <Arrow className={`${loginArrow} mt-1`} />
+          </div>
+        </Link>
       </div>
       {/* Nav mobile version */}
       <motion.nav
