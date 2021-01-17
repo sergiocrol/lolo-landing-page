@@ -16,8 +16,7 @@ const messages = {
 };
 
 function MyApp({ Component, pageProps }) {
-  const { locale } = useRouter();
-
+  const { locale, pathname } = useRouter();
   return (
     <IntlProvider
       locale={locale}
@@ -32,7 +31,7 @@ function MyApp({ Component, pageProps }) {
           />
           <title>Lolo</title>
         </Head>
-        <Header />
+        { pathname.includes('signup') ? null : <Header /> }
         <Component {...pageProps} />
       </div>
     </IntlProvider>

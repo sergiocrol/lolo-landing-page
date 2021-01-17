@@ -159,12 +159,14 @@ const Header = () => {
             </a>
           </Link>
         </div>
-        <div
-          className={`${btn} ${btnSm} ${btnLogin} text-17 inline-block z-10 cursor-pointer justify-center`}
-        >
-          <span className="mr-2">{f({ id: 'headerLogin' })}</span>
-          <Arrow className={`${loginArrow} mt-1`} />
-        </div>
+        <Link href="/signup/new">
+          <div
+            className={`${btn} ${btnSm} ${btnLogin} text-17 inline-block z-10 cursor-pointer justify-center`}
+          >
+            <span className="mr-2">{f({ id: 'headerLogin' })}</span>
+            <Arrow className={`${loginArrow} mt-1`} />
+          </div>
+        </Link>
       </div>
       {/* Nav mobile version */}
       <motion.nav
@@ -243,14 +245,16 @@ const Header = () => {
             style={{ bottom: '8%' }}
           >
             <div className="justify-center">
-              <div
-                className={`${btnLoginMobile} flex z-10 cursor-pointer justify-center max-w-8 my-0 mx-auto`}
-              >
-                <span className="mr-2 font-montserrat text-orange text-24">
-                  {f({ id: 'headerLogin' })}
-                </span>
-                <Arrow className={loginArrow} />
-              </div>
+              <Link href="/signup/new">
+                <div
+                  className={`${btnLoginMobile} flex z-10 cursor-pointer justify-center max-w-8 my-0 mx-auto`}
+                >
+                  <span className="mr-2 font-montserrat text-orange text-24">
+                    {f({ id: 'headerLogin' })}
+                  </span>
+                  <Arrow className={loginArrow} />
+                </div>
+              </Link>
               <span className="w-8 text-gray opacity-70">______________</span>
               <div className="mt-4 w-auto">
                 <Link href="/" locale="es">

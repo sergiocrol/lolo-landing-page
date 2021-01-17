@@ -1,0 +1,34 @@
+/* .signupBg{
+  background:
+  linear-gradient(135deg, hsla(236.95, 57.28%, 20.2%, 1) 0%, hsla(236.95, 57.28%, 20.2%, 0) 70%),
+  linear-gradient(25deg, hsla(272.14, 66.04%, 37.33%, 1) 10%, hsla(272.14, 66.04%, 37.33%, 0) 80%),
+  linear-gradient(315deg, hsla(335.25, 84.48%, 57.73%, 1) 15%, hsla(335.25, 84.48%, 57.73%, 0) 80%),
+  linear-gradient(245deg, hsla(237.74, 80.72%, 17.35%, 1) 100%, hsla(237.74, 80.72%, 17.35%, 0) 70%);
+  background-blend-mode: screen;
+} */
+
+/* .signupBg {
+  background:
+  linear-gradient(135deg, hsla(306.71, 99.97%, 44.06%, 1) 0%, hsla(306.71, 99.97%, 44.06%, 0) 70%),
+  linear-gradient(25deg, hsla(197.24, 96.18%, 46.55%, 1) 10%, hsla(197.24, 96.18%, 46.55%, 0) 80%),
+  linear-gradient(315deg, hsla(246.86, 95.38%, 40.04%, 1) 15%, hsla(246.86, 95.38%, 40.04%, 0) 80%),
+  linear-gradient(245deg, hsla(215.98, 94.77%, 46.68%, 1) 100%, hsla(215.98, 94.77%, 46.68%, 0) 70%);
+  
+  linear-gradient(135deg, rgb(25, 7, 68) 0%, rgba(54, 22, 128, 0) 70%),
+  linear-gradient(25deg, hsla(347.64, 98.92%, 41.55%, 1) 10%, hsla(347.64, 98.92%, 41.55%, 0) 80%),
+  linear-gradient(315deg, rgb(34, 28, 92) 15%, rgba(23, 28, 78, 0) 80%),
+  linear-gradient(245deg, hsla(261.59, 98.89%, 41.92%, 1) 100%, hsla(261.59, 98.89%, 41.92%, 0) 70%);
+} */
+
+.signupBg {
+  backdrop-filter: blur(0px);
+}
+
+.signupContainer {
+  backdrop-filter: blur(10px);
+}
+
+
+/* Google reCaptcha */
+
+.grecaptcha-badge { visibility: hidden; }

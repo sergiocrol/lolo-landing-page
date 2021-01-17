@@ -15,3 +15,6 @@
   --gray: #84837E;
   --yellow: #FCF6E8;
 }
+
+
+.grecaptcha-badge { visibility: hidden; }
