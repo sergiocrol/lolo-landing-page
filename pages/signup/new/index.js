@@ -1,69 +1,29 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Image from 'next/image';
 
-import { workerSignUp } from '../../../services';
-import useScript from '../../../hooks/useScript';
+import LogoName from '../../../components/Icons/LogoName';
+import Logo from '../../../components/Icons/Logo';
+import CarerIcon from '../../../components/Icons/Carer';
+import UserIcon from '../../../components/Icons/User';
+import WorkerSignupForm from '../../../components/Forms/WorkerSignupForm';
 
-import { signupBg, signupContainer } from '../../../styles/signup.module.css';
+import { signupContainer, logoMobile, logoNameMobile } from '../../../styles/signup.module.css';
+import { userTypeButtonContainer, userTypeButtonText, userTypeIcon, userTypeButtonActive } from '../../../styles/components.module.css';
 
-const initialWorkerData = {
-  name: '',
-  email: '',
-  contactNumber: '',
-  addressStreet: '',
-  addressNumber: '',
-  city: '',
-  postCode: '',
-  rate: '',
-};
-
-const recaptchaUrl = `https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_KEY}`;
+const USER = 'user';
+const CARER = 'carer';
 
 const SignUp = () => {
-  const recaptchaStatus = useScript('recaptcha-key', recaptchaUrl);
-  const [workerData, setWorkerData] = useState(initialWorkerData);
-  const [error, setError] = useState('');
-  const [ok, setOk] = useState('');
-  const [message, setMessage] = useState('');
+  const [userType, setUserType] = useState(CARER);
 
-  console.log(recaptchaStatus);
-
-  const validateCaptcha = () => {
-    return new Promise((res, rej) => {
-      grecaptcha.ready(() => {
-        grecaptcha.execute(process.env.NEXT_PUBLIC_RECAPTCHA_KEY, { action: 'submit' }).then(token => {
-          return res(token);
-          // setWorkerData({ ...workerData, ['g-recaptcha-response']: token });
-        })
-      })
-    })
-  
+  const changeUserType = (type) => {
+    setUserType(type);
   }
-
-  const onSignUpClick = async () => {
-    try {
-      // window.grecaptcha.ready(() => {
-      //   window.grecaptcha.execute(process.env.NEXT_PUBLIC_RECAPTCHA_KEY, { action: 'submit' }).then(token => {
-      //     setWorkerData({ ...workerData, ['g-recaptcha-response']: token });
-      //   });
-      // });
-      const token = await validateCaptcha();
-      const response = await workerSignUp({ ...workerData, ['g-recaptcha-response']: token });
-      setMessage(response);
-    } catch (error) {
-      setMessage(error);
-    }
-  }
-
-  const handleChange = (event) => {
-    const name = event.target.name;
-    setWorkerData({ ...workerData, [name]: event.target.value });
-  };
 
   return (
     <div className={`bg-white`}>
       <div className="flex w-screen h-screen">
-        <div className={`w-1/3 bg-white relative`}>
+        <div className={`hidden md:flex md:w-1/3 md:bg-white md:relative`}>
           {/* <div className={`${signupBg} absolute`}>
             <Image
               src="/static/images/step3.png"
@@ -74,92 +34,33 @@ const SignUp = () => {
           </div> */}
           <div className={`${signupContainer} w-full h-screen bg-white shadow-xl`}>hola</div>
         </div>
-        <div className={`flex-1 bg-yellow flex justify-center items-center`}>
-          <div className="border-white border-2 w-10/12 ">
-            <div className="flex flex-col">
-              <label htmlFor="name">Nombre</label>
-              <input 
-                type="text"
-                name="name"
-                id="name"
-                onChange={handleChange}
-              />
+        <div className={`flex-1 bg-yellow`}>
+          <div className='w-10/12 max-w-30 my-0 mx-auto'>
+            <div className={`flex items-center h-32 justify-between`}>
+              <div className="flex items-center w-1/2">
+                <Logo className={`${logoNameMobile}`} width={39} height={38}/>
+                <LogoName className={`ml-1 ${logoMobile}`} width={50} height={40}/>
+              </div>
+              <span>accede</span>
             </div>
-            <div className="flex flex-col">
-              <label htmlFor="email">Correo electrónico</label>
-              <input 
-                type="email"
-                name="email"
-                id="email"
-                onChange={handleChange}
-              />
+            <div className="mb-6">
+              <h1 className="text-orange font-montserrat font-bold text-22 tracking-wide">Háblanos sobre ti</h1>
+              <h2 className="text-gray tracking-tight max-w-21">Cuéntanos más sobre ti para que podamos personalizar tu experiencia.</h2>
             </div>
-            <div className="flex flex-col">
-              <label htmlFor="contactNumber">Número de contacto</label>
-              <input 
-                type="number"
-                name="contactNumber"
-                id="contactNumber"
-                onChange={handleChange}
-              />
+            <div className="">
+              <span className="text-orange font-montserrat font-bold">Estás buscando,</span>
+              <div className="flex">
+                <div className={`${userTypeButtonContainer} ${userType === CARER ? userTypeButtonActive : null }`} onClick={() => changeUserType(CARER)}>
+                  <UserIcon className={`${userTypeIcon} ${userType === CARER ? userTypeButtonActive : null }`} />
+                  <span className={`${userTypeButtonText} ${userType === CARER ? userTypeButtonActive : null }`}>Clientes</span>
+                </div>
+                <div className={`${userTypeButtonContainer} ${userType === USER ? userTypeButtonActive : null }`} onClick={() => changeUserType(USER)}>
+                  <CarerIcon className={`${userTypeIcon} ${userType === USER ? userTypeButtonActive : null }`} />
+                  <span className={`${userTypeButtonText} ${userType === USER ? userTypeButtonActive : null }`}>Cuidadores</span>
+                </div>
+              </div>
             </div>
-            <div className="flex flex-col">
-              <label htmlFor="addressStreet">Dirección</label>
-              <input 
-                type="text"
-                name="addressStreet"
-                id="addressStreet"
-                onChange={handleChange}
-              />
-            </div>
-            <div className="flex flex-col">
-              <label htmlFor="addressNumber">Número</label>
-              <input 
-                type="text"
-                name="addressNumber"
-                id="addressNumber"
-                onChange={handleChange}
-              />
-            </div>
-            <div className="flex flex-col">
-              <label htmlFor="city">Ciudad</label>
-              <input 
-                type="text"
-                name="city"
-                id="city"
-                onChange={handleChange}
-              />
-            </div>
-            <div className="flex flex-col">
-              <label htmlFor="postCode">Código postal</label>
-              <input 
-                type="number"
-                name="postCode"
-                id="postCode"
-                onChange={handleChange}
-              />
-            </div>
-            <div className="flex flex-col">
-              <label htmlFor="rate">Tarifa</label>
-              <input 
-                type="number"
-                name="rate"
-                id="rate"
-                onChange={handleChange}
-              />
-            </div>
-            <div className={message.error || message.message ? 'absolute text-red-700' : 'hidden' }>{JSON.stringify(message)}</div>
-            <button onClick={onSignUpClick} className="bg-orange px-5 py-2 rounded-md text-white font-montserrat">
-              Registro
-            </button>
-            { recaptchaStatus === "ready"
-              ? <p className="text-gray text-xs mt-6">
-                This site is protected by reCAPTCHA and the Google <br/>
-                <a className="text-orange" href="https://policies.google.com/privacy">Privacy Policy</a> and
-                <a className="text-orange" href="https://policies.google.com/terms"> Terms of Service</a> apply.
-                </p>
-              : null
-            }
+            <WorkerSignupForm />
           </div>
         </div>
       </div>

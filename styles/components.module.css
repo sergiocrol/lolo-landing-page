@@ -12,3 +12,45 @@
   box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
 }
 
+@responsive{
+  .userTypeButtonContainer {
+    @apply flex mt-4 mr-4 bg-white opacity-75 rounded-lg border-2 border-gray border-opacity-50 w-32 h-12 justify-center items-center cursor-pointer;
+    width: 8.435rem;
+  }
+
+  .userTypeIcon {
+    @apply mr-1;
+    width: 21px;
+    height: 20px;
+  }
+
+  .userTypeButtonText {
+    @apply font-bold font-montserrat text-13 text-gray opacity-50;
+  }
+
+  .userTypeButtonActive {
+    @apply opacity-100;
+    border-color: #4871FF;
+    background-color: #F2F5FF;
+    fill: #4871FF;
+    color: #4871FF;
+  }
+
+  .userTypeButtonActive path {
+    fill: #4871FF;
+  }
+
+  @media (min-width: 768px) {
+    .userTypeButtonContainer {
+      @apply w-48 h-16;
+    }
+
+    .userTypeIcon {
+      @apply mr-2 w-6 h-6;
+    }
+
+    .userTypeButtonText {
+      @apply text-20;
+    }
+  }
+}

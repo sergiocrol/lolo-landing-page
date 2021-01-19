@@ -28,6 +28,17 @@
   backdrop-filter: blur(10px);
 }
 
+.logoMobile path{
+  fill: #375673;
+}
+
+.logoNameMobile path {
+  fill: #375673;
+}
+
+.logoNameMobile g path{
+  fill: #e5858f !important;
+}
 
 /* Google reCaptcha */
 
