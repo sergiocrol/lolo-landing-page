@@ -17,7 +17,7 @@
 }
 
 
-.grecaptcha-badge { visibility: hidden; }
+/* .grecaptcha-badge { visibility: hidden; }
 
 #__next {
   height: 100vh;
@@ -40,4 +40,4 @@ input[type=checkbox] {
   cursor: pointer;
   height: 0;
   width: 0;
-}
+} */
