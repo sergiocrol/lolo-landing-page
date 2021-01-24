@@ -1,4 +1,4 @@
-/* @responsive{
+@responsive{
   .btn {
     @apply text-white rounded-xl py-4 px-8;
   }
@@ -160,4 +160,4 @@ input:checked ~ .checkmark:after {
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
-} */
+}
