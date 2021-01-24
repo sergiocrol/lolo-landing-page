@@ -1,18 +1,18 @@
-.btn {
-  @apply text-white rounded-xl py-4 px-8;
-}
-
-.btnSm {
-  @apply py-3 px-4;
-  background: linear-gradient(#525283, #2d2d5b);
-}
-
-.box {
-  @apply bg-white;
-  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
-}
-
 @responsive{
+  .btn {
+    @apply text-white rounded-xl py-4 px-8;
+  }
+  
+  .btnSm {
+    @apply py-3 px-4;
+    background: linear-gradient(#525283, #2d2d5b);
+  }
+  
+  .box {
+    @apply bg-white;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+  }
+
   .userTypeButtonContainer {
     @apply flex mt-2 mr-4 bg-white opacity-75 rounded-lg border-2 border-gray border-opacity-50 w-32 h-12 justify-center items-center cursor-pointer;
     width: 8.435rem;
