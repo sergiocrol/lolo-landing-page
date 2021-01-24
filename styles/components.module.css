@@ -11,7 +11,7 @@
   @apply bg-white;
   box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
 }
-/* 
+
 @responsive{
   .userTypeButtonContainer {
     @apply flex mt-2 mr-4 bg-white opacity-75 rounded-lg border-2 border-gray border-opacity-50 w-32 h-12 justify-center items-center cursor-pointer;
@@ -160,4 +160,4 @@ input:checked ~ .checkmark:after {
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
-} */
+}

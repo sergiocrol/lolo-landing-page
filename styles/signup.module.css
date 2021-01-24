@@ -19,7 +19,7 @@
   linear-gradient(315deg, rgb(34, 28, 92) 15%, rgba(23, 28, 78, 0) 80%),
   linear-gradient(245deg, hsla(261.59, 98.89%, 41.92%, 1) 100%, hsla(261.59, 98.89%, 41.92%, 0) 70%);
 } */
-/* 
+
 .signupBg {
   backdrop-filter: blur(0px);
 }
@@ -109,4 +109,4 @@
 
 .dotSignup {
   height: 8px !important;
-} */
+}
