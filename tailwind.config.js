@@ -15,6 +15,10 @@ module.exports = {
         transparentWhite: '#FFFFFF66',
         blue1: '#404095',
         blue2: 'linear-gradient(#e66465, #9198e5)',
+        blueSignup: '#7DB4E7',
+        blueDarkSignup: '#375672',
+        redSignup: '#FAC1AE',
+        redDarkSignup: '#6B4748'
       },
       fontFamily: {
         sans: ['Lato', 'Sans-serif'],
@@ -30,7 +34,9 @@ module.exports = {
         26: '1.625rem',
         30: '1.875rem',
         32: '2rem',
+        36: '2.3rem',
         40: '2.5rem',
+        42: '2.625rem',
         50: '3.125rem',
         55: '3.4375rem',
         60: '3.75rem',
@@ -49,6 +55,8 @@ module.exports = {
       },
       width: {
         73: '73%',
+        17: '17rem',
+        60: '60rem'
       },
       maxWidth: {
         8: '8rem',
@@ -57,9 +65,11 @@ module.exports = {
         15: '15rem',
         17: '17rem',
         21: '21rem',
+        22: '22rem',
         23: '23rem',
         24: '24rem',
         26: '26rem',
+        27: '27rem',
         29: '29rem',
         30: '30.6rem',
         32: '32rem',
@@ -76,6 +86,7 @@ module.exports = {
         29: '29rem',
       },
       maxHeight: {
+        10: '10rem',
         15: '15rem',
         19: '19rem',
         21: '21rem',
@@ -97,8 +108,15 @@ module.exports = {
         90: '90%',
         80: '80%',
       },
+      inset: {
+        '1/2': '50%'
+      }
     },
   },
-  variants: {},
+  variants: {
+    opacity: ({ after }) => after(['disabled']),
+    cursor: ({ after }) => after(['disabled']),
+    backgroundColor: ({ after }) => after(['even']),
+  },
   plugins: [],
 };

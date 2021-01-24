@@ -9,10 +9,8 @@ export const workerSignUp = async (workerData) => {
     body: JSON.stringify(workerData),
   };
 
-  let data = {json: '', error: ''};
   return fetch(`${process.env.NEXT_PUBLIC_WORKER_SIGNUP}/signup`, requestOptions)
     .then(response => {
-      console.log(response);
       return response.json();
     })
     .then(json => {

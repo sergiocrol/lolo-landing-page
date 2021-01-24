@@ -35,10 +35,10 @@ const HeroSection = () => {
     src = '/static/images/bg_m.jpg';
     heroImageSize = 450;
   } else if (windowWith <= 1024) {
-    src = '/static/images/bg_l_2_r.jpg';
+    src = '/static/images/bg_l.jpg';
     heroImageSize = 550;
   } else {
-    src = '/static/images/bg_l_2_r.jpg';
+    src = '/static/images/bg_l.jpg';
     heroImageSize = 600;
   }
 
