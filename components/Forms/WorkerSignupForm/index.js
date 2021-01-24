@@ -176,9 +176,9 @@ const WorkerSignupForm = ({ showMessage, showConfirmationPage }) => {
         {currentPage === 3 ? <FormInput name="checkbox" style={{marginTop: '0rem', marginBottom: '4rem', lineHeight: '1rem'}} type="checkbox" label={<span className="text-13 font-sans font-thin leading-3">{f({ id: 'signupFormWorkerPrivacity' })} <a href="/" className="text-orange">{f({ id: 'signupFormWorkerPrivacityLink' })}</a></span>} rules={{ required: true }}/> : <></>}
         <div className={`flex justify-center mr-6 ${currentPage === 3 ? 'mt-10 md:mt-24' : 'mt-10' } relative`}>
           {currentPage !== 1 ? <button onClick={prevPage} hidden={false} className="absolute left-0 text-gray"><span className="text-orange text-17">&#171;</span> {f({ id: 'signupFormWorkerBack' })}</button> : null }
-          <div className={`${dot} ${dotSignup} ${currentPage === 1 ? selectedDot : null}`} />
-          <div className={`${dot} ${dotSignup} ${currentPage === 2 ? selectedDot : null}`} />
-          <div className={`${dot} ${dotSignup} ${currentPage === 3 ? selectedDot : null}`} />
+          <div className={`${dot} ${dotSignup} ${currentPage === 1 ? selectedDot : ''}`} />
+          <div className={`${dot} ${dotSignup} ${currentPage === 2 ? selectedDot : ''}`} />
+          <div className={`${dot} ${dotSignup} ${currentPage === 3 ? selectedDot : ''}`} />
         </div> 
         <div name="container" className="relative">
           {loading ? <div className="absolute bottom-0 z-50 w-full">

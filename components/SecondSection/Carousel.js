@@ -64,10 +64,10 @@ const CardsCarousel = () => {
         />
       </div>
       <div className="flex justify-end mr-6 mt-1">
-        <div className={`${dot} ${selectedIndex === 0 ? selectedDot : null}`} />
-        <div className={`${dot} ${selectedIndex === 1 ? selectedDot : null}`} />
-        <div className={`${dot} ${selectedIndex === 2 ? selectedDot : null}`} />
-        <div className={`${dot} ${selectedIndex === 3 ? selectedDot : null}`} />
+        <div className={`${dot} ${selectedIndex === 0 ? selectedDot : ''}`} />
+        <div className={`${dot} ${selectedIndex === 1 ? selectedDot : ''}`} />
+        <div className={`${dot} ${selectedIndex === 2 ? selectedDot : ''}`} />
+        <div className={`${dot} ${selectedIndex === 3 ? selectedDot : ''}`} />
       </div>
     </div>
   );

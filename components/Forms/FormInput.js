@@ -52,7 +52,7 @@ const FormInput = ({ register, label, errors, name, rules, hidden, options, styl
         onKeyPress={options ? (e) => keyPressEvent(e) : null}
         // onKeyDown={options ? (e) => keyDownEvent(e) : null}
         ref={register ? register(rules) : register}
-        style={{ borderLeftWidth: errors && errors[name] ? '10px' : null, borderLeftColor: errors && errors[name] ? '#FF8B81' : null }}
+        style={{ borderLeftWidth: errors && errors[name] ? '10px' : '', borderLeftColor: errors && errors[name] ? '#FF8B81' : '' }}
         {...otherProps}
       />
       {otherProps.type === 'checkbox' ? <span htmlFor={name} className={checkmark}></span> : null }

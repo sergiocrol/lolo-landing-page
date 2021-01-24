@@ -69,7 +69,7 @@ const ServiceBox = ({ title, body, image, selectedCard, setSelectedCard }) => {
       ref={outerRef}
       id="outer-box"
       className={`${box} ${serviceBox} ${
-        selectedCard === image ? active : null
+        selectedCard === image ? active : ''
       } flex w-full rounded-10 min-h-15 relative my-2 overflow-hidden lg:mx-2 lg:min-h-34 lg:min-w-14 lg:max-w-17 ${
         inViewport ? 'opacity-100' : 'opacity-70 lg:opacity-100'
       }`}
