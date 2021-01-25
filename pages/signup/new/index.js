@@ -100,10 +100,12 @@ const SignUp = () => {
           confirmationPage
           ? <div className="my-0 mx-auto flex flex-col items-center justify-center">
               <div className={`flex items-center h-24 justify-between md:hidden w-5/6`}>
-                <div className="flex items-center">
-                  <Logo className={`${logoMobile}`} width={39} height={38}/>
-                  <LogoName className={`ml-1 ${logoNameMobile}`} width={50} height={40}/>
-                </div>
+                <Link href="/">
+                  <a className="flex items-center">
+                    <Logo className={`${logoMobile}`} width={39} height={38}/>
+                    <LogoName className={`ml-1 ${logoNameMobile}`} width={50} height={40}/>
+                  </a>
+                </Link>
               </div>
               <div className="px-6 flex flex-col items-center relative pt-24 pb-10 bg-white max-w-32 mt-24 mx-4 rounded-xl shadow-md">
                 <div className="w-32 h-32 absolute top-0 transform -translate-y-1/2">
@@ -134,10 +136,12 @@ const SignUp = () => {
             : null}
             <div className='w-10/12 max-w-30 my-0 mx-auto md:mt-20'>
               <div className={`flex items-center h-24 justify-between md:hidden`}>
-                <div className="flex items-center w-1/2">
-                  <Logo className={`${logoMobile}`} width={39} height={38}/>
-                  <LogoName className={`ml-1 ${logoNameMobile}`} width={50} height={40}/>
-                </div>
+                  <Link href="/">
+                    <a className="flex items-center w-1/2">
+                      <Logo className={`${logoMobile}`} width={39} height={38}/>
+                      <LogoName className={`ml-1 ${logoNameMobile}`} width={50} height={40}/>
+                    </a>
+                  </Link>
                 <span className="hidden">accede</span>
               </div>
               <div className="mb-6">
