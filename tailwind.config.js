@@ -4,6 +4,10 @@ module.exports = {
     // purgeLayersByDefault: true,
   },
   // purge: ['./components/**/*.js', './pages/**/*.js'],
+  purge: [
+    './src/**/*.html',
+    './src/**/*.js',
+  ],
   theme: {
     extend: {
       colors: {

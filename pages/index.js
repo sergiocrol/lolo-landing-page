@@ -20,11 +20,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div 
-      exit={{ opacity: 0 }}
-      className={`bg-yellow overflow-hidden`}
-      key="home"
-    >
+    <div className={`bg-yellow overflow-hidden`}>
       <HeroSection />
       <FirstSection />
       <MiddleBanner />

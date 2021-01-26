@@ -45,11 +45,7 @@ const SignUp = () => {
   }
 
   return (
-    <div 
-      exit={{ opacity: 0 }}
-      className={`bg-yellow`}
-      key="signup"
-    >
+    <div className={`bg-yellow`}>
       <div className="flex">
         <div className={`hidden md:grid md:w-1/3 md:bg-white md:relative md:max-w-lg h-screen z-20`}>
           {
