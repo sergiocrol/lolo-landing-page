@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { useIntl } from 'react-intl';
 
 import Circle from '../Icons/shapes/Circle';
@@ -18,6 +19,7 @@ import {
   rectangleShapeHero,
   rectangleRedShapeHero,
   stickShapeHero,
+  boxShadowLight
 } from '../../styles/index.module.css';
 import { btn, btnSm } from '../../styles/components.module.css';
 
@@ -37,9 +39,12 @@ const HeroSection = () => {
   } else if (windowWith <= 1024) {
     src = '/static/images/bg_l.jpg';
     heroImageSize = 550;
+  } else if (windowWith <= 1280) {
+    src = '/static/images/bg_l.jpg';
+    heroImageSize = 550;
   } else {
     src = '/static/images/bg_l.jpg';
-    heroImageSize = 600;
+    heroImageSize = 700;
   }
 
   return (
@@ -121,17 +126,17 @@ const HeroSection = () => {
         >
           <h1 className="inline-block text-26 font-bold font-montserrat w-4/5 leading-tight">
             {f({ id: 'heroTitle' })}
-            {/* Encuentra a quién cuide de tus mayores tal y como tú lo harías */}
           </h1>
           <h2 className="inline-block text-20 font-medium w-3/5 pt-6">
             {f({ id: 'heroSubtitle' })}
-            {/* Lolo es la plataforma que te ayuda a conectar con profesionales del
-            cuidado de personas mayores. */}
           </h2>
-          <div className={`${btn} ${btnSm} text-17 inline-block z-10 mt-8`}>
-            {f({ id: 'heroCTA' })}
-            {/* Encuentra a tu profesional */}
-          </div>
+          <Link href="/signup/new">
+            <a>            
+              <div className={`${btn} ${btnSm} ${boxShadowLight} text-17 inline-block z-10 mt-8 cursor-pointer hover:shadow-md`}>
+                {f({ id: 'heroCTA' })}
+              </div>
+            </a>          
+          </Link>
         </div>
         <div className={heroImageContainer}>
           <Image

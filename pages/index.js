@@ -1,3 +1,6 @@
+import {useEffect} from 'react';
+import {init} from 'aos';
+
 import HeroSection from '../components/HeroSection';
 import FirstSection from '../components/FirstSection';
 import MiddleBanner from '../components/MiddleBanner';
@@ -8,8 +11,20 @@ import FooterSection from '../components/FooterSection';
 // import { bgBody } from '../styles/index.module.css';
 
 const Home = () => {
+  useEffect(() => {
+    init({
+      offset: 100,
+      easing: 'ease-in-out',
+      once: true
+    });
+  }, []);
+
   return (
-    <div className={`bg-yellow overflow-hidden`}>
+    <div 
+      exit={{ opacity: 0 }}
+      className={`bg-yellow overflow-hidden`}
+      key="home"
+    >
       <HeroSection />
       <FirstSection />
       <MiddleBanner />

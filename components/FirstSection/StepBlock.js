@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 import { box, btn } from '../../styles/components.module.css';
 import {
@@ -10,6 +11,7 @@ import {
   titleText,
   bodyText,
   boxFooter,
+  boxShadowDark
 } from '../../styles/index.module.css';
 
 const StepBlock = ({
@@ -61,6 +63,8 @@ const StepBlock = ({
         className={`${boxContainerFirstSection} w-full h-full relative max-w-xs lg:max-w-sm`}
       >
         <div
+          data-aos={!isFooter ? left ? 'fade-down-left' : 'fade-down-right' : ''}
+          data-aos-anchor-placement="top-right"
           className={`${boxFirstSection} ${box} ${
             isFooter ? boxFooter : null
           } rounded-40 absolute z-10 top-0 ${
@@ -79,6 +83,8 @@ const StepBlock = ({
           </div>
         </div>
         <div
+          data-aos={!isFooter ? left ? 'fade-up-right' : 'fade-up-left' : ''}
+          data-aos-anchor-placement="top-bottom"
           className={`${pattern} ${
             isFooter ? 'hidden' : 'absolute'
           } z-0 bottom-0 right-0  ${left ? 'left-0' : 'right-0'}`}
@@ -110,7 +116,11 @@ const StepBlock = ({
               isFooter && left ? 'lg:text-right' : 'lg:text-left'
             } hidden lg:block`}
           >
-            <div className={`${btn} bg-blue inline-block`}>{button}</div>
+            <Link href="/signup/new">
+              <a>
+                <div className={`${btn} ${boxShadowDark} bg-blue inline-block cursor-pointer`}>{button}</div>
+              </a>
+            </Link>
           </div>
         ) : null}
       </div>

@@ -28,7 +28,9 @@ const MiddleBanner = () => {
   }
   return (
     <div className={`${middleBannerContainer}`}>
-      <div className={bgMiddle}>
+      <div 
+      data-aos="fade-top-left"
+      className={bgMiddle}>
         <Image alt="Background" src={src} layout="fill" quality={100} />
       </div>
       <div className="container relative h-full lg:flex lg:items-center">
@@ -66,13 +68,23 @@ const MiddleBanner = () => {
           />
         </div>
         <Image
+          data-aos="fade-up-left"
           alt="Background"
-          src="/static/images/mockup3.png"
+          src="/static/images/mockup5.png"
           width={1124}
           height={1244}
           layout="responsive"
           quality={100}
         />
+        {/* <Image
+          data-aos="fade-up-left"
+          alt="Background"
+          src="/static/images/mockup4.png"
+          width={1879}
+          height={1375}
+          layout="responsive"
+          quality={100}
+        /> */}
       </div>
     </div>
   );

@@ -53,7 +53,8 @@
 
 @screen xl {
   .heroImageContainer {
-    bottom: 100px;
+    bottom: 50px;
+    transform: translateX(-50px)
   }
 }
 
@@ -192,6 +193,12 @@
   }
 }
 
+.boxShadowLight:hover {
+  -webkit-box-shadow: 2px 11px 13px -7px rgba(171, 188, 212, 0.22);
+  -moz-box-shadow: 2px 11px 13px -7px rgba(171, 188, 212, 0.22);
+  box-shadow: 2px 11px 13px -7px rgba(171, 188, 212, 0.22);
+}
+
 /* First Section */
 
 .boxContainerFirstSection {
@@ -315,6 +322,12 @@
     left: -10%;
     transform: translateX(-50%) scaleX(1);
   }
+}
+
+.boxShadowDark:hover {
+  -webkit-box-shadow: 2px 11px 13px -7px rgba(45, 45, 91, 0.22);
+  -moz-box-shadow: 2px 11px 13px -7px rgba(45, 45, 91, 0.22);
+  box-shadow: 2px 11px 13px -7px rgba(45, 45, 91, 0.22);
 }
 
 /* Middle banner */

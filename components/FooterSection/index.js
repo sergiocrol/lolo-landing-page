@@ -21,10 +21,13 @@ const FooterSection = () => {
 
   return (
     <div className={`${footerContainer} mt-32 relative`}>
-      <div className={`${bgFooter}`}>
+      <div 
+        data-aos="fade"
+        className={`${bgFooter}`}
+      >
         <Image alt="Footer Background" src={src} layout="fill" quality={100} />
       </div>
-      <div className="md:px-12 md:pt-16 xl:pt-32 lg:container lg:px-0">
+      <div className="md:px-12 md:pt-16 xl:pt-32 lg:container xl:px-0">
         <StepBlock
           image="/static/images/footer1.png"
           left={false}
