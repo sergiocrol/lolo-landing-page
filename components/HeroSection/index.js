@@ -50,7 +50,13 @@ const HeroSection = () => {
   return (
     <div className={heroContainer}>
       <div className={bgWrap}>
-        <Image alt="Background" src={src} layout="fill" quality={100} />
+        <Image 
+          alt="Background" 
+          src={src} 
+          layout="fill" 
+          quality={100} 
+          priority="true"
+        />
         {/* <div className={`${circleShapeHero} absolute hidden lg:inline-block`}>
           <Circle
             style={{ filter: 'blur(4px)', width: '100%', height: 'auto' }}
@@ -147,6 +153,7 @@ const HeroSection = () => {
             height={heroImageSize}
             layout="fixed"
             quality={100}
+            priority="true"
           />
         </div>
       </div>

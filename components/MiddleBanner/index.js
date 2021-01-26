@@ -69,6 +69,7 @@ const MiddleBanner = () => {
         </div>
         <Image
           data-aos="fade-up-left"
+          data-aos-anchor-placement="center-bottom"
           alt="Background"
           src="/static/images/mockup5.png"
           width={1124}
