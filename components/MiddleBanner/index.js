@@ -76,6 +76,7 @@ const MiddleBanner = () => {
           height={1244}
           layout="responsive"
           quality={100}
+          priority="true"
         />
         {/* <Image
           data-aos="fade-up-left"

@@ -152,11 +152,11 @@ const SignUp = () => {
                 <span className="text-orange font-montserrat font-bold md:text-22">{f({ id: 'signupFormTypeTitle' })}</span>
                 <div className="flex">
                   <div className={`${userTypeButtonContainer} ${userType === CARER ? userTypeButtonActive : '' }`} onClick={() => changeUserType(CARER)}>
-                    <UserIcon className={`${userTypeIcon} ${userType === CARER ? userTypeButtonActive : '' }`} />
+                    <CarerIcon className={`${userTypeIcon} ${userType === CARER ? userTypeButtonActive : '' }`} />
                     <span className={`${userTypeButtonText} ${userType === CARER ? userTypeButtonActive : '' }`}>{f({ id: 'signupFormWorkerButton' })}</span>
                   </div>
-                  <div className={`${userTypeButtonContainer} ${userType === USER ? userTypeButtonActive : '' }`} onClick={() => changeUserType(USER)}>
-                    <CarerIcon className={`${userTypeIcon} ${userType === USER ? userTypeButtonActive : '' }`} />
+                  <div className={`${userTypeButtonContainer} ${userType === USER ? userTypeButtonActive : '' }`} style={{cursor: 'not-allowed'}} onClick={() => showMessage({keyword: 'userTypeNotAvailable' })} /*onClick={() => changeUserType(USER)}*/>
+                    <UserIcon className={`${userTypeIcon} ${userType === USER ? userTypeButtonActive : '' }`} />
                     <span className={`${userTypeButtonText} ${userType === USER ? userTypeButtonActive : '' }`}>{f({ id: 'signupFormUserButton' })}</span>
                   </div>
                 </div>

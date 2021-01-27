@@ -1,6 +1,8 @@
+import { useEffect } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { IntlProvider } from 'react-intl';
+import { init } from 'aos';
 import '../styles/tailwind.css';
 import '../styles/aos.css';
 
@@ -18,6 +20,14 @@ const messages = {
 
 function MyApp({ Component, pageProps }) {
   const { locale, pathname } = useRouter();
+
+  useEffect(() => {
+    init({
+      offset: 100,
+      easing: 'ease-in-out',
+      once: true
+    });
+  }, []);
 
   return (
   <IntlProvider

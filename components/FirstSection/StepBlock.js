@@ -56,7 +56,11 @@ const StepBlock = ({
             isFooter ? 'mt-4' : 'mt-8'
           }`}
         >
-          <div className={`${btn} bg-blue inline-block`}>{button}</div>
+          <Link href="/signup/new" passHref={true}>
+            <a>
+              <div className={`${btn} bg-blue inline-block`}>{button}</div>
+            </a>
+          </Link>
         </div>
       ) : null}
       <div
@@ -116,9 +120,9 @@ const StepBlock = ({
               isFooter && left ? 'lg:text-right' : 'lg:text-left'
             } hidden lg:block`}
           >
-            <Link href="/signup/new">
-              <a>
-                <div className={`${btn} ${boxShadowDark} bg-blue inline-block cursor-pointer`}>{button}</div>
+            <Link href="/signup/new" passHref={true}>
+              <a className={`${btn} ${boxShadowDark} bg-blue inline-block cursor-pointer`}>
+                {button}
               </a>
             </Link>
           </div>

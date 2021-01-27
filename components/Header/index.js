@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { useState, useEffect, useRef } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { useIntl } from 'react-intl';
+import AnchorLink from 'react-anchor-link-smooth-scroll';
 
 import Logo from '../Icons/Logo';
 import BurgerMenu from '../Icons/BurgerMenu';
@@ -121,21 +122,15 @@ const Header = () => {
       </div>
       {/* Nav desktop version */}
       <div className="hidden lg:flex text-white opacity-70 text-24 min-w-29 justify-between">
-        <Link href="#como-funciona" passHref>
-          <a className="opacity-50 hover:opacity-100">
+        <AnchorLink className="opacity-50 hover:opacity-100" href="#como-funciona">
             {f({ id: 'navLinkOne' })}
-          </a>
-        </Link>
-        <Link href="#por-que-lolo" passHref>
-          <a className="opacity-50 hover:opacity-100">
+        </AnchorLink>
+        <AnchorLink className="opacity-50 hover:opacity-100" href="#por-que-lolo">
             {f({ id: 'navLinkTwo' })}
-          </a>
-        </Link>
-        <Link href="#servicios" passHref>
-          <a className="opacity-50 hover:opacity-100">
+        </AnchorLink>
+        <AnchorLink className="opacity-50 hover:opacity-100" href="#servicios">
             {f({ id: 'navLinkThree' })}
-          </a>
-        </Link>
+        </AnchorLink>
       </div>
       <div className="hidden lg:flex">
         <div className={`flex items-center pr-4`}>
