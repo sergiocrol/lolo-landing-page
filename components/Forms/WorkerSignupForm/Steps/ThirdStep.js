@@ -5,11 +5,9 @@ import FormInput from '../../FormInput';
 import FormSelect from '../../FormSelect';
 import CaringIcon from '../../../Icons/CaringIcon';
 import CleaningIcon from '../../../Icons/CleaningIcon';
+import { CLEANER, CARER } from '../../../../helpers/constants';
 
 import { formInput, formInputLabel } from '../../../../styles/components.module.css';
-
-const CLEANER = 'cleaner';
-const CARER = 'carer';
 
 const ThirdStep = ({ currentPage }) => {
   const [selectedType, setSelectedType] = useState(CARER);
@@ -37,7 +35,7 @@ const ThirdStep = ({ currentPage }) => {
           <div name="workerType" label="Funciones" className="flex mt-6 md:mt-8" style={{width: '77.5%'}} >
             <div className={`w-1/2 flex bg-white relative h-12 ${selectedType === CARER ? 'opacity-100' : 'opacity-70'}`}>
               <div className={`w-1 ${selectedType === CARER ? 'bg-orange' : '' }`}></div>
-              <FormInput id="radio1" type="radio" name="workerType" className="w-full h-full" style={{width: '100%', height: '100%', visibility: 'hidden'}} value="Cuidados" defaultChecked={selectedType === CARER} onClick={() => setSelectedType(CARER)} />
+              <FormInput id="radio1" type="radio" name="workerType" className="w-full h-full" style={{width: '100%', height: '100%', visibility: 'hidden'}} value={CARER} defaultChecked={selectedType === CARER} onClick={() => setSelectedType(CARER)} />
               <label htmlFor="radio1" className="absolute w-full h-full cursor-pointer flex justify-center items-center font-montserrat text-lightGray">
                 <CaringIcon className="hidden sm:flex" color={selectedType === CARER ? '#F78B81' : '#A4B2C3'} style={{marginRight: '5px', marginTop: '2px'}} width={18} height={18}  />
                 <span className="sm:text-20">cuidados</span>
@@ -45,7 +43,7 @@ const ThirdStep = ({ currentPage }) => {
             </div>
             <div className={`w-1/2 flex bg-white relative h-12 ml-3 ${selectedType === CLEANER ? 'opacity-100' : 'opacity-70' }`}>
               <div className={`w-1 ${selectedType === CLEANER ? 'bg-orange' : '' }`}></div>
-              <FormInput id="radio2" type="radio" name="workerType" className="w-full h-full" style={{width: '100%', height: '100%', visibility: 'hidden'}} value="Limpieza" onClick={() => setSelectedType(CLEANER)}/>
+              <FormInput id="radio2" type="radio" name="workerType" className="w-full h-full" style={{width: '100%', height: '100%', visibility: 'hidden'}} value={CLEANER} onClick={() => setSelectedType(CLEANER)}/>
               <label htmlFor="radio2" className="absolute w-full h-full cursor-pointer flex justify-center items-center font-montserrat text-lightGray opacity-70">
                 <CleaningIcon className="hidden sm:flex" color={selectedType === CLEANER ? '#F78B81' : '#A4B2C3' } style={{marginRight: '5px', marginBottom: '2px'}} width={18} height={18}  />
                 <span className="sm:text-20">limpieza</span>
@@ -59,7 +57,7 @@ const ThirdStep = ({ currentPage }) => {
         </div>
         <div name="container" className="flex relative">
           <div name="label" className={`${formInputLabel} absolute`}>{f({ id: 'signupFormWorkerFindTitle' })}</div>
-          <FormSelect name="reach" options={options} label={<span className="opacity-0">{f({ id: 'signupFormWorkerFindOtherPlaceholder' })}</span>} className={`${formInput} text-gray font-bold text-17 text-opacity-50`} style={{width: '100%' }} isOther={(val) => setShowEditable(val)} /> 
+          <FormSelect name="contactMedia" options={options} label={<span className="opacity-0">{f({ id: 'signupFormWorkerFindOtherPlaceholder' })}</span>} className={`${formInput} text-gray font-bold text-17 text-opacity-50`} style={{width: '100%' }} isOther={(val) => setShowEditable(val)} /> 
           {showEditable ? <FormInput name="otherOption" className={`${formInput}`} style={{width: '100%', marginLeft: '5%'}} placeholder={f({ id: 'signupFormWorkerFindOtherPlaceholder' })} /> : <div className="hidden"></div> }
         </div>
         <FormInput name="checkboxPermission" style={{marginTop: '0rem', marginBottom: '1rem', lineHeight: '1rem' }} type="checkbox" label={<span className="text-13 font-sans font-thin">{f({ id: 'signupFormWorkerWorkPermission' })}</span>} rules={{ required: true }}/>

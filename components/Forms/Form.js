@@ -11,10 +11,6 @@ const Form = ({ defaultValues, children, onSubmit, onDisabled, setClick, setVal,
   });
 
   useEffect(() => {
-    setClick(getValues);
-  }, [onDisabled]);
-
-  useEffect(() => {
     setVal(setValue);
   }, [back === true])
 

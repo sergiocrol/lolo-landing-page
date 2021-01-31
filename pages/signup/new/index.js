@@ -14,18 +14,17 @@ import WorkerSignupForm from '../../../components/Forms/WorkerSignupForm';
 import UserSignupForm from '../../../components/Forms/UserSignupForm';
 import Check from '../../../components/Icons/Check';
 import useScript from '../../../hooks/useScript';
+import { USER, WORKER } from '../../../helpers/constants/index';
 
 import { signupContainer, logoMobile, logoNameMobile, signupWorkerShadow, signupUserShadow } from '../../../styles/signup.module.css';
 import { userTypeButtonContainer, userTypeButtonText, userTypeIcon, userTypeButtonActive } from '../../../styles/components.module.css';
 
-const USER = 'user';
-const CARER = 'carer';
 const recaptchaUrl = `https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_KEY}`;
 
 const SignUp = () => {
   const { formatMessage: f } = useIntl();
   const recaptchaStatus = useScript('recaptcha-key', recaptchaUrl);
-  const [userType, setUserType] = useState(CARER);
+  const [userType, setUserType] = useState(WORKER);
   const [message, setMessage] = useState('');
   const [confirmationPage, setConfirmationPage] = useState(false);
   const [page, setPage] = useState(1);
@@ -51,7 +50,7 @@ const SignUp = () => {
       <div className="flex">
         <div className={`hidden md:grid md:w-1/3 md:bg-white md:relative md:max-w-lg h-screen z-20`}>
           {
-          userType === CARER
+          userType === WORKER
           ? <div className={`${signupContainer} ${signupWorkerShadow} w-full py-16 bg-blueSignup text-blueDarkSignup shadow-xl flex flex-col items-center h-full`}>
               <Link href="/">
                 <a className="flex mb-20 w-full ml-20">
@@ -158,15 +157,15 @@ const SignUp = () => {
                 <span className="text-orange font-montserrat font-bold md:text-22">
                   {f({ id: 'signupFormTypeTitle' })}&nbsp;
                   {page !== 1 
-                    ? <span className={`${userType === CARER ? 'text-redDarkSignup' : 'text-redDarkSignup' }`}>{f({ id: userType === CARER ? 'signupFormWorkerButton' : 'signupFormUserButton' }).toLowerCase()}</span> 
+                    ? <span className={`${userType === WORKER ? 'text-redDarkSignup' : 'text-redDarkSignup' }`}>{f({ id: userType === WORKER ? 'signupFormWorkerButton' : 'signupFormUserButton' }).toLowerCase()}</span> 
                     : null
                   }
                 </span>
                 {page === 1
                   ? <div className="flex">
-                      <div className={`${userTypeButtonContainer} ${userType === CARER ? userTypeButtonActive : '' }`} onClick={() => changeUserType(CARER)}>
-                        <CarerIcon className={`${userTypeIcon} ${userType === CARER ? userTypeButtonActive : '' }`} />
-                        <span className={`${userTypeButtonText} ${userType === CARER ? userTypeButtonActive : '' }`}>{f({ id: 'signupFormWorkerButton' })}</span>
+                      <div className={`${userTypeButtonContainer} ${userType === WORKER ? userTypeButtonActive : '' }`} onClick={() => changeUserType(WORKER)}>
+                        <CarerIcon className={`${userTypeIcon} ${userType === WORKER ? userTypeButtonActive : '' }`} />
+                        <span className={`${userTypeButtonText} ${userType === WORKER ? userTypeButtonActive : '' }`}>{f({ id: 'signupFormWorkerButton' })}</span>
                       </div>
                       <div className={`${userTypeButtonContainer} ${userType === USER ? userTypeButtonActive : '' }`} style={{cursor: 'not-allowed'}} onClick={() => showMessage({keyword: 'userTypeNotAvailable' })} /*onClick={() => changeUserType(USER)}*/>
                         <UserIcon className={`${userTypeIcon} ${userType === USER ? userTypeButtonActive : '' }`} />
@@ -177,7 +176,7 @@ const SignUp = () => {
                 }
               </div>
               {
-                userType === CARER
+                userType === WORKER
                 ? <WorkerSignupForm showMessage={showMessage} showConfirmationPage={showConfirmationPage} setPage={(page) => setPage(page) } />
                 : <UserSignupForm />
               }
