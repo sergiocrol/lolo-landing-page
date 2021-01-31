@@ -31,19 +31,24 @@ const HeroSection = () => {
   let src;
   let heroImageSize;
   if (windowWith <= 640) {
-    src = '/static/images/bg_s.jpg';
+    // src = '/static/images/bg_s.jpg';
+    src = '/static/images/ft_s_2.jpg';
     heroImageSize = 360;
   } else if (windowWith <= 767) {
-    src = '/static/images/bg_m.jpg';
+    // src = '/static/images/bg_m.jpg';
+    src = '/static/images/ft_s_2.jpg';
     heroImageSize = 450;
   } else if (windowWith <= 1024) {
-    src = '/static/images/bg_l.jpg';
+    // src = '/static/images/bg_l.jpg';
+    src = '/static/images/ft_l.jpg';
     heroImageSize = 550;
   } else if (windowWith <= 1280) {
-    src = '/static/images/bg_l.jpg';
+    // src = '/static/images/bg_l.jpg';
+    src = '/static/images/ft_l.jpg';
     heroImageSize = 550;
   } else {
-    src = '/static/images/bg_l.jpg';
+    // src = '/static/images/bg_l.jpg';
+    src = '/static/images/ft_l.jpg';
     heroImageSize = 700;
   }
 

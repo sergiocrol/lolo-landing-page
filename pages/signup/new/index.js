@@ -7,6 +7,7 @@ import LogoName from '../../../components/Icons/LogoName';
 import Logo from '../../../components/Icons/Logo';
 import LogoNameSignup from '../../../components/Icons/LogoNameSignup';
 import LogoSignup from '../../../components/Icons/LogoSignup';
+import LogoAlt from '../../../components/Icons/LogoAlt';
 import CarerIcon from '../../../components/Icons/Carer';
 import UserIcon from '../../../components/Icons/User';
 import WorkerSignupForm from '../../../components/Forms/WorkerSignupForm';
@@ -27,6 +28,7 @@ const SignUp = () => {
   const [userType, setUserType] = useState(CARER);
   const [message, setMessage] = useState('');
   const [confirmationPage, setConfirmationPage] = useState(false);
+  const [page, setPage] = useState(1);
 
   const changeUserType = (type) => {
     setUserType(type);
@@ -54,7 +56,8 @@ const SignUp = () => {
               <Link href="/">
                 <a className="flex mb-20 w-full ml-20">
                   <div className="hidden md:flex">
-                    <LogoSignup rectangle='#375672' line='#E5858F' width={49} height={48}/>
+                    {/* <LogoSignup rectangle='#375672' line='#E5858F' width={49} height={48}/> */}
+                    <LogoAlt heart='#375672' door='#E5858F' width={49} height={48} />
                     <LogoNameSignup line='#375672' className={`ml-1`} width={60} height={50}/>
                   </div>
                 </a>
@@ -69,14 +72,15 @@ const SignUp = () => {
               </div>
               <div className="flex flex-col justify-center items-center mt-24 mb-12">
                 <h1 className="font-montserrat font-extrabold tracking-normal text-22 md:text-22 lg:text-30 xl:text-36 text-left w-5/6">{f({ id: 'signupWorkerPanelTitle' })}</h1>
-                <h2 className="text-17 md:text-17 lg:text-22 xl:text-26 w-5/6 lg:pr-10">{f({ id: 'signupWorkerPanelSubtitle' })}</h2>
+                <h2 className="text-17 md:text-17 lg:text-22 xl:text-26 w-5/6 lg:pr-10 mb-10">{f({ id: 'signupWorkerPanelSubtitle' })}</h2>
               </div>
             </div>
           : <div className={`${signupContainer} ${signupUserShadow} w-full py-16 bg-redSignup text-redDarkSignup shadow-xl flex flex-col items-center h-full`}>
           <Link href="/">
             <a className="flex mb-20 w-full ml-20">
               <div className="hidden md:flex">
-                <LogoSignup rectangle='#6b4748' line='#E5858F' width={49} height={48}/>
+                {/* <LogoSignup rectangle='#6b4748' line='#E5858F' width={49} height={48}/> */}
+                <LogoAlt heart='#6b4748' door='#E5858F' width={49} height={48} />
                 <LogoNameSignup line='#6b4748' className={`ml-1`} width={60} height={50}/>
               </div>
             </a>
@@ -102,7 +106,8 @@ const SignUp = () => {
               <div className={`flex items-center h-24 justify-between md:hidden w-5/6`}>
                 <Link href="/">
                   <a className="flex items-center">
-                    <Logo className={`${logoMobile}`} width={39} height={38}/>
+                    {/* <Logo className={`${logoMobile}`} width={39} height={38}/> */}
+                    <LogoAlt heart="#375673" width={39} height={38}/>
                     <LogoName className={`ml-1 ${logoNameMobile}`} width={50} height={40}/>
                   </a>
                 </Link>
@@ -138,7 +143,8 @@ const SignUp = () => {
               <div className={`flex items-center h-24 justify-between md:hidden`}>
                   <Link href="/">
                     <a className="flex items-center w-1/2">
-                      <Logo className={`${logoMobile}`} width={39} height={38}/>
+                      {/* <Logo className={`${logoMobile}`} width={39} height={38}/> */}
+                      <LogoAlt heart="#375673" width={39} height={38}/>
                       <LogoName className={`ml-1 ${logoNameMobile}`} width={50} height={40}/>
                     </a>
                   </Link>
@@ -148,22 +154,31 @@ const SignUp = () => {
                 <h1 className="text-orange font-montserrat font-bold text-22 tracking-wide md:text-4xl">{f({ id: 'signupFormTitle' })}</h1>
                 <h2 className="text-gray tracking-tight max-w-21 md:text-22 md:max-w-26">{f({ id: 'signupFormSubtitle' })}</h2>
               </div>
-              <div className="md:mb-10">
-                <span className="text-orange font-montserrat font-bold md:text-22">{f({ id: 'signupFormTypeTitle' })}</span>
-                <div className="flex">
-                  <div className={`${userTypeButtonContainer} ${userType === CARER ? userTypeButtonActive : '' }`} onClick={() => changeUserType(CARER)}>
-                    <CarerIcon className={`${userTypeIcon} ${userType === CARER ? userTypeButtonActive : '' }`} />
-                    <span className={`${userTypeButtonText} ${userType === CARER ? userTypeButtonActive : '' }`}>{f({ id: 'signupFormWorkerButton' })}</span>
-                  </div>
-                  <div className={`${userTypeButtonContainer} ${userType === USER ? userTypeButtonActive : '' }`} style={{cursor: 'not-allowed'}} onClick={() => showMessage({keyword: 'userTypeNotAvailable' })} /*onClick={() => changeUserType(USER)}*/>
-                    <UserIcon className={`${userTypeIcon} ${userType === USER ? userTypeButtonActive : '' }`} />
-                    <span className={`${userTypeButtonText} ${userType === USER ? userTypeButtonActive : '' }`}>{f({ id: 'signupFormUserButton' })}</span>
-                  </div>
-                </div>
+              <div className={`${page === 1 ? 'md:mb-10' : ''}`}>
+                <span className="text-orange font-montserrat font-bold md:text-22">
+                  {f({ id: 'signupFormTypeTitle' })}&nbsp;
+                  {page !== 1 
+                    ? <span className={`${userType === CARER ? 'text-redDarkSignup' : 'text-redDarkSignup' }`}>{f({ id: userType === CARER ? 'signupFormWorkerButton' : 'signupFormUserButton' }).toLowerCase()}</span> 
+                    : null
+                  }
+                </span>
+                {page === 1
+                  ? <div className="flex">
+                      <div className={`${userTypeButtonContainer} ${userType === CARER ? userTypeButtonActive : '' }`} onClick={() => changeUserType(CARER)}>
+                        <CarerIcon className={`${userTypeIcon} ${userType === CARER ? userTypeButtonActive : '' }`} />
+                        <span className={`${userTypeButtonText} ${userType === CARER ? userTypeButtonActive : '' }`}>{f({ id: 'signupFormWorkerButton' })}</span>
+                      </div>
+                      <div className={`${userTypeButtonContainer} ${userType === USER ? userTypeButtonActive : '' }`} style={{cursor: 'not-allowed'}} onClick={() => showMessage({keyword: 'userTypeNotAvailable' })} /*onClick={() => changeUserType(USER)}*/>
+                        <UserIcon className={`${userTypeIcon} ${userType === USER ? userTypeButtonActive : '' }`} />
+                        <span className={`${userTypeButtonText} ${userType === USER ? userTypeButtonActive : '' }`}>{f({ id: 'signupFormUserButton' })}</span>
+                      </div>
+                    </div>
+                  : null
+                }
               </div>
               {
                 userType === CARER
-                ? <WorkerSignupForm showMessage={showMessage} showConfirmationPage={showConfirmationPage} />
+                ? <WorkerSignupForm showMessage={showMessage} showConfirmationPage={showConfirmationPage} setPage={(page) => setPage(page) } />
                 : <UserSignupForm />
               }
               { recaptchaStatus === "ready"

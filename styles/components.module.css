@@ -6,6 +6,7 @@
   .btnSm {
     @apply py-3 px-4;
     background: linear-gradient(#525283, #2d2d5b);
+    /* background: linear-gradient(180deg, rgba(147, 64, 110, 1) 0%, #93406E 100%); */
   }
   
   .box {
@@ -43,6 +44,8 @@
   .formInput {
     @apply h-12 rounded-10 bg-white outline-none;
     text-indent: 10px;
+    appearance: none;
+    -webkit-appearance:none;
   }
 
   .formInput:focus {

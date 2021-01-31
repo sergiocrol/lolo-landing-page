@@ -5,6 +5,7 @@ import { useIntl } from 'react-intl';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 
 import Logo from '../Icons/Logo';
+import LogoAlt from '../Icons/LogoAlt';
 import BurgerMenu from '../Icons/BurgerMenu';
 import LogoName from '../Icons/LogoName';
 import Arrow from '../Icons/Arrow';
@@ -101,8 +102,11 @@ const Header = () => {
       } fixed top-0 w-screen flex justify-between items-center px-8 py-2 lg:bg-transparent lg:shadow-none lg:flex lg:container lg:absolute lg:max-w-full lg:justify-around lg:h-24 lg:mt-4 lg:px-12 xl:px-0`}
     >
       <div className="flex align-middle">
-        <div className={`${logo} w-3`}>
+        {/* <div className={`${logo} w-3`}>
           <Logo />
+        </div> */}
+        <div className={`${logo} w-3`}>
+          <LogoAlt />
         </div>
         <div
           className={`

@@ -4,10 +4,15 @@ import { useIntl } from 'react-intl';
 
 import Form from '../Form';
 import FormInput from '../FormInput';
+import FormSelect from '../FormSelect';
 import Spinner from '../../Spinner';
 import { workerSignUp } from '../../../services';
 
-import { formInput } from '../../../styles/components.module.css';
+import FirstStep from './Steps/FirstStep';
+import SecondStep from './Steps/SecondStep';
+import ThirdStep from './Steps/ThirdStep';
+
+import { formInput, formInputLabel } from '../../../styles/components.module.css';
 import { dot, selectedDot } from '../../../styles/index.module.css';
 import { dotSignup } from '../../../styles/signup.module.css';
 
@@ -24,7 +29,7 @@ const initialWorkerData = {
 
 const workerOptionalFields = [ 'addressFloor', 'addressDoor' ];
 
-const WorkerSignupForm = ({ showMessage, showConfirmationPage }) => {
+const WorkerSignupForm = ({ showMessage, showConfirmationPage, setPage }) => {
   const { formatMessage: f } = useIntl();
   const { formState: {isValid} } = useForm({ mode: 'onChange '});
   const [currentPage, setCurrentPage] = useState(1);
@@ -32,22 +37,27 @@ const WorkerSignupForm = ({ showMessage, showConfirmationPage }) => {
   const [disabled, setDisabled] = useState(true);
   const [back, setBack] = useState(false);
   const [completedPage, setCompletedPage] = useState({pageOne: false, pageTwo: false, pageThree: false});
-  const [postalCodes, setPostalCodes] = useState([]);
+  // const [postalCodes, setPostalCodes] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [showEditable, setShowEditable] = useState(false);
 
   let clickChild = null;
 
+  // useEffect(() => {
+  //   let postCodeList = [];
+  //   for(let code = 8000; code < 9000; code++) {
+  //     const newPostCode = {
+  //       label: `0${code}`,
+  //       value: `barcelona`
+  //     }
+  //     postCodeList.push(newPostCode);
+  //   } 
+  //   setPostalCodes(postCodeList);
+  // }, []);
+
   useEffect(() => {
-    let postCodeList = [];
-    for(let code = 8000; code < 9000; code++) {
-      const newPostCode = {
-        label: `0${code}`,
-        value: `barcelona`
-      }
-      postCodeList.push(newPostCode);
-    } 
-    setPostalCodes(postCodeList);
-  }, []);
+    setPage(currentPage);
+  }, [currentPage])
 
   const validateCaptcha = () => {
     return new Promise((res, rej) => {
@@ -73,6 +83,7 @@ const WorkerSignupForm = ({ showMessage, showConfirmationPage }) => {
   }
 
   const onSignUpClick = async (data) => {
+    console.log('data',data)
     const values = clickChild();
     const formattedValues = checkOptionalFields(values);
     setWorkerData({...workerData, ...formattedValues});
@@ -82,16 +93,17 @@ const WorkerSignupForm = ({ showMessage, showConfirmationPage }) => {
       setCurrentPage(currentPage+1);
       setBack(!back);
     }else{
-      try {
-        setLoading(true);
-        const token = await validateCaptcha();
-        const response = await workerSignUp({ ...workerData, rate: data.rate, city: 'Barcelona', ['g-recaptcha-response']: token });
-        setLoading(false);
-        messageLogic(response);
-      } catch (error) {
-        setLoading(false);
-        messageLogic(error);
-      }
+      console.log({ ...workerData, rate: data.rate, city: 'Barcelona'});
+      // try {
+      //   setLoading(true);
+      //   const token = await validateCaptcha();
+      //   const response = await workerSignUp({ ...workerData, rate: data.rate, city: 'Barcelona', ['g-recaptcha-response']: token });
+      //   setLoading(false);
+      //   messageLogic(response);
+      // } catch (error) {
+      //   setLoading(false);
+      //   messageLogic(error);
+      // }
     }
   }
 
@@ -131,12 +143,13 @@ const WorkerSignupForm = ({ showMessage, showConfirmationPage }) => {
   }
 
   return (
-    <div className="mt-6 relative">
+    <div className="mt-4 relative">
       <Form onSubmit={onSignUpClick} onDisabled={(isValid) => setDisabled(isValid)} setClick={click => clickChild = click} setVal={(e) => populateFields(e)} back={back}>
-        {currentPage === 1 ? <FormInput name="name" label={f({ id: 'signupFormWorkerName' })} rules={{ required: f({ id: 'signupFormFieldError' }) }} hidden={currentPage !== 1} className={`${formInput}`} /> : <></>}
+        <FirstStep currentPage={currentPage} />
+        {/* {currentPage === 1 ? <FormInput name="name" label={f({ id: 'signupFormWorkerName' })} rules={{ required: f({ id: 'signupFormFieldError' }) }} hidden={currentPage !== 1} className={`${formInput}`} /> : <></>}
         {currentPage === 1 ? <FormInput type="email" name="email" label={f({ id: 'signupFormWorkerEmail' })}rules={{ required: f({ id: 'signupFormFieldError' }), pattern: {value: /\S+@\S+\.\S+/, message: f({ id: 'signupFormValidEmail' })} }} hidden={currentPage !== 1} className={`${formInput}`} /> : <></>}
-        {currentPage === 1 ? <FormInput type="number" name="contactNumber" label={f({ id: 'signupFormWorkerPhone' })} rules={{ required: f({ id: 'signupFormFieldError' })}} hidden={currentPage !== 1} className={`${formInput}`} /> : <></>}
-        {currentPage === 2 ? 
+        {currentPage === 1 ? <FormInput type="number" name="contactNumber" label={f({ id: 'signupFormWorkerPhone' })} rules={{ required: f({ id: 'signupFormFieldError' })}} hidden={currentPage !== 1} className={`${formInput}`} /> : <></>} */}
+        {/* {currentPage === 2 ? 
           <div name="container" className="flex items-center">
             <FormInput name="addressStreet" label={f({ id: 'signupFormWorkerAddressStreet' })} rules={{ required: f({ id: 'signupFormFieldError' }) }} hidden={currentPage !== 2} className={`${formInput}`} style={{width: '77.5%'}} />
             <FormInput name="addressNumber" label={f({ id: 'signupFormWorkerAddressNumber' })} rules={{ required: f({ id: 'signupFormFieldError' }) }} hidden={currentPage !== 2} className={`${formInput}`} style={{width: '27.5%', marginLeft: '5%'}} />
@@ -153,10 +166,9 @@ const WorkerSignupForm = ({ showMessage, showConfirmationPage }) => {
             <FormInput type="number" name="postCode" label={f({ id: 'signupFormWorkerPostalCode' })} rules={{ validate: value => checkPostCode(value) || f({ id: 'signupFormValidPostcode' })}} options={postalCodes} hidden={currentPage !== 2} className={`${formInput}`} style={{width: '47.5%'}} />
             <FormInput name="city" label={f({ id: 'signupFormWorkerCity' })} placeholder="Barcelona" hidden={currentPage !== 2} className={`${formInput} disabled:cursor-not-allowed`} style={{width: '47.5%', marginLeft: '5%'}} disabled />
           </div> 
-        : <></>}
-        {/* {currentPage === 2 ? <FormInput name="addressNumber" label="Número de portal" rules={{ required: "Address number is required" }} hidden={currentPage !== 2} className={`${formInput}`} /> : <></>} */}
-        {/* {currentPage === 2 ? <FormInput type="number" name="postCode" label="Código postal" rules={{ required: "Postalcode is required" }} options={postalCodes} hidden={currentPage !== 2} className={`${formInput}`} /> : <></>} */}
-        {currentPage === 3 ? 
+        : <></>} */}
+        <SecondStep currentPage={currentPage} />
+        {/* {currentPage === 3 ? 
           <div className="bg-white text-13 text-gray opacity-75 py-4 px-6 text-justify mb-6 max-w-27 flex border-t-2 border-orange shadow-md relative z-50">
             <div className="py-1">
               <svg className="fill-current h-5 w-5 text-orange mr-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -164,7 +176,6 @@ const WorkerSignupForm = ({ showMessage, showConfirmationPage }) => {
               </svg>
             </div>
             <p>{f({ id: 'signupFormWorkerRateInfo' })}</p>
-            {/* <div className={`${arrowTooltip}`}></div> */}
           </div> 
         : <></> }
         {currentPage === 3 ? 
@@ -173,8 +184,17 @@ const WorkerSignupForm = ({ showMessage, showConfirmationPage }) => {
             <div className="ml-4 w-3/12 font-montserrat text-gray font-bold opacity-70 text-17">{f({ id: 'signupFormWorkerRateValue' })}</div>
           </div>
         : <></>}
-        {currentPage === 3 ? <FormInput name="checkbox" style={{marginTop: '0rem', marginBottom: '4rem', lineHeight: '1rem'}} type="checkbox" label={<span className="text-13 font-sans font-thin leading-3">{f({ id: 'signupFormWorkerPrivacity' })} <a href="/" className="text-orange">{f({ id: 'signupFormWorkerPrivacityLink' })}</a></span>} rules={{ required: true }}/> : <></>}
-        <div className={`flex justify-center mr-6 ${currentPage === 3 ? 'mt-10 md:mt-24' : 'mt-10' } relative`}>
+        {currentPage === 3 ? 
+          <div name="container" className="flex relative">
+            <div name="label" className={`${formInputLabel} absolute`}>¿Cómo nos has encontrado?</div>
+            <FormSelect name="reach" options={[{name:'Google'}, {name: 'Facebook'}, {name: 'Otro', editable: true}]} label={<span className="opacity-0">Cómo</span>} className={`${formInput}`} style={{width: '100%' }} isOther={(val) => setShowEditable(val)} /> 
+            {showEditable ? <FormInput name="otherOption" className={`${formInput}`} style={{width: '100%', marginLeft: '5%'}} placeholder="¿Cómo?" /> : <div className="hidden"></div> }
+          </div>
+        : <></> }
+        {currentPage === 3 ? <FormInput name="checkboxPermission" style={{marginTop: '0rem', marginBottom: '1rem', lineHeight: '1rem' }} type="checkbox" label={<span className="text-13 md:text-15">¿Tienes permiso para trabajar en España?</span>} rules={{ required: true }}/> : <></>}
+        {currentPage === 3 ? <FormInput name="checkbox" style={{marginTop: '0rem', marginBottom: '4rem', lineHeight: '1rem'}} type="checkbox" label={<span className="text-13 font-sans font-thin leading-3">{f({ id: 'signupFormWorkerPrivacity' })} <a href="/" className="text-orange">{f({ id: 'signupFormWorkerPrivacityLink' })}</a></span>} rules={{ required: true }}/> : <></>} */}
+        <ThirdStep currentPage={currentPage} />
+        <div className={`flex justify-center mr-6 ${currentPage === 3 ? 'mt-10 md:mt-20' : 'mt-10' } relative`}>
           {currentPage !== 1 ? <button onClick={prevPage} hidden={false} className="absolute left-0 text-gray"><span className="text-orange text-17">&#171;</span> {f({ id: 'signupFormWorkerBack' })}</button> : null }
           <div className={`${dot} ${dotSignup} ${currentPage === 1 ? selectedDot : ''}`} />
           <div className={`${dot} ${dotSignup} ${currentPage === 2 ? selectedDot : ''}`} />
@@ -191,6 +211,7 @@ const WorkerSignupForm = ({ showMessage, showConfirmationPage }) => {
             hidden={false} 
             className="bg-orange text-white cursor-pointer rounded-md h-12 w-full font-montserrat text-20 disabled:opacity-50 disabled:cursor-not-allowed mt-3" 
             disabled={disabled || loading}
+            // disabled={false}
           />
            {/* md:w-17 */}
         </div>

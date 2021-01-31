@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { useIntl } from 'react-intl';
 
 import LogoFooter from '../Icons/LogoFooter';
+import LogoFooterAlt from '../Icons/LogoFooterAlt';
 
 import { footerNav } from '../../styles/index.module.css';
 
@@ -14,7 +15,8 @@ const FooterNav = () => {
       >
         <div className={`flex items-center justify-center md:justify-start`}>
           <div className={`w-12 mr-3`}>
-            <LogoFooter style={{ width: '100%' }} />
+            {/* <LogoFooter style={{ width: '100%' }} /> */}
+            <LogoFooterAlt style={{ width: '100%', height: 'auto' }} />
           </div>
           <p className={`text-white text-opacity-70 text-13`}>
             Copyrights © 2020 All Rights Reserved by Lolo.

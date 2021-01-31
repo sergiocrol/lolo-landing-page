@@ -22,8 +22,8 @@ const FooterSection = () => {
   return (
     <div className={`${footerContainer} mt-32 relative`}>
       <div 
-        data-aos="fade"
-        data-aos-anchor-placement="top-bottom"
+        // data-aos="fade"
+        // data-aos-anchor-placement="top-bottom"
         className={`${bgFooter}`}
       >
         <Image alt="Footer Background" src={src} layout="fill" quality={100} />

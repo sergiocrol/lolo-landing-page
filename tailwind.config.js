@@ -10,6 +10,7 @@ module.exports = {
         blue: '#2D2D5B',
         orange: '#FF8B81',
         gray: '#84837E',
+        lightGray: '#bcbaba',
         yellow: '#FCF6E8',
         violet: '#89879D',
         transparentWhite: '#FFFFFF66',
@@ -26,6 +27,7 @@ module.exports = {
       },
       fontSize: {
         13: '0.8125rem',
+        14: '0.875rem',
         15: '0.9376rem',
         17: '1.0625rem',
         20: '1.25rem',
