@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { IntlProvider } from 'react-intl';
-import { init } from 'aos';
+import AOS from 'aos';
 import '../styles/tailwind.css';
 import '../styles/aos.css';
 
@@ -22,12 +22,18 @@ function MyApp({ Component, pageProps }) {
   const { locale, pathname } = useRouter();
 
   useEffect(() => {
-    init({
+    AOS.init({
       offset: 100,
       easing: 'ease-in-out',
       once: true
     });
   }, []);
+
+  useEffect(() => {
+    if (AOS) {
+      AOS.refresh();
+    }
+  });
 
   return (
   <IntlProvider
