@@ -27,13 +27,8 @@ function MyApp({ Component, pageProps }) {
       easing: 'ease-in-out',
       once: true
     });
+    AOS.refreshHard();
   }, []);
-
-  useEffect(() => {
-    if (AOS) {
-      AOS.refresh();
-    }
-  });
 
   return (
   <IntlProvider
