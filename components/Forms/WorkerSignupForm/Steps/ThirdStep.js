@@ -5,35 +5,49 @@ import FormInput from '../../FormInput';
 import FormSelect from '../../FormSelect';
 import CaringIcon from '../../../Icons/CaringIcon';
 import CleaningIcon from '../../../Icons/CleaningIcon';
+import useModal from '../../../../hooks/useModal';
+import Modal from '../../../Modals/Modal';
+import ModalWorker from '../../../Modals/ModalWorker';
 import { CLEANER, CARER } from '../../../../helpers/constants';
 
 import { formInput, formInputLabel } from '../../../../styles/components.module.css';
 
 const ThirdStep = ({ currentPage }) => {
+  const {isShowing, toggle} = useModal();
   const [selectedType, setSelectedType] = useState(CARER);
   const [showEditable, setShowEditable] = useState(false);
+  const [workerType, setWorkerType] = useState(CARER);
   const { formatMessage: f } = useIntl();
   const options = [
     {name:'Google'}, 
     {name: 'Facebook'}, 
     {name: f({ id: 'signupFormWorkerFindOther' }), editable: true}
   ]
+  
+  const showModel = (workerType) => {
+    toggle();
+    setWorkerType(workerType);
+  }
 
   return (
     currentPage === 3 ? 
       <div>
-        <div className="bg-white text-13 text-gray opacity-75 py-4 px-6 text-left mb-6 flex border-t-2 border-orange shadow-md relative z-50">
+        <Modal isShowing={isShowing} hide={toggle} component={<ModalWorker type={workerType} />} />
+        <div className="bg-white text-13 text-gray py-4 px-6 text-left mb-6 md:mb-7 flex border-t-2 border-orange shadow-md relative z-50">
           <div className="py-1">
             <svg className="fill-current h-5 w-5 text-orange mr-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
               <path d="M12.432 0c1.34 0 2.01.912 2.01 1.957 0 1.305-1.164 2.512-2.679 2.512-1.269 0-2.009-.75-1.974-1.99C9.789 1.436 10.67 0 12.432 0zM8.309 20c-1.058 0-1.833-.652-1.093-3.524l1.214-5.092c.211-.814.246-1.141 0-1.141-.317 0-1.689.562-2.502 1.117l-.528-.88c2.572-2.186 5.531-3.467 6.801-3.467 1.057 0 1.233 1.273.705 3.23l-1.391 5.352c-.246.945-.141 1.271.106 1.271.317 0 1.357-.392 2.379-1.207l.6.814C12.098 19.02 9.365 20 8.309 20z"/>
             </svg>
           </div>
-          <p>{f({ id: 'signupFormWorkerRateInfo' })}<span className="text-orange font-bold"> {f({ id: 'signupFormWorkerRateInfoCaring' })}</span> {f({ id: 'signupFormWorkerRateInfoConnection' })}<span className="text-orange font-bold"> {f({ id: 'signupFormWorkerRateInfoCleaning' })}</span></p>
+          <p className="md:text-15">{f({ id: 'signupFormWorkerRateInfo' })}
+            <span className="text-orange font-bold cursor-pointer hover:text-redDarkSignup" onClick={() => showModel(CARER)}> {f({ id: 'signupFormWorkerRateInfoCaring' })}</span> {f({ id: 'signupFormWorkerRateInfoConnection' })}
+            <span className="text-orange font-bold cursor-pointer hover:text-redDarkSignup" onClick={() => showModel(CLEANER)}> {f({ id: 'signupFormWorkerRateInfoCleaning' })}</span>
+          </p>
         </div> 
         <div name="container" className="flex relative">
           <div name="label" className={`${formInputLabel} absolute`}>{f({ id: 'signupFormWorkerTypeTitle' })}</div>
           <div name="workerType" label="Funciones" className="flex mt-6 md:mt-8" style={{width: '77.5%'}} >
-            <div className={`w-1/2 flex bg-white relative h-12 ${selectedType === CARER ? 'opacity-100' : 'opacity-70'}`}>
+            <div className={`w-1/2 flex bg-white relative h-12 ${selectedType === CARER ? 'opacity-100 shadow-md' : 'opacity-70'}`}>
               <div className={`w-1 ${selectedType === CARER ? 'bg-orange' : '' }`}></div>
               <FormInput id="radio1" type="radio" name="workerType" className="w-full h-full" style={{width: '100%', height: '100%', visibility: 'hidden'}} value={CARER} defaultChecked={selectedType === CARER} onClick={() => setSelectedType(CARER)} />
               <label htmlFor="radio1" className="absolute w-full h-full cursor-pointer flex justify-center items-center font-montserrat text-lightGray">
@@ -41,7 +55,7 @@ const ThirdStep = ({ currentPage }) => {
                 <span className="sm:text-20">cuidados</span>
               </label>
             </div>
-            <div className={`w-1/2 flex bg-white relative h-12 ml-3 ${selectedType === CLEANER ? 'opacity-100' : 'opacity-70' }`}>
+            <div className={`w-1/2 flex bg-white relative h-12 ml-3 ${selectedType === CLEANER ? 'opacity-100 shadow-md' : 'opacity-70' }`}>
               <div className={`w-1 ${selectedType === CLEANER ? 'bg-orange' : '' }`}></div>
               <FormInput id="radio2" type="radio" name="workerType" className="w-full h-full" style={{width: '100%', height: '100%', visibility: 'hidden'}} value={CLEANER} onClick={() => setSelectedType(CLEANER)}/>
               <label htmlFor="radio2" className="absolute w-full h-full cursor-pointer flex justify-center items-center font-montserrat text-lightGray opacity-70">

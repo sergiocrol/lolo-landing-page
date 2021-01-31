@@ -72,7 +72,7 @@
   "signupFormWorkerAddressDoor": "Porta",
   "signupFormWorkerPostalCode": "Codi postal",
   "signupFormWorkerCity": "Ciutat",
-  "signupFormWorkerAddressInfo": "Actualment només acceptem codis postals de la província de Barcelona. Si no és el teu cas, si us plau, torna a visitar-nos aviat.",
+  "signupFormWorkerAddressInfo": "Actualment només acceptem codis postals de Barcelona. Si no és el teu cas, si us plau, torna a visitar-nos aviat.",
   "signupFormWorkerTypeTitle": "Funcions",
   "signupFormWorkerTypeCarer": "Cures",
   "signupFormWorkerTypeCleaner": "Neteja",

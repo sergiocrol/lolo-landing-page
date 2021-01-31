@@ -123,6 +123,32 @@
   }
 }
 
+.modalWorkerType {
+  @apply w-1/2 cursor-pointer flex justify-center items-center bg-white text-orange font-bold;
+}
+
+.modalWorkerTypeCleaner {
+  box-shadow: -3px -1px 5px -1px rgb(184 184 184 / 41%);
+}
+
+.modalWorkerTypeCarer {
+  box-shadow: 3px -1px 5px -1px rgb(184 184 184 / 41%);
+}
+
+.modalWorkerTitle {
+  font-size: 16px;
+  padding-top: 1rem;
+  font-weight: bold;
+  color: var(--gray);
+  opacity: .7;
+}
+
+@screen md {
+  .modalWorkerTitle {
+    font-size: 17px;
+  }
+}
+
 /* .signupPanel {
   padding: 0;
   margin: 0;

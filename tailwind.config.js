@@ -106,6 +106,9 @@ module.exports = {
         32: '32rem',
         34: '34rem',
       },
+      margin: {
+        7: '1.75rem'
+      },
       height: {
         90: '90%',
         80: '80%',
