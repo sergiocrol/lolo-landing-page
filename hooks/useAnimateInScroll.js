@@ -11,11 +11,10 @@ const useAnimateInScroll = (outerRef) => {
       const height =
         viewportHeight / 4 -
         (outerRef.current?.clientHeight);
-      console.log(height)
       const rootMargin = `${height * -1}px 0px ${height * -1}px 0px`;
       const options = {
         rootMargin,
-        threshold: [0.5],
+        threshold: [0],
       };
 
       const onChange = (entries) => {
