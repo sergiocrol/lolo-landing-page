@@ -1,0 +1,41 @@
+[data-aos="fade-down-left"] {
+  transform: translate3d(100px, -100px, 0);
+}
+
+[data-aos="fade-down-right"] {
+  transform: translate3d(-100px, -100px, 0);
+}
+
+[data-aos="fade-up-left"] {
+  transform: translate3d(100px, 100px, 0);
+}
+
+[data-aos="fade-up-right"] {
+  transform: translate3d(-100px, 100px, 0);
+}
+
+[data-aos^="fade"] {
+  opacity: 0;
+}
+
+[data-aos="fade"] {
+  opacity: 0;
+}
+
+[data-aos-easing="ease-in-out"] {
+  transition-timing-function: ease-in-out;
+}
+
+[data-aos-timing] {
+  transition-duration: .4s;
+}
+
+.animate {
+  opacity: 1;
+  transform: translateZ(0);
+}
+
+/* .aos-init {
+  transition: all .4s;
+} */
+

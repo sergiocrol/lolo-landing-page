@@ -1,10 +1,8 @@
-import { useEffect } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { IntlProvider } from 'react-intl';
-import AOS from 'aos';
 import '../styles/tailwind.css';
-// import '../styles/aos.css';
+import '../styles/animations.css';
 
 import Header from '../components/Header';
 
@@ -21,15 +19,6 @@ const messages = {
 function MyApp({ Component, pageProps }) {
   const { locale, pathname } = useRouter();
 
-  useEffect(() => {
-    AOS.init({
-      offset: 100,
-      easing: 'ease-in-out',
-      once: true
-    });
-    AOS.refreshHard();
-  }, []);
-
   return (
   <IntlProvider
       locale={locale}
@@ -43,7 +32,6 @@ function MyApp({ Component, pageProps }) {
             content="Encuentra con Lolo a quien cuide de tus mayores tal y como tú lo harías"
           />
           <title>Lolo</title>
-          <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"></link>
         </Head>
         { pathname.includes('signup') ? null : <Header /> }
         <Component {...pageProps} key={pathname} />

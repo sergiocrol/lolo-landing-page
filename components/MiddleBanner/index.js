@@ -1,3 +1,4 @@
+import { useRef, useEffect, useState } from 'react';
 import Image from 'next/image';
 import { useIntl } from 'react-intl';
 
@@ -6,6 +7,7 @@ import Rectangle from '../Icons/shapes/Rectangle';
 import Stick from '../Icons/shapes/Stick';
 
 import useWidth from '../../hooks/useWidth';
+import useAnimateInScroll from '../../hooks/useAnimateInScroll';
 import {
   bgMiddle,
   middleBannerContainer,
@@ -18,6 +20,14 @@ import {
 const MiddleBanner = () => {
   const { formatMessage: f } = useIntl();
   const windowWith = useWidth();
+  const [animate, setAnimate] = useState(false);
+  const ref = useRef(null);
+  const inViewport = useAnimateInScroll(ref);
+
+  useEffect(() => {
+    if(inViewport) setAnimate(true);
+  }, [inViewport]);
+
   if (windowWith === 0) null;
 
   let src;
@@ -28,9 +38,7 @@ const MiddleBanner = () => {
   }
   return (
     <div className={`${middleBannerContainer}`}>
-      <div 
-      data-aos="fade-top-left"
-      className={bgMiddle}>
+      <div>
         <Image alt="Background" src={src} layout="fill" quality={100} />
       </div>
       <div className="container relative h-full lg:flex lg:items-center">
@@ -67,17 +75,23 @@ const MiddleBanner = () => {
             style={{ filter: 'blur(4px)', width: '100%', height: 'auto' }}
           />
         </div>
-        <Image
+        <div
+          ref={ref}
           data-aos="fade-up-left"
-          data-aos-anchor-placement="center-bottom"
-          alt="Background"
-          src="/static/images/mockup5.png"
-          width={1124}
-          height={1244}
-          layout="responsive"
-          quality={100}
-          priority="true"
-        />
+          data-aos-easing="ease-in-out"
+          data-aos-timing
+          className={animate ? 'animate' : ''}
+        >
+          <Image
+            alt="App"
+            src="/static/images/mockup5.png"
+            width={1124}
+            height={1244}
+            layout="responsive"
+            quality={100}
+            priority="true"
+          />
+        </div>
         {/* <Image
           data-aos="fade-up-left"
           alt="Background"

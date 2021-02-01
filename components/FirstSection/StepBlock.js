@@ -1,5 +1,8 @@
+import { useRef, useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+
+import useAnimateInScroll from '../../hooks/useAnimateInScroll';
 
 import { box, btn } from '../../styles/components.module.css';
 import {
@@ -23,6 +26,14 @@ const StepBlock = ({
   marginBottom,
   isFooter,
 }) => {
+  const [animate, setAnimate] = useState(false);
+  const ref = useRef(null);
+  const inViewport = useAnimateInScroll(ref);
+
+  useEffect(() => {
+    if(inViewport) setAnimate(true);
+  }, [inViewport]);
+
   const styles = {
     blockContainer: `${blockContainer} flex flex-col-reverse items-center lg:flex-row w-full xl:px-16 
       ${marginBottom || 'mb-16'} lg:mb-12 
@@ -67,9 +78,12 @@ const StepBlock = ({
         className={`${boxContainerFirstSection} w-full h-full relative max-w-xs lg:max-w-sm`}
       >
         <div
+          ref={ref}
           data-aos={!isFooter ? left ? 'fade-down-left' : 'fade-down-right' : ''}
+          data-aos-easing="ease-in-out"
+          data-aos-timing
           data-aos-anchor-placement="top-right"
-          className={`${boxFirstSection} ${box} ${
+          className={`${boxFirstSection} ${box} ${animate ? "animate" : ""} ${
             isFooter ? boxFooter : null
           } rounded-40 absolute z-10 top-0 ${
             left ? 'right-0 rounded-bl-none' : 'left-0 rounded-br-none'
@@ -87,9 +101,12 @@ const StepBlock = ({
           </div>
         </div>
         <div
+          ref={ref}
           data-aos={!isFooter ? left ? 'fade-up-right' : 'fade-up-left' : ''}
+          data-aos-easing="ease-in-out"
+          data-aos-timing
           data-aos-anchor-placement="top-bottom"
-          className={`${pattern} ${
+          className={`${pattern} ${animate ? "animate" : ""} ${
             isFooter ? 'hidden' : 'absolute'
           } z-0 bottom-0 right-0  ${left ? 'left-0' : 'right-0'}`}
         >
