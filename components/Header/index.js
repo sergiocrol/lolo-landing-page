@@ -199,42 +199,39 @@ const Header = () => {
               animate={controlList}
               className="mt-10 opacity-0"
             >
-              <Link href="#como-funciona" passHref>
-                <a
-                  className="text-orange text-32 md:text-40 font-montserrat font-bold hover:opacity-100"
-                  onClick={() => toggleOpen()}
-                >
-                  {f({ id: 'navLinkOne' })}
-                </a>
-              </Link>
+              <AnchorLink 
+                href="#como-funciona"
+                className="text-orange text-32 md:text-40 font-montserrat font-bold hover:opacity-100"
+                onClick={() => toggleOpen()}
+              >
+                {f({ id: 'navLinkOne' })}
+              </AnchorLink>
             </motion.div>
             <motion.div
               custom={1}
               animate={controlList}
               className="mt-10 opacity-0"
             >
-              <Link href="#por-que-lolo" passHref>
-                <a
-                  className="text-orange text-32 md:text-40 font-montserrat font-bold hover:opacity-100"
-                  onClick={() => toggleOpen()}
-                >
-                  {f({ id: 'navLinkTwo' })}
-                </a>
-              </Link>
+              <AnchorLink 
+                href="#por-que-lolo"
+                className="text-orange text-32 md:text-40 font-montserrat font-bold hover:opacity-100"
+                onClick={() => toggleOpen()}
+              >
+                {f({ id: 'navLinkTwo' })}
+              </AnchorLink>
             </motion.div>
             <motion.div
               custom={2}
               animate={controlList}
               className="mt-10 opacity-0 mb-10"
             >
-              <Link href="#servicios" passHref>
-                <a
-                  className="text-orange text-32 md:text-40 font-montserrat font-bold hover:opacity-100"
-                  onClick={() => toggleOpen()}
-                >
-                  {f({ id: 'navLinkThree' })}
-                </a>
-              </Link>
+              <AnchorLink 
+                href="#servicios"
+                className="text-orange text-32 md:text-40 font-montserrat font-bold hover:opacity-100"
+                onClick={() => toggleOpen()}
+              >
+                {f({ id: 'navLinkThree' })}
+              </AnchorLink>
             </motion.div>
           </div>
           <motion.div
