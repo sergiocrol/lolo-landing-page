@@ -5,7 +5,6 @@ const headers = { 'Content-Type': 'application/json' };
 export const workerSignUp = async (workerData) => {
   const requestOptions = {
     method,
-    mode: 'no-cors',
     headers,
     body: JSON.stringify(workerData),
   };
