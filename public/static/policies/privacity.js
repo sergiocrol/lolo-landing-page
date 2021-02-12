@@ -1,0 +1,5 @@
+const privacitySpanish = () => {
+  return (
+    
+  )
+}

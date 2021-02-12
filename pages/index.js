@@ -5,8 +5,6 @@ import SecondSection from '../components/SecondSection';
 import ThirdSection from '../components/ThirdSection';
 import FooterSection from '../components/FooterSection';
 
-// import { bgBody } from '../styles/index.module.css';
-
 const Home = () => {
   return (
     <div className={`bg-yellow overflow-hidden`}>

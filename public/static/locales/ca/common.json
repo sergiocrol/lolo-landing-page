@@ -100,5 +100,21 @@
   "signupFormSuccessButton": "Tornar a inici",
   "signupFormFieldError": "Camp obligatori",
   "signupFormValidEmail": "Format de email incorrecte",
-  "signupFormValidPostcode": "Codi postal no vàlid"
+  "signupFormValidPostcode": "Codi postal no vàlid",
+  "cookieConsentMessage": "Utilitzem cookies pròpies i de tercers per obtenir dades estadístiques de la navegació dels nostres usuaris i millorar els nostres serveis. Si accepta o continua navegant, considerem que accepta el seu ús. Prem {link} per a més informació.",
+  "cookieConsentButton": "Acceptar",
+  "cookieConsentLink": "aquí",
+  "carerFunctions": "Les tasques de cures inclouen:",
+  "cleanerFunctions": "Les tasques de neteja inclouen:",
+  "hygiene": "Higiene personal",
+  "medicalControl": "control mèdic",
+  "homework": "Tasques de la llar",
+  "nutrition": "Alimentació",
+  "friendship": "Companyia",
+  "Stimulation": "Estimulació",
+  "iron": "Planxat",
+  "laundry": "Colada",
+  "bathroom": "Bany",
+  "kitchen": "Vaixella i cuina",
+  "commonZones": "Zones comuns"
 }

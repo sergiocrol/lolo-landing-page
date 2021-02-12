@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { IntlProvider } from 'react-intl';
@@ -5,6 +6,7 @@ import '../styles/tailwind.css';
 import '../styles/animations.css';
 
 import Header from '../components/Header';
+import CookieConsent from '../components/CookieConsent';
 
 import { html } from '../styles/index.module.css';
 
@@ -18,6 +20,14 @@ const messages = {
 
 function MyApp({ Component, pageProps }) {
   const { locale, pathname } = useRouter();
+  const [isCookieMessageShown, setIsCookieMessageShown] = useState(false);
+
+  useEffect(() => {
+    const cookieConsent = localStorage.getItem('cookieConsent');
+    console.log(cookieConsent)
+    cookieConsent ? setIsCookieMessageShown(true) : setIsCookieMessageShown(false);
+  }, []);
+
   return (
   <IntlProvider
       locale={locale}
@@ -34,6 +44,7 @@ function MyApp({ Component, pageProps }) {
         </Head>
         { pathname !== '/' ? null : <Header /> }
         <Component {...pageProps} key={pathname} />
+        {!isCookieMessageShown ? <CookieConsent /> : null}
       </div>
     </IntlProvider>
   );

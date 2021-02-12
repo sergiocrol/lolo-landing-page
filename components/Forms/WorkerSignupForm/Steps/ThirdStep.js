@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useIntl } from 'react-intl';
 
 import FormInput from '../../FormInput';
@@ -8,15 +8,20 @@ import CleaningIcon from '../../../Icons/CleaningIcon';
 import useModal from '../../../../hooks/useModal';
 import Modal from '../../../Modals/Modal';
 import ModalWorker from '../../../Modals/ModalWorker';
+import ModalPrivacy from '../../../Modals/ModalPrivacy';
 import { CLEANER, CARER } from '../../../../helpers/constants';
 
 import { formInput, formInputLabel } from '../../../../styles/components.module.css';
+
+const WORKER_MODEL = 'worker';
+const PRIVACY_MODEL = 'privacy';
 
 const ThirdStep = ({ currentPage }) => {
   const {isShowing, toggle} = useModal();
   const [selectedType, setSelectedType] = useState(CARER);
   const [showEditable, setShowEditable] = useState(false);
   const [workerType, setWorkerType] = useState(CARER);
+  const [typeModel, setTypeModel] = useState(PRIVACY_MODEL);
   const { formatMessage: f } = useIntl();
   const options = [
     {name:'Google'}, 
@@ -24,15 +29,22 @@ const ThirdStep = ({ currentPage }) => {
     {name: f({ id: 'signupFormWorkerFindOther' }), editable: true}
   ]
   
-  const showModel = (workerType) => {
-    toggle();
+  const showWorkerModel = (workerType) => {
+    setTypeModel(WORKER_MODEL);
     setWorkerType(workerType);
+    toggle();
   }
+
+  const showPrivacyModel = () => {
+    setTypeModel(PRIVACY_MODEL);
+    toggle();
+  }
+
 
   return (
     currentPage === 3 ? 
       <div>
-        <Modal isShowing={isShowing} hide={toggle} component={<ModalWorker type={workerType} />} />
+        <Modal isShowing={isShowing} hide={toggle} component={typeModel === WORKER_MODEL ? <ModalWorker type={workerType} /> : <ModalPrivacy />} />
         <div className="bg-white text-13 text-gray py-4 px-6 text-left mb-6 md:mb-7 flex border-t-2 border-orange shadow-md relative z-50">
           <div className="py-1">
             <svg className="fill-current h-5 w-5 text-orange mr-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -40,8 +52,8 @@ const ThirdStep = ({ currentPage }) => {
             </svg>
           </div>
           <p className="md:text-15">{f({ id: 'signupFormWorkerRateInfo' })}
-            <span className="text-orange font-bold cursor-pointer hover:text-redDarkSignup" onClick={() => showModel(CARER)}> {f({ id: 'signupFormWorkerRateInfoCaring' })}</span> {f({ id: 'signupFormWorkerRateInfoConnection' })}
-            <span className="text-orange font-bold cursor-pointer hover:text-redDarkSignup" onClick={() => showModel(CLEANER)}> {f({ id: 'signupFormWorkerRateInfoCleaning' })}</span>
+            <span className="text-orange font-bold cursor-pointer hover:text-redDarkSignup" onClick={() => showWorkerModel(CARER)}> {f({ id: 'signupFormWorkerRateInfoCaring' })}</span> {f({ id: 'signupFormWorkerRateInfoConnection' })}
+            <span className="text-orange font-bold cursor-pointer hover:text-redDarkSignup" onClick={() => showWorkerModel(CLEANER)}> {f({ id: 'signupFormWorkerRateInfoCleaning' })}</span>
           </p>
         </div> 
         <div name="container" className="flex relative">
@@ -75,7 +87,7 @@ const ThirdStep = ({ currentPage }) => {
           {showEditable ? <FormInput name="otherOption" className={`${formInput}`} style={{width: '100%', marginLeft: '5%'}} placeholder={f({ id: 'signupFormWorkerFindOtherPlaceholder' })} /> : <div className="hidden"></div> }
         </div>
         <FormInput name="checkboxPermission" style={{marginTop: '0rem', marginBottom: '1rem', lineHeight: '1rem' }} type="checkbox" label={<span className="text-13 font-sans font-thin">{f({ id: 'signupFormWorkerWorkPermission' })}</span>} rules={{ required: true }}/>
-        <FormInput name="checkbox" style={{marginTop: '0rem', marginBottom: '4rem', lineHeight: '1rem'}} type="checkbox" label={<span className="text-13 font-sans font-thin leading-3">{f({ id: 'signupFormWorkerPrivacity' })} <a href="/" className="text-orange">{f({ id: 'signupFormWorkerPrivacityLink' })}</a></span>} rules={{ required: true }}/>
+        <FormInput name="checkbox" style={{marginTop: '0rem', marginBottom: '4rem', lineHeight: '1rem'}} type="checkbox" label={<span className="text-13 font-sans font-thin leading-3">{f({ id: 'signupFormWorkerPrivacity' })} <span href="/" className="text-orange" onClick={showPrivacyModel}>{f({ id: 'signupFormWorkerPrivacityLink' })}</span></span>} rules={{ required: true }}/>
       </div>
     : <></>
   );

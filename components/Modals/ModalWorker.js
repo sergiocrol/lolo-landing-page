@@ -1,10 +1,12 @@
 import { Fragment, useState } from 'react';
+import { useIntl } from 'react-intl';
 
 import { CARER, CLEANER } from '../../helpers/constants';
 
 import { modalWorkerType, modalWorkerTypeCleaner, modalWorkerTypeCarer, modalWorkerTitle } from '../../styles/signup.module.css';
 
 const ModalWorker = ({ type }) => {
+  const { formatMessage: f } = useIntl();
   const [workerType, setWorkerType] = useState(type);
 
   return (
@@ -17,24 +19,24 @@ const ModalWorker = ({ type }) => {
         {
           workerType === CARER 
           ? <div className="mx-4">
-              <h1 className={modalWorkerTitle}>Las tareas de cuidados incluyen:</h1>
+              <h1 className={modalWorkerTitle}>{f({ id: 'carerFunctions' })}</h1>
               <div className="mt-6">
-                <p>• dsvgsdvbgsfdbgvsfg</p>
-                <p>• dsvgsdvbgsfdbgvsfg</p>
-                <p>• dsvgsdvbgsfdbgvsfg</p>
-                <p>• dsvgsdvbgsfdbgvsfg</p>
-                <p>• dsvgsdvbgsfdbgvsfg</p>
-                <p>• dsvgsdvbgsfdbgvsfg</p>
-                <p>• dsvgsdvbgsfdbgvsfg</p>
+                <p className="my-3 ml-3 text-17"><span className="text-orange mr-2">&#x2756;</span>{f({ id: 'hygiene' })}</p>
+                <p className="my-3 ml-3 text-17"><span className="text-orange mr-2">&#x2756;</span>{f({ id: 'medicalControl' })}</p>
+                <p className="my-3 ml-3 text-17"><span className="text-orange mr-2">&#x2756;</span>{f({ id: 'homework' })}</p>
+                <p className="my-3 ml-3 text-17"><span className="text-orange mr-2">&#x2756;</span>{f({ id: 'nutrition' })}</p>
+                <p className="my-3 ml-3 text-17"><span className="text-orange mr-2">&#x2756;</span>{f({ id: 'friendship' })}</p>
+                <p className="my-3 ml-3 text-17"><span className="text-orange mr-2">&#x2756;</span>{f({ id: 'Stimulation' })}</p>
               </div>
             </div>
           : <div className="mx-4">
-              <h1 className={modalWorkerTitle}>Las tareas de limpieza incluyen:</h1>
+              <h1 className={modalWorkerTitle}>{f({ id: 'cleanerFunctions' })}</h1>
               <div className="mt-6">
-                <p>• ddfgdfgdfggdf</p>
-                <p>• ddfgdfgdfggdf</p>
-                <p>• ddfgdfgdfggdf</p>
-                <p>• ddfgdfgdfggdf</p>
+                <p className="my-3 ml-3 text-17"><span className="text-orange mr-2">&#x2756;</span>{f({ id: 'iron' })}</p>
+                <p className="my-3 ml-3 text-17"><span className="text-orange mr-2">&#x2756;</span>{f({ id: 'laundry' })}</p>
+                <p className="my-3 ml-3 text-17"><span className="text-orange mr-2">&#x2756;</span>{f({ id: 'bathroom' })}</p>
+                <p className="my-3 ml-3 text-17"><span className="text-orange mr-2">&#x2756;</span>{f({ id: 'kitchen' })}</p>
+                <p className="my-3 ml-3 text-17"><span className="text-orange mr-2">&#x2756;</span>{f({ id: 'commonZones' })}</p>
               </div>
             </div>
         }

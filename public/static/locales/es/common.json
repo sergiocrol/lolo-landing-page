@@ -100,5 +100,21 @@
   "signupFormSuccessButton": "Volver a inicio",
   "signupFormFieldError": "Campo obligatorio",
   "signupFormValidEmail": "Formato de email incorrecto",
-  "signupFormValidPostcode": "Código postal no válido"
+  "signupFormValidPostcode": "Código postal no válido",
+  "cookieConsentMessage": "Utilizamos cookies propias y de terceros para obtener datos estadísticos de la navegación de nuestros usuarios y mejorar nuestros servicios. Si acepta o continúa navegando, consideramos que acepta su uso. Pulsa {link} para más información.",
+  "cookieConsentButton": "Aceptar",
+  "cookieConsentLink": "aquí",
+  "carerFunctions": "Las tareas de cuidados incluyen:",
+  "cleanerFunctions": "Las tareas de limpieza incluyen:",
+  "hygiene": "Higiene personal",
+  "medicalControl": "Control médico",
+  "homework": "Tareas del hogar",
+  "nutrition": "Alimentación",
+  "friendship": "Compañía",
+  "Stimulation": "Estimulación",
+  "iron": "Planchado",
+  "laundry": "Colada",
+  "bathroom": "Baño",
+  "kitchen": "Vajilla y cocina",
+  "commonZones": "Zonas comunes"
 }
