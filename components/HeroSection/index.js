@@ -53,7 +53,7 @@ const HeroSection = () => {
   }
 
   return (
-    <div className={heroContainer}>
+    <div className={heroContainer} id="inicio">
       <div className={bgWrap}>
         <Image 
           alt="Background" 
@@ -141,13 +141,13 @@ const HeroSection = () => {
           <h2 className="inline-block text-20 font-medium w-3/5 pt-6">
             {f({ id: 'heroSubtitle' })}
           </h2>
-          <Link href="/signup/new">
-            <a>            
+          {/* <Link href="/signup/new"> */}
+            <a href={process.env.NEXT_PUBLIC_MAMACOCO_URL}>            
               <div className={`${btn} ${btnSm} ${boxShadowLight} text-17 inline-block z-10 mt-8 cursor-pointer hover:shadow-md`}>
                 {f({ id: 'heroCTA' })}
               </div>
             </a>          
-          </Link>
+          {/* </Link> */}
         </div>
         <div className={heroImageContainer}>
           <Image

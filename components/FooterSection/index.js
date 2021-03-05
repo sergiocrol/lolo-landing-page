@@ -42,6 +42,7 @@ const FooterSection = () => {
           title={f({ id: 'footerSecondSectionTitle' })}
           body={f({ id: 'footerSecondSectionSubtitle' })}
           button={f({ id: 'footerSecondSectionCTA' })}
+          buttonUrl={process.env.NEXT_PUBLIC_CINDY_URL}
           isFooter
         />
       </div>

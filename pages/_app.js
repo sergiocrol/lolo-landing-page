@@ -24,7 +24,6 @@ function MyApp({ Component, pageProps }) {
 
   useEffect(() => {
     const cookieConsent = localStorage.getItem('cookieConsent');
-    console.log(cookieConsent)
     cookieConsent ? setIsCookieMessageShown(true) : setIsCookieMessageShown(false);
   }, []);
 

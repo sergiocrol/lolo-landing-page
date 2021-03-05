@@ -59,12 +59,12 @@ const ThirdStep = ({ currentPage }) => {
         <div name="container" className="flex relative">
           <div name="label" className={`${formInputLabel} absolute`}>{f({ id: 'signupFormWorkerTypeTitle' })}</div>
           <div name="workerType" label="Funciones" className="flex mt-6 md:mt-8" style={{width: '77.5%'}} >
-            <div className={`w-1/2 flex bg-white relative h-12 ${selectedType === CARER ? 'opacity-100 shadow-md' : 'opacity-70'}`}>
+            <div className={`w-8/12 flex bg-white relative h-12 ${selectedType === CARER ? 'opacity-100 shadow-md' : 'opacity-70'}`}>
               <div className={`w-1 ${selectedType === CARER ? 'bg-orange' : '' }`}></div>
               <FormInput id="radio1" type="radio" name="workerType" className="w-full h-full" style={{width: '100%', height: '100%', visibility: 'hidden'}} value={CARER} defaultChecked={selectedType === CARER} onClick={() => setSelectedType(CARER)} />
               <label htmlFor="radio1" className="absolute w-full h-full cursor-pointer flex justify-center items-center font-montserrat text-lightGray">
                 <CaringIcon className="hidden sm:flex" color={selectedType === CARER ? '#F78B81' : '#A4B2C3'} style={{marginRight: '5px', marginTop: '2px'}} width={18} height={18}  />
-                <span className="sm:text-20">cuidados</span>
+                <span className="text-xs md:text-15">{f({ id: 'signupFormWorkerRateInfoCaring' })}</span>
               </label>
             </div>
             <div className={`w-1/2 flex bg-white relative h-12 ml-3 ${selectedType === CLEANER ? 'opacity-100 shadow-md' : 'opacity-70' }`}>
@@ -72,14 +72,14 @@ const ThirdStep = ({ currentPage }) => {
               <FormInput id="radio2" type="radio" name="workerType" className="w-full h-full" style={{width: '100%', height: '100%', visibility: 'hidden'}} value={CLEANER} onClick={() => setSelectedType(CLEANER)}/>
               <label htmlFor="radio2" className="absolute w-full h-full cursor-pointer flex justify-center items-center font-montserrat text-lightGray opacity-70">
                 <CleaningIcon className="hidden sm:flex" color={selectedType === CLEANER ? '#F78B81' : '#A4B2C3' } style={{marginRight: '5px', marginBottom: '2px'}} width={18} height={18}  />
-                <span className="sm:text-20">limpieza</span>
+                <span className="sm:text-20">{f({ id: 'signupFormWorkerRateInfoCleaning' })}</span>
               </label>
             </div>
             {/* <div className={`${formInput} w-1/2`}>Cuidados</div>
             <div className={`${formInput} w-1/2 ml-2`}>Limpieza</div> */}
           </div>
           {/* <FormInput name="addressStreet" label={f({ id: 'signupFormWorkerTypeTitle' })} rules={{ required: f({ id: 'signupFormFieldError' }) }} className={`${formInput}`} style={{width: '77.5%'}} /> */}
-          <FormInput type="number" name="rate" label={f({ id: 'signupFormWorkerRate' })} rules={{ required: f({ id: 'signupFormFieldError' }) }} placeholder={f({ id: 'signupFormWorkerRateValue' })} hidden={currentPage !== 3} className={`${formInput}`} style={{width: '27.5%', marginLeft: '5%'}} />
+          <FormInput type="number" name="rate" label={f({ id: 'signupFormWorkerRate' })} rules={{ required: f({ id: 'signupFormFieldError' }) }} placeholder={f({ id: 'signupFormWorkerRateValue' })} hidden={currentPage !== 3} className={`${formInput}`} style={{width: '17.5%', marginLeft: '5%'}} />
         </div>
         <div name="container" className="flex relative">
           <div name="label" className={`${formInputLabel} absolute`}>{f({ id: 'signupFormWorkerFindTitle' })}</div>

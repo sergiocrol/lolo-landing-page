@@ -25,6 +25,7 @@ const StepBlock = ({
   left,
   marginBottom,
   isFooter,
+  buttonUrl
 }) => {
   const [animate, setAnimate] = useState(false);
   const ref = useRef(null);
@@ -58,7 +59,7 @@ const StepBlock = ({
             } ${bodyText} lg:text-left`
       }`,
   };
-
+  
   return (
     <div className={styles.blockContainer}>
       {button ? (
@@ -67,11 +68,11 @@ const StepBlock = ({
             isFooter ? 'mt-4' : 'mt-8'
           }`}
         >
-          <Link href="/signup/new" passHref={true}>
-            <a>
+          {/* <Link href="/signup/new" passHref={true}> */}
+            <a href={buttonUrl ? buttonUrl : process.env.NEXT_PUBLIC_MAMACOCO_URL}>
               <div className={`${btn} bg-blue inline-block`}>{button}</div>
             </a>
-          </Link>
+          {/* </Link> */}
         </div>
       ) : null}
       <div
@@ -137,11 +138,14 @@ const StepBlock = ({
               isFooter && left ? 'lg:text-right' : 'lg:text-left'
             } hidden lg:block`}
           >
-            <Link href="/signup/new" passHref={true}>
-              <a className={`${btn} ${boxShadowDark} bg-blue inline-block cursor-pointer`}>
+            {/* <Link href="/signup/new" passHref={true}> */}
+              <a 
+                className={`${btn} ${boxShadowDark} bg-blue inline-block cursor-pointer`} 
+                href={buttonUrl ? buttonUrl : process.env.NEXT_PUBLIC_MAMACOCO_URL}
+              >
                 {button}
               </a>
-            </Link>
+            {/* </Link> */}
           </div>
         ) : null}
       </div>

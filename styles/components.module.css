@@ -52,6 +52,16 @@
     @apply border-2 border-orange;
   }
 
+  .formInput::placeholder {
+    @apply text-13;
+  }
+
+  @media (min-width: 768px) {
+    .formInput::placeholder {
+      @apply text-17;
+    }
+  }
+
   .formInputLabel {
     @apply font-bold ml-1 z-10;
     color: #979594;
