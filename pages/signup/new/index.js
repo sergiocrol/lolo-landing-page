@@ -122,7 +122,7 @@ const SignUp = () => {
                 <div className="text-center">
                   <h1 className="text-center font-montserrat font-bold text-24 text-orange md:text-30">{f({ id: 'signupFormSuccessTitle' })}</h1>
                   <p className="mt-5 text-gray sm:mx-16 md:text-20">{f({ id: 'signupFormSuccessText' })} <br/> 
-                     <a className="text-orange text-17 mt-3 inline-block md:text-24" href="mailto:support@milolo.es"> support@milolo.es</a>
+                     <a className="text-orange text-17 mt-3 inline-block md:text-24" href="mailto:soporte@milolo.es"> soporte@milolo.es</a>
                   </p>
                 </div>
               </div>
