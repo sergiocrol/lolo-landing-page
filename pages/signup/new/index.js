@@ -8,6 +8,7 @@ import Logo from '../../../components/Icons/Logo';
 import LogoNameSignup from '../../../components/Icons/LogoNameSignup';
 import LogoSignup from '../../../components/Icons/LogoSignup';
 import LogoAlt from '../../../components/Icons/LogoAlt';
+import LogoNew from '../../../components/Icons/LogoNew';
 import CarerIcon from '../../../components/Icons/Carer';
 import UserIcon from '../../../components/Icons/User';
 import WorkerSignupForm from '../../../components/Forms/WorkerSignupForm';
@@ -56,7 +57,8 @@ const SignUp = () => {
                 <a className="flex mb-20 w-full ml-20">
                   <div className="hidden md:flex">
                     {/* <LogoSignup rectangle='#375672' line='#E5858F' width={49} height={48}/> */}
-                    <LogoAlt heart='#375672' door='#E5858F' width={49} height={48} />
+                    {/* <LogoAlt heart='#375672' door='#E5858F' width={49} height={48} /> */}
+                    <LogoNew color='#375672' width={49} height={48} />
                     <LogoNameSignup line='#375672' className={`ml-1`} width={60} height={50}/>
                   </div>
                 </a>
@@ -79,7 +81,8 @@ const SignUp = () => {
             <a className="flex mb-20 w-full ml-20">
               <div className="hidden md:flex">
                 {/* <LogoSignup rectangle='#6b4748' line='#E5858F' width={49} height={48}/> */}
-                <LogoAlt heart='#6b4748' door='#E5858F' width={49} height={48} />
+                {/* <LogoAlt heart='#6b4748' door='#E5858F' width={49} height={48} /> */}
+                <LogoNew color='#6b4748' width={49} height={48} />
                 <LogoNameSignup line='#6b4748' className={`ml-1`} width={60} height={50}/>
               </div>
             </a>
@@ -106,7 +109,8 @@ const SignUp = () => {
                 <Link href="/">
                   <a className="flex items-center">
                     {/* <Logo className={`${logoMobile}`} width={39} height={38}/> */}
-                    <LogoAlt heart="#375673" width={39} height={38}/>
+                    {/* <LogoAlt heart="#375673" width={39} height={38}/> */}
+                    <LogoNew color='#375672' width={39} height={38} />
                     <LogoName className={`ml-1 ${logoNameMobile}`} width={50} height={40}/>
                   </a>
                 </Link>
@@ -143,7 +147,8 @@ const SignUp = () => {
                   <Link href="/">
                     <a className="flex items-center w-1/2">
                       {/* <Logo className={`${logoMobile}`} width={39} height={38}/> */}
-                      <LogoAlt heart="#375673" width={39} height={38}/>
+                      {/* <LogoAlt heart="#375673" width={39} height={38}/> */}
+                      <LogoNew color='#375672' width={39} height={38} />
                       <LogoName className={`ml-1 ${logoNameMobile}`} width={50} height={40}/>
                     </a>
                   </Link>

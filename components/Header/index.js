@@ -6,6 +6,7 @@ import AnchorLink from 'react-anchor-link-smooth-scroll';
 
 import Logo from '../Icons/Logo';
 import LogoAlt from '../Icons/LogoAlt';
+import LogoNew from '../Icons/LogoNew';
 import BurgerMenu from '../Icons/BurgerMenu';
 import LogoName from '../Icons/LogoName';
 import Arrow from '../Icons/Arrow';
@@ -106,7 +107,8 @@ const Header = () => {
           <Logo />
         </div> */}
         <div className={`${logo} w-3`}>
-          <LogoAlt />
+          {/* <LogoAlt /> */}
+          <LogoNew />
         </div>
         <div
           className={`

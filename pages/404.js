@@ -4,6 +4,7 @@ import Link from 'next/link';
 import LogoName from '../components/Icons/LogoName';
 import LogoNameSignup from '../components/Icons/LogoNameSignup';
 import LogoAlt from '../components/Icons/LogoAlt';
+import LogoNew from '../components/Icons/LogoNew';
 
 export default function Custom404() {
   return (
@@ -12,7 +13,8 @@ export default function Custom404() {
         <Link href="/">
           <a>
             <div className="flex w-24 md:w-48">
-              <LogoAlt heart='#375672' door='#E5858F' width={49} height={48} />
+              {/* <LogoAlt heart='#375672' door='#E5858F' width={49} height={48} /> */}
+              <LogoNew color='#375672' width={42} height={41} />
               <LogoNameSignup line='#375672' className={`ml-1`} width={60} height={50}/>
             </div>
           </a>

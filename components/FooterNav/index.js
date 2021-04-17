@@ -4,6 +4,7 @@ import AnchorLink from 'react-anchor-link-smooth-scroll';
 
 import LogoFooter from '../Icons/LogoFooter';
 import LogoFooterAlt from '../Icons/LogoFooterAlt';
+import LogoFooterNew from '../Icons/LogoFooterNew';
 import Facebook from '../Icons/Facebook';
 import Instagram from '../Icons/Instagram';
 import Twitter from '../Icons/Twitter';
@@ -23,9 +24,9 @@ const FooterNav = () => {
             <PhoneContact height={18} className="md:h-8" />
             <span className="opacity-50 text-13 md:text-15 ml-2">+34 392 3929 210</span>
           </a> */}
-          <a className="flex text-white items-center opacity-75 hover:opacity-100 cursor-pointer" href="mailto:support@milolo.es">
+          <a className="flex text-white items-center opacity-75 hover:opacity-100 cursor-pointer" href="mailto:info@milolo.es">
             <EmailContact height={17} className="md:h-8 md:ml-1" />
-            <span className="opacity-50 text-13 md:text-15 ml-2">support@milolo.es</span>
+            <span className="opacity-50 text-13 md:text-15 ml-2">info@milolo.es</span>
           </a>
         </div>
         <div className="hidden md:flex md:w-23 md:justify-between md:pr-6 md:mb-4">
@@ -53,9 +54,10 @@ const FooterNav = () => {
       </div>
       <div className={`flex justify-center flex-col-reverse container px-6 mb-10 max-w-md md:flex-row md:max-w-full md:justify-between`}>
         <div className={`flex items-center justify-center md:justify-start`}>
-          <div className={`w-10 opacity-75`}>
+          <div className={`w-8 opacity-75`}>
             {/* <LogoFooter style={{ width: '100%' }} /> */}
-            <LogoFooterAlt style={{ width: '70%', height: 'auto' }} />
+            {/* <LogoFooterAlt style={{ width: '70%', height: 'auto' }} /> */}
+            <LogoFooterNew style={{ width: '70%', height: 'auto' }} />
           </div>
           <p className={`text-white text-opacity-50 text-13 md:text-15`}>
             Copyrights © 2021 All Rights Reserved by Lolo.
@@ -126,7 +128,7 @@ const FooterNav = () => {
               <Instagram /> 
                 {/* <Instagram /> <span className="text-xs">instagram</span> */}
               </a>
-              <a href="mailto:support@milolo.es">
+              <a href="mailto:info@milolo.es">
                 <EmailContact height={17} className="md:h-8 md:ml-6" />
               </a>
               {/* <a>
