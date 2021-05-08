@@ -62,6 +62,13 @@
     }
   }
 
+  .textArea {
+    @apply h-32;
+    resize: none;
+    padding: 0 10px;
+    text-indent: 0;
+  }
+
   .formInputLabel {
     @apply font-bold ml-1 z-10;
     color: #979594;

@@ -1069,3 +1069,27 @@
 .termsParagraph {
   padding: 5px 0;
 }
+
+.infoRequestTitle {
+  text-align: center;
+  color: #e66465;
+  font-weight: bolder;
+  font-size: 1.4rem;
+  padding: .5rem 0 0 0;
+}
+
+.infoRequestSubtitle {
+  font-weight: 500;
+  font-size: .98rem;
+  padding: 10px 4px 0 4px;
+  color: gray;
+}
+
+.infoRequestFooter {
+  text-align: center;
+  color: #e66465;
+  font-weight: bolder;
+  font-style: italic;
+  font-size: 1.2rem;
+  padding: .5rem 0 0 0;
+}

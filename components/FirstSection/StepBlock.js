@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import useAnimateInScroll from "../../hooks/useAnimateInScroll";
+import { WORKER, USER } from '../../helpers/constants';
 
 import { box, btn } from "../../styles/components.module.css";
 import {
@@ -68,7 +69,7 @@ const StepBlock = ({
             isFooter ? "mt-4" : "mt-8"
           }`}
         >
-          {buttonUrl ? (
+          {/* {buttonUrl ? (
             <Link href="/signup/new" passHref={true}>
               <a>
                 <div className={`${btn} bg-blue inline-block`}>{button}</div>
@@ -78,7 +79,12 @@ const StepBlock = ({
             <a href={process.env.NEXT_PUBLIC_MAMACOCO_URL}>
               <div className={`${btn} bg-blue inline-block`}>{button}</div>
             </a>
-          )}
+          )} */}
+          <Link  href={{ pathname: '/signup/new', query: { type: isFooter ? left ? WORKER : USER : USER } }}>
+            <a>
+              <div className={`${btn} bg-blue inline-block`}>{button}</div>
+            </a>
+          </Link>
         </div>
       ) : null}
       <div
@@ -146,7 +152,7 @@ const StepBlock = ({
               isFooter && left ? "lg:text-right" : "lg:text-left"
             } hidden lg:block`}
           >
-            {buttonUrl ? (
+            {/* {buttonUrl ? (
               <Link href="/signup/new" passHref={true}>
                 <a
                   className={`${btn} ${boxShadowDark} bg-blue inline-block cursor-pointer`}
@@ -161,7 +167,14 @@ const StepBlock = ({
               >
                 {button}
               </a>
-            )}
+            )} */}
+            <Link  href={{ pathname: '/signup/new', query: { type: isFooter ? left ? WORKER : USER : USER } }}>
+              <a
+                className={`${btn} ${boxShadowDark} bg-blue inline-block cursor-pointer`}
+              >
+                {button}
+              </a>
+            </Link>
           </div>
         ) : null}
       </div>

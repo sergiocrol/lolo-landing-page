@@ -22,3 +22,22 @@ export const workerSignUp = async (workerData) => {
       return error;
     });
 };
+
+export const userInfoRequest = async (infoRequestData) => {
+  const requestOptions = {
+    method,
+    headers,
+    body: JSON.stringify(infoRequestData),
+  };
+
+  return fetch(`${process.env.NEXT_PUBLIC_WORKER_SIGNUP}/infoRequest`, requestOptions)
+    .then(response => {
+      return response.json();
+    })
+    .then(json => {
+      return json;
+    })
+    .catch(error => {
+      return error;
+    });
+};

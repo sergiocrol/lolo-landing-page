@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useIntl } from 'react-intl';
+import { useRouter } from 'next/router'
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -23,6 +24,7 @@ import { userTypeButtonContainer, userTypeButtonText, userTypeIcon, userTypeButt
 const recaptchaUrl = `https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_KEY}`;
 
 const SignUp = () => {
+  const { query } = useRouter();
   const { formatMessage: f } = useIntl();
   const recaptchaStatus = useScript('recaptcha-key', recaptchaUrl);
   const [userType, setUserType] = useState(WORKER);
@@ -45,6 +47,10 @@ const SignUp = () => {
   const showConfirmationPage = () => {
     setConfirmationPage(true);
   }
+
+  useEffect(() => {
+    if(query.type === USER || query.type === WORKER) setUserType(query.type);
+  }, [query]);
 
   return (
     <div className={`bg-yellow`}>
@@ -121,8 +127,11 @@ const SignUp = () => {
                 </div>
                 <div className="text-center">
                   <h1 className="text-center font-montserrat font-bold text-24 text-orange md:text-30">{f({ id: 'signupFormSuccessTitle' })}</h1>
-                  <p className="mt-5 text-gray sm:mx-16 md:text-20">{f({ id: 'signupFormSuccessText' })} <br/> 
-                     <a className="text-orange text-17 mt-3 inline-block md:text-24" href="mailto:soporte@milolo.es"> soporte@milolo.es</a>
+                  <p className="mt-5 text-gray sm:mx-16 md:text-20">{f({ id: userType === WORKER ? 'signupFormSuccessText' : 'signupFormUserSuccessText' })} <br/> 
+                     {  userType === WORKER
+                        ? <a className="text-orange text-17 mt-3 inline-block md:text-24" href="mailto:soporte@milolo.es"> soporte@milolo.es</a>
+                        : <a className="text-orange text-17 mt-3 inline-block md:text-24" href="mailto:info@milolo.es"> info@milolo.es</a>
+                     }
                   </p>
                 </div>
               </div>
@@ -172,7 +181,7 @@ const SignUp = () => {
                         <CarerIcon className={`${userTypeIcon} ${userType === WORKER ? userTypeButtonActive : '' }`} />
                         <span className={`${userTypeButtonText} ${userType === WORKER ? userTypeButtonActive : '' }`}>{f({ id: 'signupFormWorkerButton' })}</span>
                       </div>
-                      <div className={`${userTypeButtonContainer} ${userType === USER ? userTypeButtonActive : '' }`} style={{cursor: 'not-allowed'}} onClick={() => showMessage({keyword: 'userTypeNotAvailable' })} /*onClick={() => changeUserType(USER)}*/>
+                      <div className={`${userTypeButtonContainer} ${userType === USER ? userTypeButtonActive : '' }`} /*style={{cursor: 'not-allowed'}}*/ onClick={() => changeUserType(USER)} /*onClick={() => showMessage({keyword: 'userTypeNotAvailable' })}*/>
                         <UserIcon className={`${userTypeIcon} ${userType === USER ? userTypeButtonActive : '' }`} />
                         <span className={`${userTypeButtonText} ${userType === USER ? userTypeButtonActive : '' }`}>{f({ id: 'signupFormUserButton' })}</span>
                       </div>
@@ -183,7 +192,7 @@ const SignUp = () => {
               {
                 userType === WORKER
                 ? <WorkerSignupForm showMessage={showMessage} showConfirmationPage={showConfirmationPage} setPage={(page) => setPage(page) } />
-                : <UserSignupForm />
+                : <UserSignupForm showMessage={showMessage} showConfirmationPage={showConfirmationPage}/>
               }
               { recaptchaStatus === "ready"
                 ? <div className="text-13 text-gray mb-12">{f({ id: 'signupFormCaptcha' })}

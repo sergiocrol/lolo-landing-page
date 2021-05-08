@@ -7,6 +7,8 @@ import Rectangle from '../Icons/shapes/Rectangle';
 import Stick from '../Icons/shapes/Stick';
 import StickYellow from '../Icons/shapes/StickYellow';
 
+import { USER } from '../../helpers/constants';
+
 import useWidth from '../../hooks/useWidth';
 import {
   bgWrap,
@@ -141,13 +143,13 @@ const HeroSection = () => {
           <h2 className="inline-block text-20 font-medium w-3/5 pt-6">
             {f({ id: 'heroSubtitle' })}
           </h2>
-          {/* <Link href="/signup/new"> */}
-            <a href={process.env.NEXT_PUBLIC_MAMACOCO_URL}>            
+          <Link href={{ pathname: '/signup/new', query: { type: USER } }}>
+            <a>            
               <div className={`${btn} ${btnSm} ${boxShadowLight} text-17 inline-block z-10 mt-8 cursor-pointer hover:shadow-md`}>
                 {f({ id: 'heroCTA' })}
               </div>
             </a>          
-          {/* </Link> */}
+          </Link>
         </div>
         <div className={heroImageContainer}>
           <Image
